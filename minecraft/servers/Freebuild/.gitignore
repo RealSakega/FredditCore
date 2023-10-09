@@ -3,3 +3,8 @@ banned-players.json
 banned-ips.json
 whitelist.json
 *.jar
+./versions
+./logs
+./libraries
+./config
+./cache
