@@ -1,6 +1,12 @@
 const Discord = require("discord.js");
-const ooo = new Discord.Client();
+const ooo = new Discord.Client({ intents: [
+    Discord.GatewayIntentBits.Guilds,
+    Discord.GatewayIntentBits.GuildMessages
+  ]});
+
 const disbut = require("discord-buttons")(ooo);
+
+require('dotenv').config({ path: require('find-config')('.env') })
  
 const presence_text = "";   // presence status text
 
