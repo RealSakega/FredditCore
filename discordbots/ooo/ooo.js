@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
 const ooo = new Discord.Client({ intents: [
-    Discord.GatewayIntentBits.Guilds,
-    Discord.GatewayIntentBits.GuildMessages
+		Discord.GatewayIntentBits.Guilds,
+		Discord.GatewayIntentBits.GuildMessages,
+		Discord.GatewayIntentBits.MessageContent,
+		Discord.GatewayIntentBits.GuildMembers,
   ]});
 
 const disbut = require("discord-buttons")(ooo);

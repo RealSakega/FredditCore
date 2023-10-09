@@ -2,7 +2,10 @@ const Discord = require("discord.js");
  
 const anonventbot = new Discord.Client({ intents: [
     Discord.GatewayIntentBits.Guilds,
-    Discord.GatewayIntentBits.GuildMessages
+    Discord.GatewayIntentBits.GuildMessages,
+    Discord.GatewayIntentBits.MessageContent,
+    Discord.GatewayIntentBits.GuildMembers,
+    Discord.GatewayIntentBits.DirectMessages
   ]});
 
 require('dotenv').config({ path: require('find-config')('.env') })
@@ -22,6 +25,7 @@ anonventbot.on('ready', () => {
 });
  
 anonventbot.on('message', msg => {
+    console.log(msg)
     if (msg.author.bot || msg.guild !== null) return;
     
     if (msg.content == " " || msg.content.length > 1000 || msg.attachments.size > 0){
