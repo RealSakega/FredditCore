@@ -3,7 +3,6 @@ cat BackupList_FREEBUILD.txt
 ~/Freddit/MinecraftServers/Freebuild/world
 ~/Freddit/MinecraftServers/Freebuild/world_nether
 ~/Freddit/MinecraftServers/Freebuild/world_the_end
-~/Freddit/MinecraftServers/Freebuild/wasteland2
 ~/Freddit/MinecraftServers/Freebuild/unfinishedbuilds
 ~/Freddit/MinecraftServers/Freebuild/test
 ~/Freddit/MinecraftServers/Freebuild/TBC_Labs
