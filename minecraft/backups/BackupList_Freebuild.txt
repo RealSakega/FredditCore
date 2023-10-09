@@ -1,4 +1,4 @@
-cat BackupList_FREEBUILD.txt
+cat BackupList_Freebuild.txt
 
 ~/Freddit/MinecraftServers/Freebuild/world
 ~/Freddit/MinecraftServers/Freebuild/world_nether
@@ -26,3 +26,30 @@ cat BackupList_FREEBUILD.txt
 ~/Freddit/MinecraftServers/Freebuild/plugins/ServerlistMOTD
 ~/Freddit/MinecraftServers/Freebuild/plugins/ServerListPlus
 ~/Freddit/MinecraftServers/Freebuild/plugins/LuckPerms
+
+minecraft/servers/Freebuild/worlds/world
+minecraft/servers/Freebuild/worlds/world_nether
+minecraft/servers/Freebuild/worlds/world_the_end
+minecraft/servers/Freebuild/worlds/unfinishedbuilds
+minecraft/servers/Freebuild/worlds/test
+minecraft/servers/Freebuild/worlds/TBC_Labs
+minecraft/servers/Freebuild/worlds/tbcville
+minecraft/servers/Freebuild/worlds/tbc
+minecraft/servers/Freebuild/worlds/spawn2019
+minecraft/servers/Freebuild/worlds/spaceiscool
+minecraft/servers/Freebuild/worlds/space2
+minecraft/servers/Freebuild/worlds/ReversalCity
+minecraft/servers/Freebuild/worlds/ReversalCity_nether
+minecraft/servers/Freebuild/worlds/oldsurvival_the_end
+minecraft/servers/Freebuild/worlds/freebuild
+minecraft/servers/Freebuild/worlds/freddit3point0
+minecraft/servers/Freebuild/worlds/freddit2point0
+minecraft/servers/Freebuild/worlds/deepworld2k17
+minecraft/servers/Freebuild/worlds/deepworld2k20
+minecraft/servers/Freebuild/worlds/deepworld
+minecraft/servers/Freebuild/plugins/Essentials
+minecraft/servers/Freebuild/plugins/CoreProtect
+minecraft/servers/Freebuild/plugins/Citizens
+minecraft/servers/Freebuild/plugins/ServerlistMOTD
+minecraft/servers/Freebuild/plugins/ServerListPlus
+minecraft/servers/Freebuild/plugins/LuckPerms
