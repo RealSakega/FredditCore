@@ -5,8 +5,7 @@ const anonventbot = new Discord.Client({ intents: [
     Discord.GatewayIntentBits.GuildMessages
   ]});
 
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
+require('dotenv').config({ path: require('find-config')('.env') })
 
 console.log(process.env)
 
