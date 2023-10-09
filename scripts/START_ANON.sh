@@ -1,2 +1,2 @@
-cd ~/Freddit/DiscordBots
+cd discordbots/anonventbot
 node anon.js

@@ -1,3 +1,3 @@
-cd /home/ayybois/Freddit/MinecraftServers/survival2k21
+cd $SURVIVAL
 find . -name "session.lock" -delete
 
