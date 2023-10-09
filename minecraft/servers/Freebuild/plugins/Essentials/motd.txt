@@ -1,0 +1,2 @@
+&6Welcome to Freddit Freebuild, {PLAYER}&6!
+&6Type &c/help&6 for a list of commands.
