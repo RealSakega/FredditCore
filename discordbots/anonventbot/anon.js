@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
  
-const anonventbot = new Discord.Client({ intents: [
-    Discord.GatewayIntentBits.Guilds,
-    Discord.GatewayIntentBits.GuildMessages,
-    Discord.GatewayIntentBits.MessageContent,
-    Discord.GatewayIntentBits.GuildMembers,
-    Discord.GatewayIntentBits.DirectMessages
-  ]});
+const anonventbot = new Discord.Client({ 
+    intents: 4665, 
+    partials: [
+        Discord.Partials.Channel, 
+        Discord.Partials.Message
+    ] 
+});
 
 require('dotenv').config({ path: require('find-config')('.env') })
 
@@ -24,7 +24,7 @@ anonventbot.on('ready', () => {
     anonventbot.user.setPresence({ status: 'online', game: { name: presence_text }})
 });
  
-anonventbot.on('message', msg => {
+anonventbot.on('messageCreate', (msg) => {
     console.log(msg)
     if (msg.author.bot || msg.guild !== null) return;
     
@@ -38,17 +38,19 @@ anonventbot.on('message', msg => {
     last_person = msg.author.id;
     
     // Generate the embed for vent channel message
-    var new_embed = new Discord.MessageEmbed()
+    var new_embed = new Discord.EmbedBuilder()
     .setColor(color)
-    .addField("Message" + new_op, msg.content, true)
+    .addFields(
+        { name: "Message" + new_op, value: msg.content, inline: true }
+    )
     
     // Send message to venting channel
-    anonventbot.channels.cache.get(vent_channel_id).send(new_embed);
+    anonventbot.channels.fetch(vent_channel_id).then((channel) => { send(new_embed) });
 
     if (vent_logs_channel_id !== -1) {
         // Send message to log channel
-        anonventbot.channels.cache.get(vent_logs_channel_id).send("> " + msg.content);
-        anonventbot.channels.cache.get(vent_logs_channel_id).send(msg.author.tag);
+        anonventbot.channels.fetch(vent_logs_channel_id).then((channel) => channel.send("> " + msg.content));
+        anonventbot.channels.fetch(vent_logs_channel_id).then((channel) => channel.send(msg.author.tag));
     }
     // Confirm that the message has been sent
     msg.react("☑");
