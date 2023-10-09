@@ -1,2 +1,2 @@
-cd /home/ayybois/Freddit/MinecraftServers/Survival
+cd $SURVIVAL
 ./start
