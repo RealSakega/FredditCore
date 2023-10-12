@@ -4,8 +4,10 @@ cd "$(dirname "$0")"
 
 source ../.secrets/webhook_urls.sh
 
+NUMBER_OF_BACKUPS_TO_KEEP=5
+
 cd ../minecraft/backups/Freebuild
-ls -1t | tail -n +7 | xargs rm
+ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
 cd ../../..
 
 post_status () {
