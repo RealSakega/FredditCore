@@ -47,7 +47,7 @@ ignore-colors-in-max-nick-length: false
 hide-displayname-in-vanish: true
 
 # Disable this if you have any other plugin, that modifies the displayname of a user.
-change-displayname: true
+change-displayname: false
 
 # This option will cause Essentials to show players' displaynames instead of usernames when tab completing Essentials commands.
 change-tab-complete-name: false
