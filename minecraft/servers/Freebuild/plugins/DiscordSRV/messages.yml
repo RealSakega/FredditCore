@@ -78,8 +78,8 @@ DiscordToMinecraftMessageReplyFormat: " (replying to %name%)"
 #                  example: Global
 # PlaceholderAPI placeholders are also supported
 #
-MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %displayname%: %message%"
-MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%displayname%: %message%"
+MinecraftChatToDiscordMessageFormat: "**%primarygroup%** %essentials_nickname%: %message%"
+MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "%essentials_nickname%: %message%"
 
 # Chat channel plugin message
 # This is a special message that's only used when a supported chat channel plugin is hooked
