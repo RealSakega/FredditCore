@@ -1,5 +1,3 @@
-cat BackupList_Freebuild.txt
-
 minecraft/servers/Freebuild/worlds/world
 minecraft/servers/Freebuild/worlds/world_nether
 minecraft/servers/Freebuild/worlds/world_the_end
