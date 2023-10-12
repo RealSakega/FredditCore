@@ -1,1 +1,1 @@
-![Freddit Freebuild](assets/freddit-freebuild.png)
+<img src='assets/freddit-freebuild.png' width='500'>
