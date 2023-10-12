@@ -30,7 +30,7 @@ anonventbot.on('ready', () => {
 anonventbot.on('messageCreate', (msg) => {
     if (msg.author.bot || msg.guild !== null) return;
     
-    if (msg.content == ' ' || msg.content.length > 1000 || msg.attachments.size > 0){
+    if (msg.content.trim() == '' || msg.content.length > 1000 || msg.attachments.size > 0){
         msg.channel.send("Sorry, something's wrong. Please make sure your message has less than 1000 characters and has no files uploaded to it. Sorry for the inconvenience, don't let that get in the way though.");
         return;
     }
