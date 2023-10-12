@@ -1,4 +1,4 @@
 #! /bin/bash
 
-cd discordbots/anonventbot
+cd ../discordbots/anonventbot
 node anon.js
