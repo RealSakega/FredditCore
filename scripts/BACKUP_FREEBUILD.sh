@@ -1,8 +1,8 @@
 #! /bin/bash
 
-cd $MINECRAFT_DIR/backups/Freebuild
+cd ../minecraft/backups/Freebuild
 ls -1t | tail -n +7 | xargs rm
-cd $MINECRAFT_DIR/backups/
+cd ..
 
 source ../.secrets/webhook_urls.sh
 
