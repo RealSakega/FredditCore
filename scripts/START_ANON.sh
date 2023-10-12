@@ -1,4 +1,6 @@
 #! /bin/bash
 
+cd "$(dirname "$0")"
+
 cd ../discordbots/anonventbot
-node anon.js
+./start

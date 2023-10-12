@@ -1,4 +1,6 @@
 #! /bin/bash
 
-cd $FREEBUILD
+cd "$(dirname "$0")"
+cd ../minecraft/servers/Freebuild
+
 ./start
