@@ -13,8 +13,6 @@ const anonventbot = new Discord.Client({
 
 require('dotenv').config({ path: require('find-config')('.env') })
 
-console.log(process.env)
-
 const vent_channel_id = process.env.VENT_CHANNEL_ID + '' // Main venting channel ID. This is where all messages are sent.
 const vent_logs_channel_id = process.env.VENT_LOGS_CHANNEL_ID + '' // Logs channel. Make sure this channel is accessible only by the owner, or by trusted admins.
 
