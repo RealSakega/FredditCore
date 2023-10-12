@@ -1,17 +1,15 @@
-cd minecraft/backups/Freebuild
+cd $MINECRAFT_DIR/backups/Freebuild
 ls -1t | tail -n +7 | xargs rm
-cd minecraft/backups/
+cd $MINECRAFT_DIR/backups/
 
 source ../.secrets/webhook_urls.sh
 
 HOOK_URL= $BACKUPS_STAFF_CHANNEL_WEBHOOK
 
-message="Creating backup of reality FRFR-25565."
-msg_content=\"$message\"
-curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $HOOK_URL
+post_status () {
+    curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $HOOK_URL
+}
 
-zip -r "FREEBUILD/$(date +"%Y-%m-%d-%H-%M").zip" $(cat BackupList_Freebuild.txt)
-
-message="Backup completed"
-msg_content=\"$message\"
-curl -H "Content-Type: application/json" -X POST -d "{\"content\": $msg_content}" $HOOK_URL
+post_status "Creating backup of reality FRFR-25565."
+zip -r "Freebuild/$(date +"%Y-%m-%d-%H-%M").zip" $(cat BackupList_Freebuild.txt)
+post_status "Backup completed"
