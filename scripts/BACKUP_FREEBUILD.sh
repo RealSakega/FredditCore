@@ -1,10 +1,10 @@
 #! /bin/bash
 
+source ../.secrets/webhook_urls.sh
+
 cd ../minecraft/backups/Freebuild
 ls -1t | tail -n +7 | xargs rm
 cd ..
-
-source ../.secrets/webhook_urls.sh
 
 HOOK_URL= $BACKUPS_STAFF_CHANNEL_WEBHOOK
 
