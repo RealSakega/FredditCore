@@ -1,0 +1,61 @@
+# +---------------------------------------------------------------------------------------------------------+ #
+# All messages can be found here                                                                              #
+# Edit what necessary. Don't forget to upload en reload the plugin                                            #
+# +---------------------------------------------------------------------------------------------------------+ #
+
+prefix: "&ePrefiX &3➢ "
+
+messages:
+  header: "&6&m&l+-----------------&6&l= &ePrefiX &6&l=&6&m&l-----------------+&r"
+  footer: "&6&m&l+------------------------------------------+"
+  reload-config: "&6Successfully reloaded the config"
+  command:
+    no-permission: "&cYou don't have permission to execute this command"
+    no-permission-color: "&cYou don't have permission to use this color"
+    no-permission-other: "&cYou don't have permission to change the Prefix of others"
+    unknown: "&cDid you mean '/prefix help'?"
+    usage: "&cPlease usage '%COMMAND%'"
+    target: "&cYou must target a player to execute this command!"
+  color:
+    invalid: "&cInvalid color. Pick a color from '/prefix list'"
+    no-permission: "&cYou are not allowed to use this color"
+    prefix:
+      other: "&6Changing the prefix color of %NAME%"
+      reset: "&6Prefix color reset"
+      changed: "&6Prefix color changed to %COLOR%"
+    name:
+      other: "&6Changing the name color of %NAME%"
+      reset: "&6Name color reset"
+      changed: "&6Name color changed to %COLOR%"
+  prefix:
+    reset: "&6Prefix reset"
+    reset-other: "&6Resetting the prefix of %NAME%"
+    changed: "&6Prefix changed to %PREFIX%"
+    changed-other: "&6Changing the prefix of %NAME%"
+  list:
+    name:
+      apply: "&aClick to apply this color to your name"
+      no-perm: "&cNo permission to use this color for your name"
+    prefix:
+      apply: "&aClick to apply this color to your prefix"
+      no-perm: "&cNo permission to use this color for your prefix"
+  error:
+    self-target: "&cYou can't target yourself"
+    player: "&cPlayer '&6%NAME%&c' doesn't exists! (or is just offline)"
+    blacklist: "&cYou've used a blacklisted word"
+    length: "&cYou can not have more than %SIZE% characters"
+    length-colorcode: "&cYou can not have more than %SIZE% characters excluding color codes!"
+    character: "&cYou've used a wrong character!"
+    colorcode: "&cYou can't use color codes!"
+  help: |
+    &6➢ &a/prefix [text] &7- &eChange the text of your prefix
+    &6➢ &a/prefix color [color] &7- &eChange the color of your prefix
+    &6➢ &a/prefix name [color] &7- &eChange the color of your name
+    &6➢ &a/prefix list &7- &eList of all available colors
+    &6➢ &a/prefix reset &7- &eSet your prefix to the default value
+  help-others: |
+    &6➢ &a/prefix [text] <name> &7- &eChange the text of someone else's prefix
+    &6➢ &a/prefix color [color] <name> &7- &eChange the color of someone else's prefix
+    &6➢ &a/prefix name [color] <name> &7- &eChange the color of someone else's name
+    &6➢ &a/prefix list &7- &eList of all available colors
+    &6➢ &a/prefix reset <name> &7- &eSet someone else's prefix to the default value
