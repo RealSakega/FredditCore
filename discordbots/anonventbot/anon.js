@@ -2,10 +2,7 @@ const Discord = require("discord.js");
  
 const anonventbot = new Discord.Client({ 
     intents: [
-        Discord.GatewayIntentBits.Guilds,
-		Discord.GatewayIntentBits.GuildMessages,
-		Discord.GatewayIntentBits.MessageContent,
-		Discord.GatewayIntentBits.GuildMembers,
+        Discord.GatewayIntentBits.MessageContent,
         Discord.GatewayIntentBits.DirectMessages
     ],
     partials: [
@@ -23,7 +20,7 @@ const vent_logs_channel_id = process.env.VENT_LOGS_CHANNEL_ID + '' // Logs chann
 
 const color = '#0099ff';    // hex code of embed side colour
 const presence_text = '';   // presence status text
-let last_person = '';   // log last person to identify a new OP
+let last_person = '';       // log last person to identify a new OP
 
 anonventbot.on('ready', () => {
     anonventbot.user.setPresence({ status: 'online', game: { name: presence_text }})
@@ -31,8 +28,6 @@ anonventbot.on('ready', () => {
 });
  
 anonventbot.on('messageCreate', (msg) => {
-    console.log(msg)
-    
     if (msg.author.bot || msg.guild !== null) return;
     
     if (msg.content == ' ' || msg.content.length > 1000 || msg.attachments.size > 0){
@@ -52,13 +47,14 @@ anonventbot.on('messageCreate', (msg) => {
     )
 
     // Send message to venting channel
-    anonventbot.channels.fetch(vent_channel_id).then((channel) => { channel.send(new_embed) })
+    anonventbot.channels.fetch(vent_channel_id).then((channel) => { channel.send({ embeds: [new_embed] }) })
 
     // Send message to log channel
     if (vent_logs_channel_id !== -1) {
         anonventbot.channels.fetch(vent_logs_channel_id).then((channel) => { channel.send('> ' + msg.content) });
         anonventbot.channels.fetch(vent_logs_channel_id).then((channel) => { channel.send(msg.author.tag) });   
     }
+
     // Confirm that the message has been sent
     msg.react('☑');
 });
