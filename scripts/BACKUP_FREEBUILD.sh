@@ -1,3 +1,5 @@
+#! /bin/bash
+
 cd $MINECRAFT_DIR/backups/Freebuild
 ls -1t | tail -n +7 | xargs rm
 cd $MINECRAFT_DIR/backups/
