@@ -1,5 +1,7 @@
 #! /bin/bash
 
+cd "$(dirname "$0")"
+
 source ../.secrets/webhook_urls.sh
 
 cd ../minecraft/backups/Freebuild
