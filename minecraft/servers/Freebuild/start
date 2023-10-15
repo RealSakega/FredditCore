@@ -6,10 +6,12 @@ SERVERNAME="FREEBUILD"
 
 cp -rv ../shared/configs/plugins .
 
-DISCORDSRV_TOKEN=$(sed -n "s/^${SERVERNAME}_TOKEN=//p" ../../../.secrets/discordsrv)
-DISCORDSRV_CHANNEL=$(sed -n "s/^${SERVERNAME}_CHANNEL=//p" ../../../.secrets/discordsrv)
-DISCORDSRV_CONSOLE_CHANNEL=$(sed -n "s/^CONSOLE_CHANNEL=//p" ../../../.secrets/discordsrv)
-DISCORDSRV_INVITE_LINK=$(sed -n "s/^DISCORD_INVITE=//p" ../../../.secrets/discordsrv)
+SECRETS_FILE='../../../.secrets/discordsrv'
+
+DISCORDSRV_TOKEN=$(grep ${SERVERNAME}_TOKEN ${SECRETS_FILE} | cut -d'=' -f2)
+DISCORDSRV_CHANNEL=$(grep ${SERVERNAME}_CHANNEL ${SECRETS_FILE} | cut -d'=' -f2)
+DISCORDSRV_CONSOLE_CHANNEL=$(grep CONSOLE_CHANNEL ${SECRETS_FILE} | cut -d'=' -f2)
+DISCORDSRV_INVITE_LINK=$(grep DISCORD_INVITE ${SECRETS_FILE} | cut -d'=' -f2)
 
 echo "token: $DISCORDSRV_TOKEN"
 echo "channel: $DISCORDSRV_CHANNEL"
