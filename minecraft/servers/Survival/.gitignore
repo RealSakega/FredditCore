@@ -1,4 +1,10 @@
-ops.json
-banned-players.json
+./versions
+./logs
+./libraries
+./config
+./cache
 banned-ips.json
+banned-players.json
+ops.json
 whitelist.json
+*.jar
