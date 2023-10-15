@@ -6,10 +6,10 @@ server_name="FREEBUILD"
 
 cp -r ../shared/configs/plugins .
 
-discordsrv_token=$(grep -oP "(?<=$(server_name)_TOKEN)=).*" ../../../.secrets/discordsrv_tokens)
-discordsrv_channel=$(grep -oP "(?<=$(server_name)_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
-discordsrv_console_channel=$(grep -oP "(?<=CONSOLE_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
-discordsrv_discord_invite=$(grep -oP "(?<=CONSOLE_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
+discordsrv_token=$(grep "{$server_name}_TOKEN=" file.txt | sed 's/^.*=//')
+discordsrv_channel=$(grep "{$server_name}_CHANNEL=" file.txt | sed 's/^.*=//')
+discordsrv_console_channel=$(grep "{$server_name}_CONSOLE_CHANNEL=" file.txt | sed 's/^.*=//')
+discordsrv_discord_invite=$(grep "{$server_name}_DISCORD_INVITE=" file.txt | sed 's/^.*=//')
 
 sed -i "s/BotToken: \"\"/BotToken: \"$discordsrv_token\"/" ./plugins/DiscordSRV/config.yml
 sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$discordsrv_channel\"}/" ./plugins/DiscordSRV/config.yml
