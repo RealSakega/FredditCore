@@ -6,10 +6,12 @@ SERVERNAME="FREEBUILD"
 
 cp -rv ../shared/configs/plugins .
 
-DISCORDSRV_TOKEN=$(sed -n "s/^${SERVERNAME}_TOKEN=//p" ../../../.secrets/discordsrv | sed -z 's/\n/ /g')
-DISCORDSRV_CHANNEL=$(sed -n "s/^${SERVERNAME}_CHANNEL=//p" ../../../.secrets/discordsrv | sed -z 's/\n/ /g')
-DISCORDSRV_CONSOLE_CHANNEL=$(sed -n "s/^CONSOLE_CHANNEL=//p" ../../../.secrets/discordsrv | sed -z 's/\n/ /g')
-DISCORDSRV_INVITE_LINK=$(sed -n "s/^DISCORD_INVITE=//p" ../../../.secrets/discordsrv | sed -z 's/\n/ /g')
+DISCORDSRV_TOKEN=$(sed -n "s/^${SERVERNAME}_TOKEN=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_CHANNEL=$(sed -n "s/^${SERVERNAME}_CHANNEL=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_CONSOLE_CHANNEL=$(sed -n "s/^CONSOLE_CHANNEL=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_INVITE_LINK=$(sed -n "s/^DISCORD_INVITE=//p" ../../../.secrets/discordsrv)
+
+echo "token: $DISCORDSRV_TOKEN, channel: $DISCORDSRV_CHANNEL, console: $DISCORDSRV_CONSOLE_CHANNEL, invite: $DISCORDSRV_INVITE_LINK"
 
 sed -i "s/BotToken: \"\"/BotToken: \"$DISCORDSRV_TOKEN\"/" ./plugins/DiscordSRV/config.yml
 sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$DISCORDSRV_CHANNEL\"}/" ./plugins/DiscordSRV/config.yml
