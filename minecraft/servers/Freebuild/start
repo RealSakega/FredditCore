@@ -2,25 +2,25 @@
 
 cd "$(dirname "$0")"
 
-server_name="FREEBUILD"
+SERVERNAME="FREEBUILD"
 
 cp -rv ../shared/configs/plugins .
 
-discordsrv_token=$(grep "{$server_name}_TOKEN=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
-discordsrv_channel=$(grep "{$server_name}_CHANNEL=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
-discordsrv_console_channel=$(grep "{$server_name}_CONSOLE_CHANNEL=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
-discordsrv_discord_invite=$(grep "{$server_name}_DISCORD_INVITE=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
+DISCORDSRV_TOKEN=$(sed -n "s/^${SERVERNAME}_TOKEN=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_CHANNEL=$(sed -n "s/^${SERVERNAME}_CHANNEL=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_CONSOLE_CHANNEL=$(sed -n "s/^CONSOLE_CHANNEL=//p" ../../../.secrets/discordsrv)
+DISCORDSRV_INVITE_LINK=$(sed -n "s/^DISCORD_INVITE=//p" ../../../.secrets/discordsrv)
 
 echo "token: $discordsrv_token, channel: $discordsrv_channel, console_channel: $discordsrv_console_channel, discord_invite: $discordsrv_discord_invite"
 
-sed -i "s/BotToken: \"\"/BotToken: \"$discordsrv_token\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$discordsrv_channel\"}/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"$discordsrv_console_channel\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordInviteLink: \"\"/DiscordInviteLink: \"$discordsrv_discord_invite\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/BotToken: \"\"/BotToken: \"$DISCORDSRV_TOKEN\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$DISCORDSRV_CHANNEL\"}/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"$DISCORDSRV_CONSOLE_CHANNEL\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordInviteLink: \"\"/DiscordInviteLink: \"$DISCORDSRV_INVITE_LINK\"/" ./plugins/DiscordSRV/config.yml
 
-paper=$(ls -t paper-*.jar | head -n 1)
+PAPER_JAR=$(ls -t paper-*.jar | head -n 1)
 
-min_mem="4G"
-max_mem="8G"
+MEM_MIN="4G"
+MEM_MAX="8G"
 
-java -Xms$min_mem -Xmx$max_mem -jar $paper nogui --world-container worlds
+java -Xms$MEM_MIN -Xmx$MEM_MAX -jar $PAPER_JAR nogui --world-container worlds
