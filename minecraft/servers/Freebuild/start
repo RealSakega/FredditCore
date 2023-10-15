@@ -11,6 +11,8 @@ discordsrv_channel=$(grep "{$server_name}_CHANNEL=" ./plugins/DiscordSRV/config.
 discordsrv_console_channel=$(grep "{$server_name}_CONSOLE_CHANNEL=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
 discordsrv_discord_invite=$(grep "{$server_name}_DISCORD_INVITE=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
 
+echo "token: $discordsrv_token, channel: $discordsrv_channel, console_channel: $discordsrv_console_channel, discord_invite: $discordsrv_discord_invite"
+
 sed -i "s/BotToken: \"\"/BotToken: \"$discordsrv_token\"/" ./plugins/DiscordSRV/config.yml
 sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$discordsrv_channel\"}/" ./plugins/DiscordSRV/config.yml
 sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"$discordsrv_console_channel\"/" ./plugins/DiscordSRV/config.yml
