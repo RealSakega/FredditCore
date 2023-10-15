@@ -2,23 +2,9 @@
 
 cd "$(dirname "$0")"
 
-SERVERNAME="SURVIVAL"
+paper=$(ls -t paper-*.jar | head -n 1)
 
-cp -rv ../shared/configs/plugins .
+min_mem="4G"
+max_mem="8G"
 
-DISCORDSRV_TOKEN=$(sed -n "s/^${SERVERNAME}_TOKEN=//p" ../../../.secrets/discordsrv | sed -z '$ s/\n$//')
-DISCORDSRV_CHANNEL=$(sed -n "s/^${SERVERNAME}_CHANNEL=//p" ../../../.secrets/discordsrv | sed -z '$ s/\n$//')
-DISCORDSRV_CONSOLE_CHANNEL=$(sed -n "s/^CONSOLE_CHANNEL=//p" ../../../.secrets/discordsrv | sed -z '$ s/\n$//')
-DISCORDSRV_INVITE_LINK=$(sed -n "s/^DISCORD_INVITE=//p" ../../../.secrets/discordsrv | sed -z '$ s/\n$//')
-
-sed -i "s/BotToken: \"\"/BotToken: \"$DISCORDSRV_TOKEN\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$DISCORDSRV_CHANNEL\"}/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"$DISCORDSRV_CONSOLE_CHANNEL\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordInviteLink: \"\"/DiscordInviteLink: \"$DISCORDSRV_INVITE_LINK\"/" ./plugins/DiscordSRV/config.yml
-
-PAPER_JAR=$(ls -t paper-*.jar | head -n 1)
-
-MEM_MIN="4G"
-MEM_MAX="8G"
-
-java -Xms$MEM_MIN -Xmx$MEM_MAX -jar $PAPER_JAR nogui --world-container worlds
+java -Xms$min_mem -Xmx$max_mem -jar $paper nogui --world-container worlds

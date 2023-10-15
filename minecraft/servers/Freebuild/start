@@ -2,32 +2,9 @@
 
 cd "$(dirname "$0")"
 
-SERVERNAME="FREEBUILD"
+paper=$(ls -t paper-*.jar | head -n 1)
 
-cp -rv ../shared/configs/plugins .
+min_mem="4G"
+max_mem="8G"
 
-SECRETS_FILE='../../../.secrets/discordsrv'
-
-DISCORDSRV_TOKEN=$(grep ${SERVERNAME}_TOKEN ${SECRETS_FILE} | cut -d'=' -f2)
-DISCORDSRV_CHANNEL=$(grep ${SERVERNAME}_CHANNEL ${SECRETS_FILE} | cut -d'=' -f2)
-DISCORDSRV_CONSOLE_CHANNEL=$(grep CONSOLE_CHANNEL ${SECRETS_FILE} | cut -d'=' -f2)
-DISCORDSRV_INVITE_LINK=$(grep DISCORD_INVITE ${SECRETS_FILE} | cut -d'=' -f2)
-
-echo "token: $DISCORDSRV_TOKEN, channel: $DISCORDSRV_CHANNEL, console channel: $DISCORDSRV_CONSOLE_CHANNEL, invite link: $DISCORDSRV_INVITE_LINK"
-
-echo "token: $DISCORDSRV_TOKEN"
-echo "channel: $DISCORDSRV_CHANNEL"
-echo "console channel: $DISCORDSRV_CONSOLE_CHANNEL"
-echo "invite link: $DISCORDSRV_INVITE_LINK"
-
-sed -i "s/BotToken: \"\"/BotToken: \"${DISCORDSRV_TOKEN}\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"${DISCORDSRV_CHANNEL}\"}/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"${DISCORDSRV_CONSOLE_CHANNEL}\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordInviteLink: \"\"/DiscordInviteLink: \"$DISCORDSRV_INVITE_LINK\"/" ./plugins/DiscordSRV/config.yml
-
-PAPER_JAR=$(ls -t paper-*.jar | head -n 1)
-
-MEM_MIN="4G"
-MEM_MAX="8G"
-
-java -Xms$MEM_MIN -Xmx$MEM_MAX -jar $PAPER_JAR nogui --world-container worlds
+java -Xms$min_mem -Xmx$max_mem -jar $paper nogui --world-container worlds
