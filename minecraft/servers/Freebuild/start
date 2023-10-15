@@ -2,6 +2,18 @@
 
 cd "$(dirname "$0")"
 
+server_name="FREEBUILD"
+
+cp -r ../shared/configs/plugins ./plugins
+
+discordsrv_token=$(grep -oP '(?<='$server_name'_TOKEN)=).*' ../../../.secrets/discordsrv_tokens)
+discordsrv_channel=$(grep -oP '(?<='$server_name'_CHANNEL)=).*' ../../../.secrets/discordsrv_tokens)
+discordsrv_console_channel=$(grep -oP '(?<=CONSOLE_CHANNEL)=).*' ../../../.secrets/discordsrv_tokens)
+
+sed -i "s/BotToken: \"\"/BotToken: \"$discordsrv_token\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$discordsrv_channel\"}/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordConsoleChannelId: \"\"/DiscordConsoleChannelId: \"$discordsrv_console_channel\"/" ./plugins/DiscordSRV/config.yml
+
 paper=$(ls -t paper-*.jar | head -n 1)
 
 min_mem="4G"
