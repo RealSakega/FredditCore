@@ -6,10 +6,10 @@ server_name="SURVIVAL"
 
 cp -r ../shared/configs/plugins ./plugins
 
-discordsrv_token=$(grep -oP '(?<='$server_name'_TOKEN)=).*' ../../../.secrets/discordsrv_tokens)
-discordsrv_channel=$(grep -oP '(?<='$server_name'_CHANNEL)=).*' ../../../.secrets/discordsrv_tokens)
-discordsrv_console_channel=$(grep -oP '(?<=CONSOLE_CHANNEL)=).*' ../../../.secrets/discordsrv_tokens)
-discordsrv_discord_invite=$(grep -oP '(?<=CONSOLE_CHANNEL)=).*' ../../../.secrets/discordsrv_tokens)
+discordsrv_token=$(grep -oP "(?<=$(server_name)_TOKEN)=).*" ../../../.secrets/discordsrv_tokens)
+discordsrv_channel=$(grep -oP "(?<=$(server_name)_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
+discordsrv_console_channel=$(grep -oP "(?<=CONSOLE_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
+discordsrv_discord_invite=$(grep -oP "(?<=CONSOLE_CHANNEL)=).*" ../../../.secrets/discordsrv_tokens)
 
 sed -i "s/BotToken: \"\"/BotToken: \"$discordsrv_token\"/" ./plugins/DiscordSRV/config.yml
 sed -i "s/Channels: {\"global\": \"\"}/Channels: {\"global\": \"$discordsrv_channel\"}/" ./plugins/DiscordSRV/config.yml
