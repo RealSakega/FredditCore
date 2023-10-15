@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 server_name="FREEBUILD"
 
-cp -r ../shared/configs/plugins .
+cp -rv ../shared/configs/plugins .
 
 discordsrv_token=$(grep "{$server_name}_TOKEN=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
 discordsrv_channel=$(grep "{$server_name}_CHANNEL=" ./plugins/DiscordSRV/config.yml | sed 's/^.*=//')
