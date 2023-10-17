@@ -1,7 +1,7 @@
 include ../../../.secrets/.env-freddit-dedi
 export
 
-.PHONY: test copy-shared-configs prepare start
+.PHONY: test copy-shared-configs prepare backup start
 
 server_name = Survival
 
@@ -26,6 +26,8 @@ copy-shared-configs:
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
 
 prepare: copy-shared-paper-jar copy-shared-configs
+
+backup:
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
