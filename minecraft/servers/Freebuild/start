@@ -13,7 +13,7 @@ echo "token: $FREEBUILD_TOKEN, channel: $FREEBUILD_CHANNEL, console: $CONSOLE_CH
 sed -i "s/BotToken: \"BOTTOKEN\"/BotToken: \"${FREEBUILD_TOKEN}\"/" ./plugins/DiscordSRV/config.yml
 sed -i "s/Channels: {\"global\": \"000000000000000000\"}/Channels: {\"global\": \"${FREEBUILD_TOKEN}\"}/" ./plugins/DiscordSRV/config.yml
 sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${CONSOLE_CHANNEL}\"/" ./plugins/DiscordSRV/config.yml
-sed -i "s/DiscordInviteLink: \"https://discord.gg/changethisintheconfig.yml\"/DiscordInviteLink: \"${DISCORD_INVITE}\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"/DiscordInviteLink: \"${DISCORD_INVITE}\"/" ./plugins/DiscordSRV/config.yml
 
 PAPER_JAR=$(ls -t paper-*.jar | head -n 1)
 
