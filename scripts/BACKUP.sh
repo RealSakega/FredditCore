@@ -12,9 +12,8 @@ target_dir=$2
 
 NUMBER_OF_BACKUPS_TO_KEEP=5
 
-cd ../minecraft/backups/Freebuild
+cd $target_dir
 ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
-cd ../../..
 
 zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
