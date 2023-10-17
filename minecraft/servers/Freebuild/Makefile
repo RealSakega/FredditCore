@@ -1,4 +1,4 @@
-include ../../../.secrets/.env-discordsrv
+include ../../../.secrets/.env-freddit-dedi
 export
 
 .PHONY: test copy-shared-configs prepare start
