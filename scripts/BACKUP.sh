@@ -16,7 +16,7 @@ cd ../minecraft/backups/Freebuild
 ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
 cd ../../..
 
-zipname="$(date +"%Y-%m-%d-%H-%M").zip"
+zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
 if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
     post_status () {
