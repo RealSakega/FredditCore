@@ -38,7 +38,7 @@ while read -r line; do
     else
         excode=$?
         echo $excode
-        if [ $excode -eq 130 ]; then
+        if [ $excode -eq 9 ]; then
             post_status "Backup interrupted."
             exit 1
         else
