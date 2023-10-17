@@ -36,9 +36,9 @@ while read -r line; do
     if zip -ur "$backup_output_file" "$line"; then
         continue
     else
-        excode= $?
+        excode=$?
         echo $excode
-        if [ $? -e 130 ]; then
+        if [ $excode -eq 130 ]; then
             post_status "Backup interrupted."
             exit 1
         else
