@@ -20,7 +20,7 @@ copy-shared-paper-jar:
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
 copy-shared-plugins-folder:
-	cp -rv ../shared/configs/plugins .
+	cp -rv ../shared/plugins .
 
 clean-plugins-folder:
 	bash ${FREDDITCORE_DIR}/scripts/CLEANUP_PLUGINS.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name}/plugins
