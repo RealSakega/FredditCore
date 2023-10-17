@@ -28,7 +28,7 @@ copy-shared-configs:
 prepare: copy-shared-paper-jar copy-shared-configs
 
 backup:
-	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/backups/BackupList_Freebuild.txt ${FREDDITCORE_DIR}/minecraft/backups/Freebuild
+	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_Freebuild.txt ${FREDDITCORE_DIR}/minecraft/backups/Freebuild
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
