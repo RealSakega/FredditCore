@@ -15,7 +15,7 @@ discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 test:
-	echo ${ROOT_DIR}
+	@echo ${ROOT_DIR}
 	env
 
 copy-shared-paper-jar:
