@@ -4,7 +4,20 @@ cd "$(dirname "$0")"
 
 paper=$(ls -t paper-*.jar | head -n 1)
 
-min_mem="4G"
-max_mem="8G"
+source ../../../.secrets/discordsrv
 
-java -Xms$min_mem -Xmx$max_mem -jar $paper nogui --world-container worlds
+cp -rv ../shared/configs/plugins .
+
+echo "token: $FREEBUILD_TOKEN, channel: $FREEBUILD_CHANNEL, console: $CONSOLE_CHANNEL, invite: $DISCORD_INVITE"
+
+sed -i "s/BotToken: \"BOTTOKEN\"/BotToken: \"${FREEBUILD_TOKEN}\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/Channels: {\"global\": \"000000000000000000\"}/Channels: {\"global\": \"${FREEBUILD_CHANNEL}\"}/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${CONSOLE_CHANNEL}\"/" ./plugins/DiscordSRV/config.yml
+sed -i "s/DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"/DiscordInviteLink: \"${DISCORD_INVITE}\"/" ./plugins/DiscordSRV/config.yml
+
+PAPER_JAR=$(ls -t paper-*.jar | head -n 1)
+
+MEM_MIN="4G"
+MEM_MAX="8G"
+
+java -Xms$MEM_MIN -Xmx$MEM_MAX -jar $PAPER_JAR nogui --world-container worlds
