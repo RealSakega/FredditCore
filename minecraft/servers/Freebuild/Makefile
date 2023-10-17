@@ -28,7 +28,7 @@ fix-discordsrv-config:
 	sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
 
-prepare: copy-shared-paper-jar copy-shared-configs fix-discordsrv-config
+prepare: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config
 
 backup:
 	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
