@@ -1,5 +1,5 @@
-include ../shared/Makefile-backup
 include ../../../.secrets/.env-minecraft
+include ../shared/Makefile-backup
 export
 
 .PHONY: test copy-shared-configs prepare backup start
@@ -27,6 +27,9 @@ copy-shared-configs:
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
 
 prepare: copy-shared-paper-jar copy-shared-configs
+
+backup:
+	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
