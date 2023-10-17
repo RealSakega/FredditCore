@@ -36,7 +36,7 @@ while read -r line; do
     if zip -ur "$backup_output_file" "$line" -eq; then
         continue
     else
-        if [ $? -e 130]
+        if [ $? -e 130]; then
             post_status "Backup interrupted."
             exit 1
         else
