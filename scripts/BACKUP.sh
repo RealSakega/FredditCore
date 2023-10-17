@@ -23,7 +23,7 @@ if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
         curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUPS_STAFF_CHANNEL_WEBHOOK
     }
 
-    backup_output_file="${target_dir}/${zipname}"
+    backup_output_file="$target_dir/$zipname"
 
     echo "$backup_output_file"
 
