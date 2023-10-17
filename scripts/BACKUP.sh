@@ -18,26 +18,26 @@ cd "$(dirname "$0")/.."
 
 zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
-if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
-    post_status () {
+
+post_status () {
+    if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
         curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUPS_STAFF_CHANNEL_WEBHOOK
-    }
-
-    backup_output_file="$target_dir/$zipname"
-
-    post_status "Creating reality backup. (-> \`$backup_output_file\`)"
-    if zip -r "$backup_output_file" $(cat $backup_list); then
-        post_status "Backup completed"
     else
-        post_status "Backup failed"
+        echo "$1"
     fi
-else 
-    echo "BACKUPS_STAFF_CHANNEL_WEBHOOK is not set"
-    if zip -r "$target_dir/$zipname" $(cat $backup_list); then
-        echo "Backup completed"
+}
+
+backup_output_file="$target_dir/$zipname"
+
+num_files=$(wc -l < "$backup_list")
+i=0
+while read -r line; do
+    post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
+    if zip -ur "$backup_output_file" "$line"; then
+        continue
     else
-        echo "Backup failed"
+        post_status "Failed to add \`$line\` to backup"
     fi
-fi
+done < "$backup_list"
 
 exit 0
