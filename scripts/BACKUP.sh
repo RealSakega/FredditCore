@@ -22,11 +22,11 @@ if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
     }
 
     post_status "Creating backup of reality FRFR-25565. (${target_dir})"
-    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list}})
+    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list})
     post_status "Backup completed"
 else 
     echo "BACKUPS_STAFF_CHANNEL_WEBHOOK is not set"
-    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list}})
+    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list})
 fi
 
 exit 0
