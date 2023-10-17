@@ -1,3 +1,4 @@
+include ../shared/Makefile-backup
 include ../../../.secrets/.env-minecraft
 export
 
@@ -26,8 +27,6 @@ copy-shared-configs:
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
 
 prepare: copy-shared-paper-jar copy-shared-configs
-
-backup:
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
