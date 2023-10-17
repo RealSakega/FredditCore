@@ -20,7 +20,7 @@ copy-shared-paper-jar:
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
 copy-shared-plugins-folder:
-	cp -rv ../shared/configs/plugins .
+	cp -rv ../shared/plugins .
 
 fix-discordsrv-config:
 	sed -i "s/BotToken: \"BOTTOKEN\"/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
