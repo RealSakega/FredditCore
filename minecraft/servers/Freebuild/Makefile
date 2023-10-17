@@ -1,10 +1,18 @@
 include ../../../.secrets/.env-discordsrv
 export
 
-.PHONY: test copy-shared-configs start
+.PHONY: test copy-shared-configs prepare start
+
+server_name = Freebuild
+
+mem_min = ${FREEBUILD_MEMORY_MIN}
+mem_max = ${FREEBUILD_MEMORY_MAX}
 
 test:
-	env
+	echo "token: ${FREEBUILD_TOKEN}, channel: ${FREEBUILD_CHANNEL}, console: ${CONSOLE_CHANNEL}, invite: ${DISCORD_INVITE}"
+
+copy-shared-paper-jar:
+	ls -t ../paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
 copy-shared-configs:
 	cp -rv ../shared/configs/plugins .
@@ -13,5 +21,9 @@ copy-shared-configs:
 	sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${CONSOLE_CHANNEL}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${DISCORD_INVITE}\"@" ./plugins/DiscordSRV/config.yml
 
+prepare:
+	copy-shared-paper-jar
+	copy-shared-configs
+
 start:
-	bash ./start
+	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
