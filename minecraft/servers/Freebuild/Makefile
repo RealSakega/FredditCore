@@ -21,9 +21,7 @@ copy-shared-configs:
 	sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${DISCORDSRV_CONSOLE_CHANNEL}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${DISCORDSRV_INVITE_LINK}\"@" ./plugins/DiscordSRV/config.yml
 
-prepare:
-	copy-shared-paper-jar
-	copy-shared-configs
+prepare: copy-shared-paper-jar copy-shared-configs
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
