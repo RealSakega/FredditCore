@@ -20,8 +20,8 @@ zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
 
 post_status () {
-    if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
-        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUPS_STAFF_CHANNEL_WEBHOOK
+    if [ -v BACKUP_LOGS_CHANNEL_WEBHOOK ]; then
+        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUP_LOGS_CHANNEL_WEBHOOK
     else
         echo "$1"
     fi
