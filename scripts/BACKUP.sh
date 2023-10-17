@@ -28,6 +28,8 @@ post_status () {
 
 backup_output_file="$target_dir/$zipname"
 
+post_status "Creating backup $zipname"
+
 num_files=$(wc -l < "$backup_list")
 i=0
 while read -r line; do
@@ -36,10 +38,11 @@ while read -r line; do
         continue
     else
         excode=$?
-        echo $excode
         if [ $excode -eq 9 ]; then
             post_status "Backup interrupted."
             exit 1
+        elif [ $excode -eq 12 ]; then
+            post_status "Backup failed: \`$line\` not found"
         else
             post_status "Failed to add \`$line\` to backup"
         fi
