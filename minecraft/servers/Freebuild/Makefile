@@ -1,6 +1,8 @@
 include ../../../.secrets/.env-freddit-dedi
 export
 
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 .PHONY: test copy-shared-configs prepare backup start
 
 server_name = Freebuild
@@ -13,6 +15,7 @@ discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 test:
+	echo ${ROOT_DIR}
 	env
 
 copy-shared-paper-jar:
@@ -28,7 +31,7 @@ copy-shared-configs:
 prepare: copy-shared-paper-jar copy-shared-configs
 
 backup:
-	bash ../../../scripts/BACKUP.sh ../../backups/BackupList_Freebuild.txt
+	bash ${ROOT_DIR}/scripts/BACKUP.sh ${ROOT_DIR}/backups/BackupList_Freebuild.txt ${ROOT_DIR}/minecraft/backups/Freebuild
 
 start:
 	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
