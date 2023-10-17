@@ -16,17 +16,21 @@ cd ../minecraft/backups/Freebuild
 ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
 cd ../../..
 
+zipname=$(date +"%Y-%m-%d-%H-%M").zip
+
 if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
     post_status () {
         curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUPS_STAFF_CHANNEL_WEBHOOK
     }
 
-    post_status "Creating backup of reality FRFR-25565. (${target_dir})"
-    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list})
+    backup_output_file = "${target_dir}/${zipname}"
+
+    post_status "Creating reality backup. (-> `${backup_output_file}`)"
+    zip -r "${backup_output_file}" $(cat ${backup_list})
     post_status "Backup completed"
 else 
     echo "BACKUPS_STAFF_CHANNEL_WEBHOOK is not set"
-    zip -r "${target_dir}/$(date +"%Y-%m-%d-%H-%M").zip" $(cat ${backup_list})
+    zip -r "${target_dir}/${zipname}" $(cat ${backup_list})
 fi
 
 exit 0

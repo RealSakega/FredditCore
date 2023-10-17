@@ -1,4 +1,4 @@
-include ../../../.secrets/.env-freddit-dedi
+include ../../../.secrets/.env-minecraft
 export
 
 .PHONY: test copy-shared-configs prepare backup start
