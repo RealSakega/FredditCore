@@ -1,5 +1,5 @@
+include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
-include ../shared/Makefile-backup
 export
 
 .PHONY: test copy-shared-configs prepare backup start

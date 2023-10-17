@@ -1,4 +1,4 @@
-include ../shared/Makefile-backup
+include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
