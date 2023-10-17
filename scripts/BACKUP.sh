@@ -27,7 +27,7 @@ if [ -v BACKUPS_STAFF_CHANNEL_WEBHOOK ]; then
 
     echo "$backup_output_file"
 
-    post_status "Creating reality backup. (-> `$zipname`)"
+    post_status "Creating reality backup. ($zipname)"
     if zip -r "$backup_output_file" $(cat $backup_list); then
         post_status "Backup completed"
     else
