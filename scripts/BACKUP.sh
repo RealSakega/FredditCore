@@ -33,7 +33,7 @@ num_files=$(wc -l < "$backup_list")
 i=0
 while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
-    if zip -ur "$backup_output_file" "$line" -eq 
+    if zip -ur "$backup_output_file" "$line" -eq; then
         continue
     else
         if [ $? -e 130]
@@ -44,5 +44,7 @@ while read -r line; do
         fi
     fi
 done < "$backup_list"
+
+post_status "Backup complete."
 
 exit 0
