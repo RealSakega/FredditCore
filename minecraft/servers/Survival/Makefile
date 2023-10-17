@@ -3,12 +3,12 @@ export
 
 .PHONY: test copy-shared-configs prepare start
 
-server_name = Freebuild
+server_name = Survival
 
-mem_min = ${FREEBUILD_MEMORY_MIN}
-mem_max = ${FREEBUILD_MEMORY_MAX}
-discordsrv_token 	= ${DISCORDSRV_FREEBUILD_TOKEN}
-discordsrv_channel 	= ${DISCORDSRV_FREEBUILD_CHANNEL}
+mem_min = ${SURVIVAL_MEMORY_MIN}
+mem_max = ${SURVIVAL_MEMORY_MAX}
+discordsrv_token 	= ${DISCORDSRV_SURVIVAL_TOKEN}
+discordsrv_channel 	= ${DISCORDSRV_SURVIVAL_CHANNEL}
 discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
