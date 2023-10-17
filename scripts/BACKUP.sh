@@ -14,6 +14,7 @@ NUMBER_OF_BACKUPS_TO_KEEP=5
 
 cd $target_dir
 ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
+cd "$(dirname "$0")/.."
 
 zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
