@@ -1,3 +1,8 @@
+Start the server using `make start`, create a backup using `make backup`.
+
+## Setting up the server/updating the server
+`make prepare`
+
 ## Plugins
 ### Essential
 - CoreProtect
