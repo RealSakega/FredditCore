@@ -12,7 +12,7 @@ test:
 	echo "token: ${DISCORDSRV_FREEBUILD_TOKEN}, channel: ${DISCORDSRV_FREEBUILD_CHANNEL}, console: ${DISCORDSRV_CONSOLE_CHANNEL}, invite: ${DISCORDSRV_INVITE_LINK}"
 
 copy-shared-paper-jar:
-	ls -t ../paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
+	ls -t ../shared/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
 copy-shared-configs:
 	cp -rv ../shared/configs/plugins .
