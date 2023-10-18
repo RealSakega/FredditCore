@@ -9,8 +9,7 @@ test:
 lock:
 	npm i --package-lock-only
 
-install:
-	npm ci
-
 start:
 	npm start
+
+full-start: lock start
