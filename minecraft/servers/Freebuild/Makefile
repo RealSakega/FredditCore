@@ -39,19 +39,17 @@ backup:
 	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
-	screen -S minecraft-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+	screen -S minecraft-server-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 
 full-start: prepare start
 
-# stop: get session id of screen session named ${server_name}, enter it, and send the stop command to the server
-
 test-discordsrv:
-	screen -r minecraft-${server_name} -X stuff "discord bcast Test message $(printf '\r')"
+	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
 
 save:
-	screen -r minecraft-${server_name} -X stuff "save-all $(printf '\r')"
+	screen -r minecraft-server-${server_name} -X stuff "save-all^M
 
 fullstop:
-	screen -r minecraft-${server_name} -X stuff "stop $(printf '\r')"
+	screen -r minecraft-server-${server_name} -X stuff "stop^M"
 	
 stop: save wait fullstop

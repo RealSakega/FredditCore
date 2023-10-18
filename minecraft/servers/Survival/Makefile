@@ -36,6 +36,17 @@ backup:
 	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
-	screen -S ${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+	screen -S minecraft-server-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 
 full-start: prepare start
+
+test-discordsrv:
+	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
+
+save:
+	screen -r minecraft-server-${server_name} -X stuff "save-all^M
+
+fullstop:
+	screen -r minecraft-server-${server_name} -X stuff "stop^M"
+	
+stop: save wait fullstop
