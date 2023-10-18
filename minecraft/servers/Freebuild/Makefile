@@ -16,6 +16,9 @@ discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 test:
 	env
 
+wait:
+	sleep 5
+
 copy-shared-paper-jar:
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
@@ -36,12 +39,19 @@ backup:
 	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
-	screen -S ${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+	screen -S minecraft-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 
 full-start: prepare start
 
 # stop: get session id of screen session named ${server_name}, enter it, and send the stop command to the server
 
-stop:
-	screen -ls | grep Freebuild | grep -oP '[0-9]*' | head -n 1 | echo $$!
-# g
+test-discordsrv:
+	screen -r minecraft-${server_name} -X stuff "discord bcast Test message $(printf '\r')"
+
+save:
+	screen -r minecraft-${server_name} -X stuff "save-all $(printf '\r')"
+
+fullstop:
+	screen -r minecraft-${server_name} -X stuff "stop $(printf '\r')"
+	
+stop: save wait fullstop
