@@ -47,9 +47,11 @@ test-discordsrv:
 	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
 
 save:
-	screen -r minecraft-server-${server_name} -X stuff "save-all^M
+	screen -r minecraft-server-${server_name} -X stuff "save-all^M"
 
 fullstop:
 	screen -r minecraft-server-${server_name} -X stuff "stop^M"
 	
 stop: save wait fullstop
+
+restart: stop wait start
