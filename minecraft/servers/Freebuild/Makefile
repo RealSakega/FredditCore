@@ -39,3 +39,9 @@ start:
 	screen -S ${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 
 full-start: prepare start
+
+# stop: get session id of screen session named ${server_name}, enter it, and send the stop command to the server
+
+stop:
+	screen -ls | grep -oP '[0-9].Freebuild*' | head -n 1 | echo $$!
+# g
