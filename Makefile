@@ -3,5 +3,5 @@
 minecraft-backups:
 	bash ./scripts/MAKE_BACKUPS.sh
 
-start-minecraft-servers:
+minecraft-servers:
 	bash ./scripts/START_MINECRAFT_SERVERS.sh
