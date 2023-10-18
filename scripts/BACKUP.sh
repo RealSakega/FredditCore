@@ -28,7 +28,7 @@ post_status () {
 
 backup_output_file="$target_dir/$zipname"
 
-post_status "Creating backup $zipname"
+post_status "Creating backup $backup_output_file"
 
 num_files=$(wc -l < "$backup_list")
 i=0
