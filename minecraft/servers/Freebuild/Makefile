@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: test copy-shared-configs prepare backup start
+.PHONY: test copy-shared-configs prepare backup start full-start test-discordsrv save fullstop stop restart
 
 server_name = Freebuild
 
@@ -15,9 +15,6 @@ discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 test:
 	env
-
-wait:
-	sleep 5
 
 copy-shared-paper-jar:
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar

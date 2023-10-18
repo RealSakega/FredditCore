@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: test copy-shared-configs prepare backup start
+.PHONY: test copy-shared-configs prepare backup start full-start test-discordsrv save fullstop stop restart
 
 server_name = Survival
 
