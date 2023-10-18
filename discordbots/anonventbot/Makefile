@@ -13,6 +13,6 @@ install:
 	npm ci
 
 start:
-	npm start
+	screen -S anonventbot -d -m npm start
 
 full-start: lock install start
