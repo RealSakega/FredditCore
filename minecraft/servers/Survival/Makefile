@@ -36,4 +36,4 @@ backup:
 	bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
-	java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds & echo "Started ${server_name} with process ID $$!"
+	nohup java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds & echo "Started ${server_name} with process ID $$!"
