@@ -6,6 +6,6 @@ cd ../minecraft/servers
 
 for server in $(ls | grep -v shared); do
     cd $server
-    make backup
+    make start
     cd ..
 done
