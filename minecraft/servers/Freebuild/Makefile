@@ -51,4 +51,5 @@ fullstop:
 	
 stop: save wait fullstop
 
-restart: stop wait start
+restart:
+	screen -r minecraft-server-${server_name} -X stuff "restart^M"
