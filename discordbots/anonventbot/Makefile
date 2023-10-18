@@ -15,4 +15,7 @@ install:
 start:
 	screen -S anonventbot -d -m npm start
 
+stop:
+	screen -r anonventbot -X stuff "^C"
+
 full-start: lock install start
