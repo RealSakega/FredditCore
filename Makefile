@@ -1,4 +1,4 @@
-.PHONY: backups
+.PHONY: minecraft-backups
 
-backup-minecraft-servers:
+minecraft-backups:
 	bash ./scripts/MAKE_BACKUPS.sh
