@@ -37,3 +37,5 @@ backup:
 
 start:
 	screen -S ${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+
+full-start: prepare start
