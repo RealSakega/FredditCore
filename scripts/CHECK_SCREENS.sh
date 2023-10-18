@@ -2,7 +2,6 @@
 
 cd "$(dirname "$0")"
 
-# list of processes that we want to check up on
 screens=(
     "minecraft-server-Freebuild"
     "anonventbot"
