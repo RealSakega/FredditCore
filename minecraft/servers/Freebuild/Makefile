@@ -25,10 +25,10 @@ copy-shared-plugins-folder:
 clean-plugins-folder:
 
 fix-discordsrv-config:
-	sed -i "s/BotToken: \"BOTTOKEN\"/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
-	sed -i "s/Channels: {\"global\": \"000000000000000000\"}/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
-	sed -i "s/DiscordConsoleChannelId: \"000000000000000000\"/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
-	sed -i "s@DiscordInviteLink: \"discord.gg/changethisintheconfig.yml\"@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
+	sed -i "s/BotToken: \"*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
+	sed -i "s/Channels: {\"global\": \"*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
+	sed -i "s/DiscordConsoleChannelId: \"*/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
+	sed -i "s@DiscordInviteLink: \"*@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
 
 prepare: copy-shared-paper-jar copy-shared-plugins-folder clean-plugins-folder fix-discordsrv-config
 
