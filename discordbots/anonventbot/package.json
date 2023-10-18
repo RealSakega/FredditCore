@@ -2,7 +2,8 @@
   "name": "anonventbot",
   "version": "2.0.0",
   "scripts": {
-    "start": "node anon.js"
+    "start": "node anon.js",
+    "stop": "node anon.js"
   },
   "dependencies": {
     "discord.js": "^14.13.0",
