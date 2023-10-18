@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: test copy-shared-configs prepare backup start full-start test-discordsrv save fullstop stop restart
+.PHONY: test copy-shared-configs prepare backup start full-start test-discordsrv save fullstop stop restart open
 
 server_name = Freebuild
 
@@ -40,6 +40,9 @@ start:
 
 full-start: prepare start
 
+open:
+	screen -r minecraft-server-${server_name}
+
 test-discordsrv:
 	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
 
@@ -49,7 +52,8 @@ save:
 fullstop:
 	screen -r minecraft-server-${server_name} -X stuff "stop^M"
 	
-stop: save wait fullstop
-
 restart:
 	screen -r minecraft-server-${server_name} -X stuff "restart^M"
+	
+stop: save wait fullstop
+
