@@ -43,5 +43,5 @@ full-start: prepare start
 # stop: get session id of screen session named ${server_name}, enter it, and send the stop command to the server
 
 stop:
-	screen -ls | grep Freebuild | grep -oP '[0-9].*' | head -n 1 | echo $$!
+	screen -ls | grep Freebuild | grep -oP '[0-9]*' | head -n 1 | echo $$!
 # g
