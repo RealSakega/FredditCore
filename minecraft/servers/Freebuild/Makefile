@@ -54,6 +54,9 @@ fullstop:
 	
 restart:
 	screen -r minecraft-server-${server_name} -X stuff "restart^M"
+
+sessionlock-clean:
+	find . -name "session.lock" -delete -not -path "./plugins/*"
 	
 stop: save wait fullstop
 
