@@ -1,1 +1,1 @@
-`BACKUP_FREEBUILD.sh` is run on the dedi at 6 A.M. every Monday in the timezone where it's located (currently: Germany). To change this, edit the crontab of the account where FredditCore is hosted, using `crontab -e`.
+todo
