@@ -2,5 +2,5 @@
 
 cd "$(dirname "$0")"
 
-cd ../minecraft/servers/Survival
+cd ../server/minecraft/Survival
 make start

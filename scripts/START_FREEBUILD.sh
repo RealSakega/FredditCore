@@ -2,5 +2,5 @@
 
 cd "$(dirname "$0")"
 
-cd ../minecraft/servers/Freebuild
+cd ../servers/minecraft/Freebuild
 make start

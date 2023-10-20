@@ -1,6 +1,0 @@
-minecraft/servers/Survival/worlds/megasurvival
-minecraft/servers/Survival/worlds/megasurvival_nether
-minecraft/servers/Survival/worlds/megasurvival_the_end
-minecraft/servers/Survival/plugins/Essentials
-minecraft/servers/Survival/plugins/CoreProtect
-minecraft/servers/Survival/plugins/LuckPerms

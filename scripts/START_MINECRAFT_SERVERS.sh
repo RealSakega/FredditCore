@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-cd ../minecraft/servers
+cd ../servers/minecraft
 
 for server in $(ls | grep -v shared); do
     cd $server
