@@ -10,7 +10,7 @@ fi
 cd $1
 
 mkdir -p .temp
-mv $(ls *.jar | sort -r | awk -F'[ -]' '!seen[$1]++') .temp | sed "s/^/\"/;s/$/\"/"
+mv $(ls *.jar | sort -r | awk -F'[ -]' '!seen[$1]++' | sed "s/^/\"/;s/$/\"/") .temp
 rm *.jar
 mv .temp/*.jar .
 rm -rf .temp
