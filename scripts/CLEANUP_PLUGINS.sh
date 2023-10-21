@@ -9,4 +9,8 @@ fi
 
 cd $1
 
-# TODO
+mkdir -p .temp
+mv $(ls *.jar | sort -r | awk -F '-' '!seen[$1]++') .temp
+rm *.jar
+mv .temp/*.jar .
+rm -rf .temp

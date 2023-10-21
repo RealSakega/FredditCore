@@ -23,11 +23,7 @@ copy-shared-plugins-folder:
 	cp -rv ../shared/plugins .
 
 clean-plugins-folder:
-	mkdir -p plugins/.temp
-	mv $(ls plugins/*.jar | sort -r | awk -F '-' '!seen[$1]++') plugins/.temp
-	rm plugins/*.jar
-	mv plugins/.temp/*.jar .
-	rm -rf plugins/.temp
+	bash ${FREDDITCORE_DIR}/scripts/CLEAN_PLUGINS.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name}/plugins
 
 fix-discordsrv-config:
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
