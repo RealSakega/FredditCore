@@ -23,6 +23,12 @@ copy-shared-plugins-folder:
 	cp -rv ../shared/plugins .
 
 clean-plugins-folder:
+	cd plugins
+	mkdir .temp
+	mv (ls *.jar | sort -r | awk -F '-' '!seen[$1]++') .temp
+	rm *.jar
+	mv .temp/*.jar .
+	rm -rf .temp
 
 fix-discordsrv-config:
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
