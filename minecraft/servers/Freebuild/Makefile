@@ -10,7 +10,7 @@ mem_min = ${FREEBUILD_MEMORY_MIN}
 mem_max = ${FREEBUILD_MEMORY_MAX}
 discordsrv_token 	= ${DISCORDSRV_FREEBUILD_TOKEN}
 discordsrv_channel 	= ${DISCORDSRV_FREEBUILD_CHANNEL}
-discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
+discordsrv_console 	= ${DISCORDSRV_FREEBUILD_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 test:

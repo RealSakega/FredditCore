@@ -10,7 +10,7 @@ mem_min = ${SURVIVAL_MEMORY_MIN}
 mem_max = ${SURVIVAL_MEMORY_MAX}
 discordsrv_token 	= ${DISCORDSRV_SURVIVAL_TOKEN}
 discordsrv_channel 	= ${DISCORDSRV_SURVIVAL_CHANNEL}
-discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
+discordsrv_console 	= ${DISCORDSRV_SURVIVAL_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 test:
