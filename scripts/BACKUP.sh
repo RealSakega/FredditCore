@@ -36,7 +36,6 @@ num_files=0
 backup_list=$(while read -r line; do echo "$source_dir/$line"; num_files=$num_files + 1; done < "$backup_list")
 backup_list=$(echo "$backup_list" | tr " " "\n")
 
-num_files=$(wc -l < "$backup_list")
 i=0
 echo "$backup_list" | while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
