@@ -7,8 +7,10 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
-backup_list=$1
+source_dir=$1
 target_dir=$2
+
+backup_list="$source_dir/backup_list.txt"
 
 NUMBER_OF_BACKUPS_TO_KEEP=5
 
@@ -30,7 +32,7 @@ backup_output_file="$target_dir/$zipname"
 
 post_status "Creating backup $backup_output_file"
 
-num_files=$(wc -l < "$backup_list")
+num_files=$(wc -l < (while read -r line; do echo "$source_dir/$line"; done < "$backup_list")))
 i=0
 while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
