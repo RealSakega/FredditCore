@@ -32,8 +32,7 @@ backup_output_file="$target_dir/$zipname"
 
 post_status "Creating backup $backup_output_file"
 
-echo $(while read -r line; do echo "$source_dir/$line"; done < "$backup_list")
-sleep 10000
+backup_list=$(while read -r line; do echo "$source_dir/$line"; done < "$backup_list")
 
 num_files=$(wc -l < $(while read -r line; do echo "$source_dir/$line"; done < "$backup_list"))
 i=0
