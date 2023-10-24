@@ -36,7 +36,8 @@ sessionlock-clean:
 prepare: copy-shared-paper-jar copy-shared-plugins-folder clean-plugins-folder fix-discordsrv-config sessionlock-clean
 
 backup:
-	screen -S minecraft-backup-${server_name} -d -m bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/backups/BackupList_${server_name}.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
+	screen -S minecraft-backup-${server_name} -d -m \
+		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ./backuplist.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
 	screen -S minecraft-server-${server_name} -d -m \
@@ -49,16 +50,20 @@ open:
 	screen -r minecraft-server-${server_name}
 
 test-discordsrv:
-	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"discord bcast Test message^M"
 
 save:
-	screen -r minecraft-server-${server_name} -X stuff "save-all^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"save-all^M"
 
 fullstop:
-	screen -r minecraft-server-${server_name} -X stuff "stop^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"stop^M"
 	
 restart:
-	screen -r minecraft-server-${server_name} -X stuff "restart^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"restart^M"
 	
 stop: save wait fullstop
 
