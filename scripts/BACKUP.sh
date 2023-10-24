@@ -34,7 +34,7 @@ post_status "Creating backup $backup_output_file"
 
 backup_list=$(while read -r line; do echo "$source_dir/$line"; done < "$backup_list")
 
-num_files=$(wc -l < $(while read -r line; do echo "$source_dir/$line"; done < "$backup_list"))
+num_files=$(wc -l < "$backup_list")
 i=0
 while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
