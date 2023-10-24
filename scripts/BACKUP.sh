@@ -58,5 +58,6 @@ while read -r line; do
 done < "$backup_list"
 
 post_status "Backup complete."
+sleep 20
 
 exit 0
