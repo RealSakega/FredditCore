@@ -35,12 +35,12 @@ post_status "Creating backup $backup_output_file"
 backup_list=$(while read -r line; do echo "$source_dir/$line"; done < "$backup_list")
 backup_list=$(echo "$backup_list" | tr " " "\n")
 
-echo "$backup_list"
-sleep 10
+sleep 5
 
 num_files=$(wc -l < "$backup_list")
 i=0
-while read -r line; do
+
+echo "$backup_list" | while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
     if zip -ur "$backup_output_file" "$line"; then
         continue
@@ -55,7 +55,7 @@ while read -r line; do
             post_status "Failed to add \`$line\` to backup"
         fi
     fi
-done < "$backup_list"
+done
 
 post_status "Backup complete."
 sleep 20
