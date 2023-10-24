@@ -10,7 +10,7 @@ fi
 source_dir=$1
 target_dir=$2
 
-backup_list="$source_dir/backup_list.txt"
+backup_list="$source_dir/backuplist.txt"
 
 NUMBER_OF_BACKUPS_TO_KEEP=5
 
