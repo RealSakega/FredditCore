@@ -37,7 +37,7 @@ prepare: copy-shared-paper-jar copy-shared-plugins-folder clean-plugins-folder f
 
 backup:
 	screen -S minecraft-backup-${server_name} -d -m \
-		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ./backuplist.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
+		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name}/backuplist.txt ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 start:
 	screen -S minecraft-server-${server_name} -d -m \
