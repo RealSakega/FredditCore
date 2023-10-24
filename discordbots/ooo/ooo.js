@@ -61,17 +61,17 @@ ooo.on('clickButton', async (button) => {
         fredditloc = '/home/ayybois/Freddit/'
 	switch(button.id){
 			case "start_fb":
-				execute('sh /home/ayybois/Desktop/START_FREEBUILD.sh');
+				execute('');
 				await button.think(true); 
 				break;
 				
 			case "start_survival":
-				execute('sh /home/ayybois/Desktop/START_SURVIVAL.sh');
+				execute('');
 				await button.think(true);
 				break;
 				
 			case "start_anon":
-				execute('sh /home/ayybois/Desktop/start_anon.sh');
+				execute('');
 				await button.think(true);
 				break;
 				
