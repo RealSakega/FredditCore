@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: test copy-shared-configs prepare backup start full-start test-discordsrv save fullstop stop restart open
+.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save fullstop stop restart open
 
 server_name = Survival
 
@@ -12,9 +12,6 @@ discordsrv_token 	= ${DISCORDSRV_SURVIVAL_TOKEN}
 discordsrv_channel 	= ${DISCORDSRV_SURVIVAL_CHANNEL}
 discordsrv_console 	= ${DISCORDSRV_SURVIVAL_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
-
-test:
-	env
 
 copy-shared-paper-jar:
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
