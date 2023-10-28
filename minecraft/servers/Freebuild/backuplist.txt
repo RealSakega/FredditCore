@@ -5,9 +5,9 @@ worlds/freddit2point0
 worlds/freddit3point0
 worlds/freebuild
 worlds/ReversalCity
-worlds/spawn2019
+worlds/spawncore
 worlds/spaceiscool
-worlds/space2
+worlds/spaceiscool2k22
 worlds/test
 worlds/tbc
 worlds/TBC_Labs
