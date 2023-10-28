@@ -6,35 +6,52 @@
 #   Deleting this file will result in a fresh copy being produced by dynmap.jar on the next startup.
 #
 worlds:
-- name: world
+- name: ReversalCity
+  title: "Reversal City"
+  enabled: true
+- name: apollo
   enabled: false
-- name: world_nether
+- name: deepworld
   enabled: false
-- name: world_the_end
-  enabled: false
-- name: TBC_Labs
+- name: deepworld2k17
   enabled: false
 - name: deepworld2k20
   enabled: false
+- name: freddit2point0
+  enabled: false
+- name: freddit3point0
+  enabled: false
+- name: freebuild
+  enabled: false
 - name: Modtana
+  enabled: false
+- name: ReversalCity_nether
+  enabled: false
+- name: ReversalCity_the_end
+  enabled: false
+- name: rpcity2
+  enabled: false
+- name: spaceiscool
+  enabled: false
+- name: spaceiscool2k22
+  enabled: false
+- name: spawncore
+  enabled: false
+- name: tbc
+  enabled: false
+- name: TBC_Labs
+  enabled: false
+- name: tbcpd
   enabled: false
 - name: test
   enabled: false
 - name: unfinishedbuilds
   enabled: false
-- name: tbc
+- name: world
   enabled: false
-- name: freddit3point0
+- name: world_nether
   enabled: false
-- name: deepworld2k17
-  enabled: false
-- name: deepworld
-  enabled: false
-- name: freebuild
-  enabled: false
-- name: freddit2point0
-  enabled: false
-- name: spawncore
+- name: world_the_end
   enabled: false
 
   # Worlds can be handled by templates, based on world type
