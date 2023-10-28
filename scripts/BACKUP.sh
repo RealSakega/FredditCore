@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 
 if [ $# -lt 2 ]; then
-    echo "Usage: $0 backup_list target_dir"
+    echo "Usage: $0 source_dir target_dir"
     exit 1
 fi
 
