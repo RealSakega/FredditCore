@@ -14,7 +14,7 @@
 
 ClassicMotd:
   Regulars: 'warn staff that random motds are broken'
-  Newbies:  'Stop right there.Turn back.'
+  Newbies:  'Stop right there. Turn back.'
 RandomMotd:
   Enable: true
   Regulars:
@@ -44,7 +44,6 @@ RandomMotd:
     - '&6&lFreddit Freebuild %line%&dI ship Zorb.'
     - '&6&lFreddit Freebuild %line%&aSpurr for Mod!'
     - '&6&lFreddit Freebuild %line%&5&l&nWALUIGI'
-    - '&6&lFreddit Freebuild %line%&4kys cancer faggot'
     - '&6&lFreddit Freebuild %line%&b&lSTOP RIGHT THERE CRIMINAL SCUM!'
     - '&6&lFreddit Freebuild %line%&6Let me put on poptfnie'
     - '&6&lFreddit Freebuild %line%&6ayy lmao'
