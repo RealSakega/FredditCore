@@ -1,6 +1,5 @@
 worlds/megasurvival
 worlds/megasurvival_nether
-worlds/megasurvival_the_end
 plugins/Essentials
 plugins/CoreProtect
 plugins/LuckPerms
