@@ -7,6 +7,8 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1)
+
 source_dir=$1
 target_dir=$2
 
@@ -22,7 +24,7 @@ zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
 post_status () {
     if [ -v BACKUP_LOGS_CHANNEL_WEBHOOK ]; then
-        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$1\"}" $BACKUP_LOGS_CHANNEL_WEBHOOK
+        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"**[$SCREEN_SESSION]** $1\"}" $BACKUP_LOGS_CHANNEL_WEBHOOK
     else
         echo "$1"
     fi
