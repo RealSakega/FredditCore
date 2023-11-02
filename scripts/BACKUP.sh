@@ -7,7 +7,7 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
-SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1)
+SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1 | cut -d- -f3)
 
 source_dir=$1
 target_dir=$2
@@ -30,28 +30,29 @@ post_status () {
     fi
 }
 
+backup_list=$(while read -r line; do echo "$line"; ((num_files++)); done < "$backup_list")
+backup_list=$(echo "$backup_list" | tr " " "\n")
 backup_output_file="$target_dir/$zipname"
 
-post_status "Creating backup $backup_output_file"
+post_status "Creating backup $zipname"
 
-num_files=0
-backup_list=$(while read -r line; do echo "$source_dir/$line"; ((num_files++)); done < "$backup_list")
-backup_list=$(echo "$backup_list" | tr " " "\n")
+num_files=$(echo "$backup_list" | wc -l)
 
 i=0
 echo "$backup_list" | while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
-    if zip -ur "$backup_output_file" "$line"; then
+    l="$source_dir/$line"
+    if zip -ur "$backup_output_file" "$l"; then
         continue
     else
         excode=$?
         if [ $excode -eq 9 ]; then
-            post_status "Backup interrupted."
+            post_status ":warning: Backup interrupted."
             exit 1
         elif [ $excode -eq 12 ]; then
-            post_status "Backup failed: \`$line\` not found"
+            post_status ":warning: Backup failed: \`$line\` not found"
         else
-            post_status "Failed to add \`$line\` to backup"
+            post_status ":warning: Failed to add \`$line\` to backup"
         fi
     fi
 done
