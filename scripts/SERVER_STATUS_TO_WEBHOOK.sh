@@ -23,6 +23,4 @@ server_status="$(
   # top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}' 
 )"
 
-echo "$server_status"
-echo "${server_status@Q}"
 post_status "${server_status@Q}"
