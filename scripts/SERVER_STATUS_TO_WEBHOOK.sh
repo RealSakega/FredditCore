@@ -8,8 +8,6 @@ then
   export $(cat ../.secrets/.env-minecraft | xargs)
 fi
 
-echo "$BACKUP_LOGS_CHANNEL_WEBHOOK"
-
 # same as BACKUP.sh
 post_status () {
   msg=$(echo $1 | sed -r 's/^.{2}//' | sed 's/.$//')
