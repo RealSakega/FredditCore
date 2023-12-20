@@ -36,6 +36,9 @@ backup:
 	screen -S minecraft-backup-${server_name} -d -m \
 		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
+console:
+	screen -d -r minecraft-server-${server_name}
+	
 start:
 	screen -S minecraft-server-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 
