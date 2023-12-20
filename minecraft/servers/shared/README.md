@@ -1,0 +1,1 @@
+`/shared` is intended for plugins & configs that are to be shared between the different Minecraft servers (i.e. `Freebuild` and `Survival`). 
