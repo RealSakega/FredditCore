@@ -1,0 +1,215 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Freddit Freebuild" />
+    <meta property="og:description" content="The world's only online community"/>
+
+    <title>Freddit Freebuild</title>
+    <link rel="icon" href="assets/nham.ico?v=3" type="image/x-icon">
+</head>
+
+
+<html>
+
+<body>
+
+    <div class="box">
+
+        <!-- Logo -->
+        <center>
+            <a href="index.html">
+                <img id="fredditlogo" src="assets/freddit_logo.png">
+                    <div id="fredditlogo">
+                        <div id='splashtext'>
+                            In 2004, I killed a man by the name of Howard Hamlin.
+                        </div>
+                    </div>
+                </img>
+            </a>
+        </center>
+
+        <!-- copy paste shit -->
+        <script>
+            function copyToClipboard(ip, copytext) {
+                navigator.clipboard.writeText(ip);
+
+                var el = document.getElementById(copytext)
+                el.style.animation = 'none';
+                el.offsetHeight;
+                el.style.animation = 'fading 0.5s forwards';
+            }
+        </script>
+
+        <!-- Minecraft server IPs -->
+        <div class="hor_bar">
+            <div class="ipbox" onclick="copyToClipboard('play.freddit.net', 'copytext_play')">
+                <h2>Freebuild IP</h2>
+                <p>
+                    play.freddit.net
+                </p>
+                <div id='copytext_play' class="copytext"> Copied! </div>
+            </div>
+
+            <div class="ipbox" onclick="copyToClipboard('survival.freddit.net', 'copytext_survival')">
+                <h2>Survival IP</h2>
+                <p style="color:red">Inactive</p>
+                <div id='copytext_survival' class="copytext">Copied!</div>
+            </div>
+        </div>
+
+        <center>
+            <p>If you can read this, then Freebuild is up and running.</p>
+        </center>
+
+        <h2>Links</h2>
+        <hr>
+
+        <div class="hor_bar">
+            <a href="http://95.111.238.253:8123/?worldname=ReversalCity" target="_blank">
+                <div class="link_button" style="background-image:url('./assets/dynmap.png')">
+                    <p>
+                        Freebuild Dynmap
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/pitK9KpqJSi3Rn7a7" target="_blank">
+                <div class="link_button" style="background-image:url('./assets/complaintreport.png')">
+                    <p>
+                        Submit complaint report
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://forms.gle/vz9ksL1893xqC7Dv5" target="_blank">
+                <div class="link_button" style="background-image:url('./assets/banappeal.png')">
+                    <p>
+                        Submit ban appeal
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://freddit-lore.fandom.com/wiki/Freddit_Lore_Wiki" target="_blank">
+                <div class="link_button" style="background-image:url('./assets/lorewiki.png')">
+                    <p>
+                        Freddit Lore Wiki
+                    </p>
+                </div>
+            </a>
+
+            <!-- <a href="../comics/tfof.html" target="_blank">
+                <div class="link_button" style="background-image:url('./assets/comics.png')">
+                    <p>
+                        Comics
+                    </p>
+                </div>
+            </a> -->
+
+            <a href="more-links.html">
+                <div class="link_button">
+                    <p>
+                        More Links
+                    </p>
+                </div>
+            </a>
+        </div>
+
+        <br>
+    
+    <center>
+        <p>
+            <i>Brought to you by The Broccoli Company.</i>
+        </p>
+    </center>
+
+    </div>
+</body>
+
+<!-- DONT RESEARCH SIIB WIIG -->
+
+<script>
+    let nham_pitch = 1;
+    let nham_plays = 0;
+    let nham_locked = false;
+    function playNham() {
+       var audio = document.getElementById("nham_audio");
+
+      if (nham_plays > 4 & audio.paused) {
+        window.open("https://www.google.com/search?q=siib+wiig", "_blank"); 
+
+        var nham = document.getElementById("nhamquee");
+        nham.parentNode.removeChild(nham);
+
+        var secret_audio = document.getElementById("secret_audio");
+        secret_audio.play();
+      } else {
+
+        audio.playbackRate = nham_pitch;
+        audio.play();
+
+        nham_pitch *= .75;
+
+        nham_plays++;
+      }
+    }
+
+    const splashTexts = [
+        "Stop right there.",
+        "Founded 2015!",
+        "Founded by Dilly Van Shneenie!",
+        "WAHOONIE GOONIE!",
+        "PCV won!",
+        "#ReadTheBook!",
+        "The Best For Less!",
+        "Zoo where is Dreamworld?",
+        "Zoo where is TFOF chapter 3 part 10?",
+        "Zoo where are the 2018 meme awards?",
+        "Obamacare!",
+        "Wtf I want islabd",
+        "Originally play.freddit.ga!",
+        "Siib Wiig.",
+        "Home of Frooble!",
+        "Home of the One Word Story bible!",
+        "Home of the Worm Hotel!",
+        "Home of Reversal City!",
+        "Almost killed off at least 7 different times!",
+        "/warp Azerbaijan!",
+        "o7",
+        "/r/freebuild!",
+        "Sponsored by T.B.C.!",
+        "Sponsored by Orbital!",
+        "Sponsored by Faztion Dynamics!",
+        "Sponsored by Ebolabs!",
+        "Sponsored by SpurrCo!",
+        "Sponsored by Howard Hamlin's Pizzeria!",
+        "poptifnie",
+        "Help me!",
+        "Starballed!",
+        "I am Jeff Bezos",
+        "https://media.discordapp.net/attachments/679081810734481468/726909519090810991/2020-06-28_16.13.16.png"
+    ]
+    
+    function setRandomSplash() {
+        var splash = document.getElementById('splashtext');
+        var splash_index = Math.floor(Math.random() * splashTexts.length);
+
+        splash.innerHTML = splashTexts[splash_index];
+    }
+
+    setRandomSplash();
+  </script>
+
+<audio id="nham_audio" src="../assets/nham_nham.mp3"></audio>
+<audio id="secret_audio" src="../assets/secret.mp3"></audio>
+
+<marquee id='nhamquee' class='nham_marquee' behavior="alternate" scrollamount="5" direction="up">
+    <marquee behavior="alternate" scrollamount="5" direction="right">
+        <button onclick="playNham()">
+            <div class="nham"></div>
+        </button>
+    </marquee>
+</marquee>
+    
+</html>

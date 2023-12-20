@@ -1,0 +1,161 @@
+<style>
+    @font-face {
+        font-family: DePixel; src: url("assets/fonts/DePixelBreitFett.ttf")
+    }
+
+    .christmas_bg {
+        margin:0;
+        height:25%;
+        width:100%;
+        left:0;
+        top:0;
+
+        z-index: -40;
+
+        position:relative;
+    }
+
+    body {
+       background-color: black;
+    }
+
+    .tree {
+        z-index: -20;
+    }
+
+    .christmas_text {
+        font-family:DePixel;
+        color:white;
+        font-size:50px;
+        z-index:200;
+    }
+
+    #merry {
+        animation: merry_christmas 2s steps(1) infinite
+    }
+
+    .nham {
+        background-image: url("./assets/nham_hohoho.gif");
+        background-size:100%;
+        width:128px;
+        height:128px;
+        border: none;
+        cursor:pointer;
+        pointer-events: auto; 
+    }
+    
+
+    button {
+        border:none;
+        background:none;
+    }
+
+    @keyframes merry_christmas {
+        0% {
+            color: red;
+        }
+
+        25% {
+            color: orange;
+        }
+
+        50% {
+            color: yellow
+        }
+
+        75% {
+            color: greenyellow
+        }
+
+        100% {
+            color: lime
+        }
+    }
+
+    @keyframes jumpy {
+        0% {
+            right: 0
+        }
+        100% {
+            right: 10
+        }
+    }
+</style>
+
+<script>
+    function addTrees() {
+        var num_trees = Math.floor(3 + Math.random() * 3);
+
+        var i = 0;
+        while (i++ < num_trees) {
+            var tree = document.createElement("img");
+            tree.src = "./assets/spr_tree.png";
+            tree.className = "tree"
+
+            var r = 0 + Math.random() * (document.body.clientWidth * .75);
+
+            tree.style = "left:" + r + "px; position:absolute; bottom:0;"
+
+            document.getElementById("sky").appendChild(tree)
+        }
+
+    }
+
+    function nhamClick() {
+        window.open("https://www.youtube.com/watch?v=WQMJXudkUDQ", "_blank"); 
+    }
+</script>
+
+<head>
+    <title>Electronic Christmas Greeting Card</title>
+</head>
+
+<body>
+    <div class="christmas_bg" style="background-color:rgb(0, 0, 53)">
+        <div class="christmas_text" id="merry">
+                MERRY CHRISTMAS!
+        </div>
+    </div>
+    <div class="christmas_bg" style="background-color:rgb(0, 0, 155)">
+        <div class="christmas_text" style="text-align:right">
+            <center>
+                To...
+            </center>
+        </div>
+    </div>
+    <div id="sky" class="christmas_bg" style="background-color:rgb(0, 0, 0)">
+
+
+        <script>addTrees()</script>
+
+        <div class="christmas_text">
+            <marquee scrolldelay="1" scrollamount="10">
+                Family! 
+                Friends! 
+                Family of Friends! 
+                Our special love!
+                Those who are no longer around to experience the festive season with us!
+                Our stars! 
+                The Founder!
+                Social Workers! 
+                Our true love! 
+                Friends of Family!
+                Gamblers!
+                Jeff The Securitron!
+                And most important of all...... ... .
+                You !!!
+            </marquee>
+        </div>
+    </div>
+    <div class="christmas_bg" style="background-color:rgb(176, 255, 248)">
+        <div class="christmas_text" style="font-size:25px; color:black; position:absolute; bottom:10%; animation:jumpy steps(1) 2s infinite;">
+            From your play.freddit.net family !
+        </div>
+    </div>
+</body>
+
+<marquee style="position:absolute;bottom:25.25%" scrollamount="5">
+    <button onclick="nhamClick()">
+        <div class="nham"></div>
+    </button>
+</marquee>

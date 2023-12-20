@@ -1,0 +1,90 @@
+
+<style>
+    body {
+        background-color: black;
+        overflow:hidden;
+    }
+    .fake_dynmap {
+        animation: map_fadein 1s forwards;
+        position: absolute;
+        text-align: center;
+        image-rendering: optimizeSpeed;
+
+        left: 0;
+        top: 0;
+    }
+
+    #map {
+        cursor: pointer;
+        width:100%;
+        height:100%;
+    }
+
+    @keyframes map_fadein {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    @keyframes map_zoomin {
+        0% {
+            transform: scale(1);
+            opacity: 100%;
+        }
+
+        100% {
+            transform: scale(3);
+            opacity: 0%;
+        }
+    }
+
+    @keyframes house_appear {
+        0% {
+            opacity: 0%;
+            transform: scale(50%);
+        }
+
+        100% {
+            opacity: 100%;
+            transform: scale(100%);
+        }
+    }
+</style>
+
+
+<head>
+    <title>Minecraft Dynamic Map</title>
+</head>
+
+<audio id="wow" src="../assets/WOW.mp3"></audio>
+
+<script>
+    function zoomIntoMap() {
+        var map = document.getElementById("map");
+        map.style.animation = "map_zoomin 1s forwards";
+        map.style.cursor = "default";
+        map.onclick = "";
+
+        var house = document.getElementById("house");
+        house.style.animation = "house_appear 1s forwards"
+
+        document.title = "FOUND HIM!";
+        
+       var audio = document.getElementById("wow");
+       audio.play();
+    }
+</script>
+
+<html>
+    <body>
+        <img id="house" style="width:100%; height:100%; opacity: 0" src="./assets/spurr_construction.png"></img>
+
+        <div id="map" class="fake_dynmap" onclick="zoomIntoMap()">
+            <img width="100%" src="./assets/fake_dynmap.png"></img>
+        </div>
+    </body>
+</html>

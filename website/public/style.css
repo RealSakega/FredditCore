@@ -1,0 +1,190 @@
+@font-face { 
+    font-family: Montserrat; src: url('../assets/Montserrat-Regular.otf');
+} 
+    /* @font-face { font-family: Montserrat; font-weight: bold; src: url('../assets/MontserratAlternates-SemiBold.otf'); }  */
+
+    html {
+     font-family: Montserrat;   
+    }
+
+    @keyframes fading_inv {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    body {
+        /* background-image: url('../assets/bg1.png'); */
+        background-color:black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position:center;
+        animation: fading_inv .5s forwards;
+    }
+
+
+    .box {
+        margin:5%;
+        margin-top:30px;
+        padding:20px;
+        padding-left:20%;
+        padding-right:20%;
+        background-color: rgb(33, 33, 33);
+        box-shadow: black 0 0 20px;
+        color: white;
+    }
+
+    .box h1 {
+        text-align:center;
+    }
+
+    .ipbox {
+        text-align: center;
+        
+        width:200px;
+        height:120px;
+
+        display:inline-block;
+
+        border-radius: 5px;
+
+        margin:10px;
+        padding:10px;
+
+        user-select: none;
+    }
+
+    @keyframes fading {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    
+    .copytext {
+        height:auto;
+        height:20px;
+        opacity:0;
+    }
+
+    .ipbox:hover {
+        background-color:rgb(46, 46, 46);
+        cursor:pointer;
+    }
+
+    .link_button {
+        text-align: center;
+
+        width:auto;
+        width:200px;
+
+        display:inline-block;
+        margin:10px;
+        padding:10px;
+        transition:0.1s;
+
+        background-size:cover;
+
+        filter:brightness(90%);
+        border-radius:5px;
+
+        background-color: rgb(44, 44, 44);
+        
+        color:white;
+    }
+
+    .link_button p {
+        filter: drop-shadow(0 0 2px black) drop-shadow(0 0 2px black) drop-shadow(0 0 2px black);
+    }
+
+    a {
+        color:white;
+        text-decoration: none;
+    }
+
+    .link_button:visited {
+        color:white;
+        text-decoration: none;
+    }
+
+    .link_button:hover {
+        filter:brightness(100%);
+        transition:0.1s;
+        cursor:pointer;
+        border-radius: 5px;
+        background-color: rgb(70, 70, 70);
+    }
+    
+
+    .hor_bar {
+        text-align:center;
+    }
+
+    .motm {
+        width:100%;
+        max-width:600px;
+        box-shadow: 0 0 15px;
+        color:black;
+    }
+
+    #fredditlogo {
+        width:100%;
+        max-width:300px;
+        transition:0.25s;
+        position:relative;
+        
+    }
+
+    /* #fredditlogo img:hover {
+        scale:110%;
+        transition:0.25s;
+        transform: rotate(4deg);
+        -webkit-filter: drop-shadow(5px 5px 5px rgb(255, 255, 255));
+        filter: drop-shadow(5px 5px 5px rgb(255, 215, 37));
+    } */
+
+    @keyframes splashtext_bob {
+        0% {
+           transform: scale(1) rotate(-20deg);
+        }
+        50% {
+            transform: scale(1.2) rotate(-20deg);
+        }
+        100% {
+            transform: scale(1) rotate(-20deg);
+        }
+    }
+
+    #splashtext {
+        align-items:center;
+        color:yellow;
+        transform: rotate(-20deg);
+        position: absolute;
+        top:-100px;
+        left:50%;
+        width:100%;
+        pointer-events: none;
+        animation: splashtext_bob 1s infinite ease-in-out;
+    }
+
+    .nham {
+        background-image: url('./assets/nham.png');
+        background-size:100%;
+        width:24;
+        height:24;
+        z-index:100;
+        cursor:pointer;
+        pointer-events: auto; 
+        border: none;
+    }
+
+    button {
+        border:none;
+        background:none;
+    }
+
+    .nham_marquee {
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        pointer-events: none
+    }
