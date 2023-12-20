@@ -13,8 +13,8 @@ install:
 
 start:
 	screen -S website -d -m npm start
-
+	
 stop:
-	screen -r website -X stuff "^C"
+	screen -X -S website quit
 
 full-start: lock install start
