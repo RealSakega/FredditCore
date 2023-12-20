@@ -1,4 +1,3 @@
-include ../../.config/.env-anonventbot
 export
 
 .PHONY: test start lock
@@ -13,9 +12,9 @@ install:
 	npm ci
 
 start:
-	screen -S anonventbot -d -m npm start
+	screen -S website -d -m npm start
 
 stop:
-	screen -r anonventbot -X stuff "^C"
+	screen -r website -X stuff "^C"
 
 full-start: lock install start
