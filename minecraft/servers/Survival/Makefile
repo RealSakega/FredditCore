@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save fullstop stop restart open
+.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart open
 
 server_name = Survival
 
@@ -38,9 +38,11 @@ backup:
 
 console:
 	screen -d -r minecraft-server-${server_name}
-	
+
 start:
-	screen -S minecraft-server-${server_name} -d -m java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+	screen -S minecraft-server-${server_name} -d -m \
+		java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+		@echo "Starting ${server_name}"
 
 full-start: prepare start
 
@@ -48,15 +50,16 @@ open:
 	screen -r minecraft-server-${server_name}
 
 test-discordsrv:
-	screen -r minecraft-server-${server_name} -X stuff "discord bcast Test message^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"discord bcast Test message^M"
 
 save:
-	screen -r minecraft-server-${server_name} -X stuff "save-all^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"save-all^M"
 
-fullstop:
-	screen -r minecraft-server-${server_name} -X stuff "stop^M"
-	
 restart:
-	screen -r minecraft-server-${server_name} -X stuff "restart^M"
+	screen -r minecraft-server-${server_name} -X stuff \
+		"restart^M"
 
-stop: save wait fullstop
+stop:
+	screen -X -S minecraft-server-${server_name} quit

@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.secrets/.env-minecraft
 export
 
-.PHONY: console copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save fullstop stop restart open
+.PHONY: console copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart open
 
 server_name = Freebuild
 
@@ -57,12 +57,9 @@ save:
 	screen -r minecraft-server-${server_name} -X stuff \
 		"save-all^M"
 
-fullstop:
-	screen -X -S minecraft-server-${server_name} quit
-	
 restart:
 	screen -r minecraft-server-${server_name} -X stuff \
 		"restart^M"
 	
-stop: save wait fullstop
-
+stop:
+	screen -X -S minecraft-server-${server_name} quit
