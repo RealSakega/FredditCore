@@ -146,7 +146,7 @@ drop-items-if-full: false
 
 # Essentials Mail Notification
 # Should we notify players if they have no new mail?
-notify-no-new-mail: true
+notify-no-new-mail: false
 
 # Specifies the duration (in seconds) between each time a player is notified of mail they have.
 # Useful for servers with a lot of mail traffic.
@@ -536,8 +536,8 @@ allow-silent-join-quit: false
 # {ONLINE} - The number of players online.
 # {UNIQUE} - The number of unique players to join the server.
 # {UPTIME} - The amount of time the server has been online.
-custom-join-message: 'none'
-custom-quit-message: 'none'
+custom-join-message: '&8<&a+&8> &6{USERNAME}'
+custom-quit-message: '&8<&d-&8> &6{USERNAME}'
 
 # You can set a custom join message for users who join with a new username here.
 # This message will only be used if a user has joined before and have since changed their username.
@@ -1145,7 +1145,7 @@ newbies:
 # Set this to high, if you want EssentialsSpawn to handle the respawning.
 # Set this to highest, if you want to force EssentialsSpawn to handle the respawning.
 # Note: Changes will not apply until after the server is restarted.
-respawn-listener-priority: high
+respawn-listener-priority: lowest
 
 # What priority should we use for handling spawning on joining the server?
 # See respawn-listener-priority for possible values.
