@@ -1,4 +1,4 @@
-include ../../.secrets/.env-anonventbot
+include ../../.config/.env-anonventbot
 export
 
 .PHONY: test start lock

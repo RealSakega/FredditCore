@@ -3,9 +3,9 @@ IFS=$' \t\r\n'
 
 cd "$(dirname "$0")"
 
-if [ -f ../.secrets/.env-minecraft ]
+if [ -f ../.config/.env-minecraft ]
 then
-  export $(cat ../.secrets/.env-minecraft | xargs)
+  export $(cat ../.config/.env-minecraft | xargs)
 fi
 
 # same as BACKUP.sh

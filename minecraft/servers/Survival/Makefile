@@ -1,5 +1,5 @@
 include ../shared/Makefile
-include ../../../.secrets/.env-minecraft
+include ../../../.config/.env-minecraft
 export
 
 .PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart open
