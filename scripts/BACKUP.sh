@@ -35,11 +35,9 @@ backup_list=$(while read -r line; do echo "$line"; ((num_files++)); done < "$bac
 backup_list=$(echo "$backup_list" | tr " " "\n")
 backup_output_file="$target_dir/$zipname"
 
-screen -r $SCREEN_SESSION -X stuff \
-		"save-off^M"
+screen -r $SCREEN_SESSION -X stuff "save-off^M"
 post_status "Creating backup $zipname"
-screen -r minecraft-server-${server_name} -X stuff \
-		"discord bcast Reality backup in process. ^M"
+screen -r minecraft-server-${server_name} -X stuff "discord bcast Reality backup in process. ^M"
 
 num_files=$(echo "$backup_list" | wc -l)
 
@@ -62,8 +60,7 @@ echo "$backup_list" | while read -r line; do
     fi
 done
 
-screen -r $SCREEN_SESSION -X stuff \
-		"save-all^M"
+screen -r $SCREEN_SESSION -X stuff "save-on^M"
 post_status "Backup complete."
 screen -r minecraft-server-${server_name} -X stuff \
 		"Reality backup complete. ^M"

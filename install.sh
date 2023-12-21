@@ -8,3 +8,6 @@ sudo apt install git -y
 sudo apt install screen -y
 sudo apt install nodejs -y
 sudo apt install openjdk-17-jre-headless -y
+
+sudo mkdir -p /opt/minecraft/tools/mcrcon
+sudo git clone https://github.com/Tiiffi/mcrcon /opt/minecraft/tools/mcrcon
