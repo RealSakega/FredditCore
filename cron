@@ -1,2 +1,2 @@
-0 6 * * 1 bash $(pwd)/scripts/MAKE_BACKUPS.sh
-59 */12 * * * bash $(pwd)/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
+0 6 * * 1 bash $(pwd)/FredditCore/scripts/MAKE_BACKUPS.sh
+59 */12 * * * bash $(pwd)/FredditCore/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
