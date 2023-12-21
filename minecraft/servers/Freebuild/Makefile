@@ -28,7 +28,7 @@ fix-discordsrv-config:
 sessionlock-clean:
 	find . -name "session.lock" -delete -not -path "./plugins/*"
 
-prepare: copy-shared-paper-jar copy-shared-plugins-folder clean-plugins-folder fix-discordsrv-config sessionlock-clean
+prepare: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config sessionlock-clean
 
 backup:
 	screen -S minecraft-backup-${server_name} -d -m \

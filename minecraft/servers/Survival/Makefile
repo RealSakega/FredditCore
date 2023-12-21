@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.config/.env-minecraft
 export
 
-.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart
+.PHONY: console copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart
 
 server_name = Survival
 
@@ -19,8 +19,6 @@ copy-shared-paper-jar:
 copy-shared-plugins-folder:
 	cp -rv ../shared/plugins .
 
-clean-plugins-folder:
-
 fix-discordsrv-config:
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/Channels: {\"global\": \".*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
@@ -30,7 +28,7 @@ fix-discordsrv-config:
 sessionlock-clean:
 	find . -name "session.lock" -delete -not -path "./plugins/*"
 
-prepare: copy-shared-paper-jar copy-shared-plugins-folder clean-plugins-folder fix-discordsrv-config sessionlock-clean
+prepare: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config sessionlock-clean
 
 backup:
 	screen -S minecraft-backup-${server_name} -d -m \
