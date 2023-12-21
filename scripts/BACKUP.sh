@@ -61,8 +61,9 @@ echo "$backup_list" | while read -r line; do
 done
 
 screen -r $SCREEN_SESSION -X stuff "save-on^M"
+screen -r $SCREEN_SESSION -X stuff "save-all^M"
+
 post_status "Backup complete."
-screen -r minecraft-server-${server_name} -X stuff \
-		"Reality backup complete. ^M"
+screen -r minecraft-server-${server_name} -X stuff "discord bcast Reality backup complete.^M"
 
 exit 0
