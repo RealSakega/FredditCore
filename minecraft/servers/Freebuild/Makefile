@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.config/.env-minecraft
 export
 
-.PHONY: console copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart open
+.PHONY: console copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart
 
 server_name = Freebuild
 
@@ -18,8 +18,6 @@ copy-shared-paper-jar:
 
 copy-shared-plugins-folder:
 	cp -rv ../shared/plugins .
-
-clean-plugins-folder:
 
 fix-discordsrv-config:
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
@@ -45,9 +43,6 @@ start:
 		@echo "Starting ${server_name}"
 
 full-start: prepare start
-
-open:
-	screen -r minecraft-server-${server_name}
 
 test-discordsrv:
 	screen -r minecraft-server-${server_name} -X stuff \

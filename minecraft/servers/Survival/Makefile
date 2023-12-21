@@ -2,7 +2,7 @@ include ../shared/Makefile
 include ../../../.config/.env-minecraft
 export
 
-.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart open
+.PHONY: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config prepare backup start full-start test-discordsrv save stop restart
 
 server_name = Survival
 
@@ -45,9 +45,6 @@ start:
 		@echo "Starting ${server_name}"
 
 full-start: prepare start
-
-open:
-	screen -r minecraft-server-${server_name}
 
 test-discordsrv:
 	screen -r minecraft-server-${server_name} -X stuff \
