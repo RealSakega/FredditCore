@@ -1,2 +1,2 @@
-0 6 * * 1 bash $(pwd)/scripts/MAKE_BACKUPS
+0 6 * * 1 bash $(pwd)/scripts/MAKE_BACKUPS.sh
 59 */12 * * * bash $(pwd)/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
