@@ -7,15 +7,14 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+NUMBER_OF_BACKUPS_TO_KEEP=5
+
 SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1 | cut -d- -f3)
 
 source_dir=$1
 target_dir=$2
 
 backup_list="$source_dir/backuplist.txt"
-
-NUMBER_OF_BACKUPS_TO_KEEP=5
-
 
 cd $target_dir
 ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
