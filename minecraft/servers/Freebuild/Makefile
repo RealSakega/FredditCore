@@ -39,8 +39,7 @@ backup:
 		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
 
 console:
-	screen -d -r minecraft-server-${server_name} -X stuff \
-		"echo CTRL+A, then D to exit"
+	screen -d -r minecraft-server-${server_name}
 
 start:
 	screen -S minecraft-server-${server_name} -d -m \
