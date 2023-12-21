@@ -2,18 +2,17 @@
 
 cd "$(dirname "$0")"
 
+NUMBER_OF_BACKUPS_TO_KEEP=5
+
 if [ $# -lt 2 ]; then
     echo "Usage: $0 source_dir target_dir"
     exit 1
 fi
 
-NUMBER_OF_BACKUPS_TO_KEEP=5
-
-SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1 | cut -d- -f3)
-
 source_dir=$1
 target_dir=$2
 
+SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1 | cut -d- -f3)
 backup_list="$source_dir/backuplist.txt"
 
 cd $target_dir
