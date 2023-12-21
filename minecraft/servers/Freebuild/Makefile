@@ -19,6 +19,10 @@ copy-shared-paper-jar:
 copy-shared-plugins-folder:
 	cp -rv ../shared/plugins .
 
+purge-coreprotect-db:
+	screen -r minecraft-server-${server_name} -X stuff \
+		"co purge t:30d^M"
+
 fix-discordsrv-config:
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/Channels: {\"global\": \".*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
