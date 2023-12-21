@@ -39,7 +39,7 @@ screen -r $SCREEN_SESSION -X stuff \
 		"save-off^M"
 post_status "Creating backup $zipname"
 screen -r minecraft-server-${server_name} -X stuff \
-		"Reality backup in process. ^M"
+		"discord bcast Reality backup in process. ^M"
 
 num_files=$(echo "$backup_list" | wc -l)
 
