@@ -16,6 +16,6 @@ start:
 	screen -S anonventbot -d -m npm start
 	
 stop:
-	screen -X -S website quit
+	screen -X -S anonventbot quit
 
 full-start: lock install start
