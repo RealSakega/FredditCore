@@ -38,7 +38,7 @@ anonventbot.on('ready', async () => {
 anonventbot.on('messageCreate', (msg) => {
     if (msg.author.bot || msg.guild !== null) return;
     console.log(`[${msg.author.tag}]`, msg.content)
-    
+
     if (msg.content.trim() == '' || msg.content.length > 1000 || msg.attachments.size > 0){
         msg.channel.send("Sorry, something's wrong. Please make sure your message has less than 1000 characters and has no files uploaded to it. Sorry for the inconvenience, don't let that get in the way though.");
         console.error('Message empty/too long/contains attachments')
@@ -48,7 +48,7 @@ anonventbot.on('messageCreate', (msg) => {
     // Check for a new OP
     const new_op = (last_person !== msg.author.id ? ' (New OP):' : ':');
     last_person = msg.author.id;
-    
+
     // Generate the embed for vent channel message
     const new_embed = new Discord.EmbedBuilder()
     .setColor(color)
