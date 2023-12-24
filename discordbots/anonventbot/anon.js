@@ -60,5 +60,6 @@ anonventbot.on('messageCreate', (msg) => {
     msg.react('☑');
 });
  
+console.log(process.env)
 anonventbot.login(process.env.VENT_BOT_TOKEN);
  
