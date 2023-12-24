@@ -26,6 +26,8 @@ anonventbot.on('ready', () => {
     vent_channel = anonventbot.channels.fetch(vent_channel_id)
     vent_logs_channel = anonventbot.channels.fetch(vent_logs_channel_id)
 
+    console.log(vent_channel)
+
     console.log(`Logged in as ${anonventbot.user.username}`);
 });
  
