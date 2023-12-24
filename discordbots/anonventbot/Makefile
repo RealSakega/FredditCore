@@ -13,7 +13,7 @@ install:
 	npm ci
 
 start:
-	screen -S anonventbot -d -m npm start
+	npm start
 	
 stop:
 	screen -X -S anonventbot quit
