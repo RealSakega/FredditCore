@@ -14,6 +14,11 @@ const anonventbot = new Discord.Client({
 const vent_channel_id = process.env.VENT_CHANNEL_ID + '' // Main venting channel ID. This is where all messages are sent.
 const vent_logs_channel_id = process.env.VENT_LOGS_CHANNEL_ID + '' // Logs channel. Make sure this channel is accessible only by the owner, or by trusted admins.
 
+vent_channel = await anonventbot.channels.fetch(vent_channel_id)
+vent_logs_channel = await anonventbot.channels.fetch(vent_logs_channel_id)
+
+console.log(vent_channel)
+
 let vent_channel, vent_logs_channel
 
 const color = '#0099ff';    // hex code of embed side colour
@@ -22,12 +27,6 @@ let last_person = '';       // log last person to identify a new OP
 
 anonventbot.on('ready', () => {
     anonventbot.user.setPresence({ status: 'online', game: { name: presence_text }})
-
-    vent_channel = anonventbot.channels.fetch(vent_channel_id)
-    vent_logs_channel = anonventbot.channels.fetch(vent_logs_channel_id)
-
-    console.log(vent_channel)
-
     console.log(`Logged in as ${anonventbot.user.username}`);
 });
  
