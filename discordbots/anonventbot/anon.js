@@ -23,10 +23,11 @@ let last_person = '';       // log last person to identify a new OP
 anonventbot.on('ready', async () => {
     anonventbot.user.setPresence({ status: 'online', game: { name: presence_text }})
 
-    vent_channel = await anonventbot.channels.fetch(vent_channel_id)
-    vent_logs_channel = await anonventbot.channels.fetch(vent_logs_channel_id)
-
-    console.log(vent_channel)
+    [vent_channel, vent_logs_channel] = 
+        [
+            await anonventbot.channels.fetch(vent_channel_id),
+            await anonventbot.channels.fetch(vent_logs_channel_id)
+        ]
 
     console.log(`Logged in as ${anonventbot.user.username}`);
 });
@@ -50,18 +51,12 @@ anonventbot.on('messageCreate', (msg) => {
         { name: 'Message' + new_op, value: msg.content, inline: true }
     )
 
-    // Send message to venting channel
     vent_channel.send({ embeds: [new_embed] })
-
-    // Send message to log channel
-    if (vent_logs_channel_id !== -1) {
-        vent_logs_channel.send(msg.author.tag + ':\n> ' + msg.content)
-    }
+    vent_logs_channel.send(msg.author.tag + ':\n> ' + msg.content)
 
     // Confirm that the message has been sent
     msg.react('☑');
 });
- 
-console.log(process.env)
+
 anonventbot.login(process.env.VENT_BOT_TOKEN);
  
