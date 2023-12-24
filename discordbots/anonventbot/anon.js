@@ -23,11 +23,14 @@ let last_person = '';       // log last person to identify a new OP
 anonventbot.on('ready', async () => {
     anonventbot.user.setPresence({ status: 'online', game: { name: presence_text }})
 
-    [vent_channel, vent_logs_channel] = 
+    const [vent, vent_logs] = 
         [
             await anonventbot.channels.fetch(vent_channel_id),
             await anonventbot.channels.fetch(vent_logs_channel_id)
         ]
+
+    vent_channel = vent
+    vent_logs_channel = vent_logs
 
     console.log(`Logged in as ${anonventbot.user.username}`);
 });
