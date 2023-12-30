@@ -13,7 +13,7 @@ discordsrv_channel 	= ${DISCORDSRV_SURVIVAL_CHANNEL}
 discordsrv_console 	= ${DISCORDSRV_SURVIVAL_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
-copy-shared-paper-jar:
+copy-shared-paper-jar: # Copy the latest paper-*.jar file from servers/shared into the server folder as paper.jar
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 
 copy-shared-plugins-folder:
