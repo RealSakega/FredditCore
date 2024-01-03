@@ -1,0 +1,60 @@
+# ChatReaction version 1.8.0 configuration file
+
+debug: false
+check_updates: true
+reaction_stats:
+  track_stats: false
+  top_players_size: 100
+  hostname: localhost
+  port: 3306
+  database: chatreaction
+  prefix: ''
+  username: root
+  password: ''
+  ssl: false
+reaction:
+  interval: 700
+  time_limit: 30
+  players_needed_to_start: 1
+  word_character_length: 10
+  ignore_case: true
+  use_custom_words: true
+  split_words_by_line: true
+  scramble_custom_words: true
+  scramble_at_random: true
+  scramble_spaces: false
+  disabled_worlds:
+  - world_nether
+  - world_the_end
+  reward_amount: 1
+  rewards:
+  - give @p popped_chorus_fruit 1 {display:{Name:'[{"text":"Zoo\'s New Age Testicle","italic":false,"color":"light_purple","bold":true}]',Lore:['[{"text":"Fermented
+    between 2k17 and 2k24.","italic":true,"color":"dark_purple"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"Earnt
+    in WordScramble!","italic":false,"color":"gold"}]']}}
+  - give @p prismarine_shard 1 {display:{Name:'[{"text":"Blue Sky","italic":false,"color":"aqua","bold":true}]',Lore:['[{"text":"A
+    new batch.","italic":true,"color":"dark_purple"}]','[{"text":"Fresh import from
+    New Mexico!","italic":true,"color":"dark_purple"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"Earnt
+    in WordScramble!","italic":false,"color":"gold"}]']}}
+messages:
+  reaction_start:
+  - '&8[&6&lWordScramble&8] &eQUICK! Hover for the word to type!'
+  reaction_start_tooltip: '&f%word%'
+  scramble_start:
+  - '&8[&6&lWordScramble&8] &eQUICK! Hover for the word to unscramble!'
+  scramble_start_tooltip: '&f%word%'
+  reaction_end:
+  - '&8[&6&lWordScramble&8] &cNobody got the word in time!'
+  scramble_end:
+  - '&8[&6&lWordScramble&8] &cNobody got the word in time!'
+  - '&cThe word was &f%word%'
+  reaction_win:
+  - '&8[&6&lWordScramble&8] &f%player% &awon in &f%time% &aseconds!'
+  scramble_win:
+  - '&8[&6&lWordScramble&8] &f%player% &aunscrambled the word &f%word% &ain &f%time%
+    &aseconds!'
+hooks:
+  qaplugin:
+    enabled: true
+    hint:
+      charge: true
+      charge_amount: 100.0
