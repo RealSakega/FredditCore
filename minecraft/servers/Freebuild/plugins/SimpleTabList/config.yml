@@ -20,8 +20,7 @@ Worlds:
 Header:
   Enable: true
   Content:
-  - &6&lFreddit Freebuild
-  - &e&oBuild your free!
+  - Freddit Freebuild
 Footer:
   Enable: false
   Content:
