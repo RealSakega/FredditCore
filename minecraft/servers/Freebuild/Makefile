@@ -54,7 +54,7 @@ full-start: prepare start
 .PHONY: command
 command: # Execute a command from outside the Minecraft server, e.g. COMMAND="say hi" make command (requires server to be online)
 ifeq ($(COMMAND),)
-	@echo "Provide a command (e.g., `COMMAND="say hi" make command`)"
+	@echo "Provide a command (e.g., COMMAND="say hi" make command)"
 else
 	screen -r ${screen_name} -X stuff \
 		"${COMMAND}^M"
