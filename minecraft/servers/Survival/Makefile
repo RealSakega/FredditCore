@@ -51,6 +51,15 @@ stop: # Stop the Minecraft server's screen session
 
 full-start: prepare start
 
+.PHONY: command
+command: # Execute a command from outside the Minecraft server, e.g. COMMAND="say hi" make command (requires server to be online)
+ifeq ($(COMMAND),)
+	@echo "Provide a command (e.g., COMMAND=\"say hi\" make command)"
+else
+	screen -r ${screen_name} -X stuff \
+		"${COMMAND}^M"
+endif
+
 .PHONY: console
 console: # Open the minecraft server's screen session (requires server to be online)
 	screen -d -r ${screen_name}
