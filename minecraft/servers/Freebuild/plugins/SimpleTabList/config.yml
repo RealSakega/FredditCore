@@ -20,14 +20,14 @@ Worlds:
 Header:
   Enable: true
   Content:
-  - §6§lFreddit Freebuild
+  - §6Freddit Freebuild
 Footer:
   Enable: false
   Content:
   - This is a footer!
   - This is footer line 2!
 Chat:
-  Prefix: Â§f[Â§cSTLÂ§f]
+  Prefix: §f[§cSTL§f]
   ActionbarMessage: false
 Tab:
   Refresh:
