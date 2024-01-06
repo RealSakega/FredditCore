@@ -2,13 +2,13 @@
 header-footer:
   enabled: true
   header:
-  - <#FF8722>&m                                        </#FFFF00>
-  - '&6&lFreddit Freebuild'
+  - <#FF8722>&m                                        </#FF2556>
+  - '&c&lFreddit Survival'
   - ''
   footer:
   - ''
   - 'Server TPS: &e%tps%'
-  - <#FFFF00>&m                                        </#FF8722>
+  - <#FF2556>&m                                        </#FF8722>
   disable-condition: '%world%=disabledworld'
   per-world:
     world1:
