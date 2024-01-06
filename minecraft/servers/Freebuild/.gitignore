@@ -8,3 +8,4 @@ banned-players.json
 ops.json
 whitelist.json
 *.jar
+hs_err_pid_*.log
