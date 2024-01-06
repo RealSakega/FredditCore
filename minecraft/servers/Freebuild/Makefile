@@ -58,6 +58,7 @@ ifeq ($(COMMAND),)
 else
 	screen -r ${screen_name} -X stuff \
 		"${COMMAND}^M"
+endif
 
 .PHONY: console
 console: # Open the minecraft server's screen session (requires server to be online)
