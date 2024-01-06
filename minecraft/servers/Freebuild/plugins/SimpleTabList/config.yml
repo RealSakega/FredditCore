@@ -1,0 +1,39 @@
+Names:
+  Enable: true
+  LuckPerms:
+    Prefix:
+      Enable: false
+    Suffix:
+      Enable: false
+  Global:
+    Enable: false
+    Prefix: ''
+    Suffix: ''
+  Sorting:
+    Enable: true
+    Type: weight
+    Ascending: true
+  Space:
+    Enable: false
+Worlds:
+  Enable: false
+Header:
+  Enable: true
+  Content:
+  - &6&lFreddit Freebuild
+  - &e&oBuild your free!
+Footer:
+  Enable: false
+  Content:
+  - This is a footer!
+  - This is footer line 2!
+Chat:
+  Prefix: Â§f[Â§cSTLÂ§f]
+  ActionbarMessage: false
+Tab:
+  Refresh:
+    Interval:
+      Enable: false
+      Time: 1
+bstats:
+  Enable: true
