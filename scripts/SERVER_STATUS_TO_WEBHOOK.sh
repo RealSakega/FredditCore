@@ -20,6 +20,6 @@ disk=$(df -h | awk '$NF=="/"{printf "Disk: %d/%dGB (%s)\n", $3,$2,$5}')
 screens=$(screen -ls | grep Detached | awk '{print "/ " $1 }')
 
 server_status="$(
-  $mem, $disk 
-  $screens
+  echo "$mem, $disk" 
+  echo "$screens"
 )"
