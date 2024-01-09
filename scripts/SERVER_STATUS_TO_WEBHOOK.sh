@@ -23,3 +23,5 @@ server_status="$(
   echo "$mem, $disk" 
   echo "$screens"
 )"
+
+post_status $server_status
