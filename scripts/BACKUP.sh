@@ -50,7 +50,7 @@ i=0
 echo "$backup_list" | while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
     l="$source_dir/$line"
-    if zip -ur "$backup_output_file" "$l"; then
+    if zip -jur "$backup_output_file" "$l"; then
         continue
     else
         excode=$?
