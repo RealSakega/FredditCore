@@ -19,4 +19,5 @@ mem=$(free -m | awk 'NR==2{printf "Memory: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 
 disk=$(df -h | awk '$NF=="/"{printf "Disk: %d/%dGB (%s)\n", $3,$2,$5}')
 screens=$(screen -ls | grep Detached | awk '{print "/ " $1 }')
 
-post_status "$mem, $disk ($screens)"
+post_status "$mem, $disk 
+  ($screens)"
