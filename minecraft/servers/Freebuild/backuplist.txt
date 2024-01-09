@@ -16,8 +16,7 @@ worlds/world
 worlds/world_nether
 worlds/world_the_end
 plugins/CoreProtect
-plugins/Citizens
-plugins/Essentials
-plugins/LuckPerms
-plugins/ServerlistMOTD
-plugins/ServerListPlus
+plugins/Citizens/saves.yml
+plugins/Essentials/userdata
+plugins/Essentials/warps
+plugins/LuckPerms/luckperms-h2-v2.mv.db
