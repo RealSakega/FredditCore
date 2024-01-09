@@ -35,9 +35,9 @@ sessionlock-clean: # Remove session.lock files from the worlds (in case of faile
 prepare: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config sessionlock-clean
 
 .PHONY: backup
-backup: # 
+backup: # Perform a backup of the Minecraft server based on backuplist.txt. Optional parameter: SILENT=true/false
 	screen -S minecraft-backup-${server_name} -d -m \
-		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name}
+		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name} ${SILENT}
 
 .PHONY: start
 start: # Start the Minecraft server
