@@ -21,7 +21,7 @@ screens=$(screen -ls | grep Detached | awk '{print "/ " $1 }')
 
 server_status="$(
   echo 'Memory: `'$mem'`, Disk: `'$disk'`'
-  echo "$screens"
+  echo '`'$screens'`'
 )"
 
 post_status "${server_status@Q}"
