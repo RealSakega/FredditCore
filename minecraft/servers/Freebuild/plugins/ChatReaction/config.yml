@@ -1,5 +1,3 @@
-# ChatReaction version 1.8.0 configuration file
-
 debug: false
 check_updates: true
 reaction_stats:
