@@ -15,13 +15,13 @@ post_status () {
 }
 
 # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
-mem=$(free -m | awk 'NR==2{printf "Memory: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
-disk=$(df -h | awk '$NF=="/"{printf "Disk: %d/%dGB (%s)\n", $3,$2,$5}')
+mem=$(free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }')
+disk=$(df -h | awk '$NF=="/"{printf "%d/%dGB (%s)\n", $3,$2,$5}')
 screens=$(screen -ls | grep Detached | awk '{print "/ " $1 }')
 
 server_status="$(
-  echo "$mem, $disk" 
+  echo "Memory: $mem, Disk: $disk" 
   echo "$screens"
 )"
 
-post_status $server_status
+post_status "${server_status@Q}"
