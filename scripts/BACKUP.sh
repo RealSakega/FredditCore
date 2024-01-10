@@ -40,9 +40,6 @@ backup_output_file="$target_dir/$zipname"
 
 screen -r $SCREEN_SESSION -X stuff "save-off^M"
 post_status "Creating backup $zipname"
-if [ $SILENT ]; then
-    # screen -r minecraft-server-${server_name} -X stuff "discord bcast Reality backup in process. ^M"
-fi
 
 num_files=$(echo "$backup_list" | wc -l)
 
@@ -69,8 +66,5 @@ screen -r $SCREEN_SESSION -X stuff "save-on^M"
 screen -r $SCREEN_SESSION -X stuff "save-all^M"
 
 post_status "Backup complete."
-if [ $SILENT ]; then
-    # screen -r minecraft-server-${server_name} -X stuff "discord bcast Reality backup complete.^M"
-fi
 
 exit 0
