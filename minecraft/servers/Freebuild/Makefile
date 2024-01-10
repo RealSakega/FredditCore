@@ -44,7 +44,7 @@ backup: # Perform a backup of the Minecraft server based on backuplist.txt. Opti
 		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name} ${SILENT}
 
 .PHONY: start
-start: # Start the Minecraft server
+start: # Start the Minecraft server. Make sure the server jar file is named "paper.jar".
 	screen -S ${screen_name} -d -m \
 		java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
 		@echo "Starting ${server_name}"
