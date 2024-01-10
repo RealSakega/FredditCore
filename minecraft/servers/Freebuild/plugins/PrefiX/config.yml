@@ -27,7 +27,7 @@ prefix:
   # Blacklist is NOT Case Sensitive
   # Can be left blank ( "[]" )
   blacklist:
-  - fuck
+  - []
   bracket:
     enable: false
     change-color: ''
@@ -47,9 +47,7 @@ general:
   - \p{Punct}
   - ' '
   blacklist:
-  - fuck
-  - admin
-  - owner
+  - []
   language: en_US
   keep-context: false
 templates:

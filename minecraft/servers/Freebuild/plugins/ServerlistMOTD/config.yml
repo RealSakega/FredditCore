@@ -607,7 +607,7 @@ RandomMotd:
   Newbies:
     - 'Stop right there. Turn back.'
 BanMotd:
-  Enable: false
+  Enable: true
   MessageTempBan: '&cYou are banned! Reason: &e%reason%%line%&cExpiration: &e%expdate% at %exptime%'
   MessageForeverBan: '&cYou are banned! Reason: &e%reason%%line%&cExpiration: &eNEVER'
   Format:
