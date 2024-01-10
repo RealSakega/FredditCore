@@ -24,4 +24,5 @@ server_status="$(
   echo '> **Active screens:** `'$screens'`'
 )"
 
+echo "mem: ${mem}, disk: ${disk}, screens: ${screens}"
 post_status "${server_status@Q}"
