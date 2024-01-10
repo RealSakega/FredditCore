@@ -92,3 +92,4 @@ save-on: # Enable automatic world saving (requires server to be online)
 purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires server to be online)
 	screen -r ${screen_name} -X stuff \
 		"co purge t:60d^M"
+		
