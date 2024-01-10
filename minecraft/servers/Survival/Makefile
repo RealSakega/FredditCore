@@ -1,3 +1,4 @@
+include ../../../Makefile-help
 include ../shared/Makefile
 include ../../../.config/.env-minecraft
 export
