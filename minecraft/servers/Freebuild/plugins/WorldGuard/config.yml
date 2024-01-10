@@ -36,7 +36,7 @@ host-keys: {}
 summary-on-start: true
 op-permissions: true
 build-permission-nodes:
-    enable: false
+    enable: true
     deny-message: '&eSorry, but you are not permitted to do that here.'
 event-handling:
     block-entity-spawns-with-untraceable-cause: false
