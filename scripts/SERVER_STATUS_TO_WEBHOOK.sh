@@ -11,7 +11,7 @@ fi
 # same as BACKUP.sh
 post_status () {
   msg=$(echo $1 | sed -r 's/^.{2}//' | sed 's/.$//')
-  curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$msg\"}" "$BACKUP_LOGS_CHANNEL_WEBHOOK"
+  curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"$msg\"}" "$DEDI_LOGS_CHANNEL_WEBHOOK"
 }
 
 # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load

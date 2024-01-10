@@ -27,8 +27,8 @@ cd "$(dirname "$0")/.."
 zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
 post_status () {
-    if [ -v BACKUP_LOGS_CHANNEL_WEBHOOK ]; then
-        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"**[$SCREEN_SESSION]** $1\"}" $BACKUP_LOGS_CHANNEL_WEBHOOK
+    if [ -v DEDI_LOGS_CHANNEL_WEBHOOK ]; then
+        curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"**[$SCREEN_SESSION]** $1\"}" $DEDI_LOGS_CHANNEL_WEBHOOK
     else
         echo "$1"
     fi
