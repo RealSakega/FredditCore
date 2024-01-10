@@ -5,11 +5,14 @@ export
 server_name = Survival
 screen_name = minecraft-server-${server_name}
 
-mem_min = ${SURVIVAL_MEMORY_MIN}
-mem_max = ${SURVIVAL_MEMORY_MAX}
-discordsrv_token 	= ${DISCORDSRV_SURVIVAL_TOKEN}
-discordsrv_channel 	= ${DISCORDSRV_SURVIVAL_CHANNEL}
-discordsrv_console 	= ${DISCORDSRV_SURVIVAL_CONSOLE_CHANNEL}
+include ../../../.config/.env-minecraft-${server_name}
+export
+
+mem_min = ${MEMORY_MIN}
+mem_max = ${MEMORY_MAX}
+discordsrv_token 	= ${DISCORDSRV_TOKEN}
+discordsrv_channel 	= ${DISCORDSRV_CHANNEL}
+discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 .PHONY: copy-shared-paper-jar

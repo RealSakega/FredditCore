@@ -5,11 +5,14 @@ export
 server_name = Freebuild
 screen_name = minecraft-server-${server_name}
 
-mem_min = ${FREEBUILD_MEMORY_MIN}
-mem_max = ${FREEBUILD_MEMORY_MAX}
-discordsrv_token 	= ${DISCORDSRV_FREEBUILD_TOKEN}
-discordsrv_channel 	= ${DISCORDSRV_FREEBUILD_CHANNEL}
-discordsrv_console 	= ${DISCORDSRV_FREEBUILD_CONSOLE_CHANNEL}
+include ../../../.config/.env-minecraft-${server_name}
+export
+
+mem_min = ${MEMORY_MIN}
+mem_max = ${MEMORY_MAX}
+discordsrv_token 	= ${DISCORDSRV_TOKEN}
+discordsrv_channel 	= ${DISCORDSRV_CHANNEL}
+discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 .PHONY: copy-shared-paper-jar
