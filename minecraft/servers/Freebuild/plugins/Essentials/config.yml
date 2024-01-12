@@ -242,7 +242,6 @@ mute-commands:
 #
 # To enable this feature, please set use-bukkit-permissions to false.
 player-commands:
-  - []
 
 # Use this option to force superperms-based permissions handler regardless of detected installed perms plugin.
 # This is useful if you want superperms-based permissions (with wildcards) for custom permissions plugins.
@@ -374,7 +373,7 @@ remove-god-on-disconnect: false
 # After this timeout in seconds, the user will be set as AFK.
 # This feature requires the player to have essentials.afk.auto node.
 # Set to -1 for no timeout.
-auto-afk: 300
+auto-afk: 180
 
 # Auto-AFK Kick
 # After this timeout in seconds, the user will be kicked from the server.
@@ -673,8 +672,6 @@ world-home-permissions: false
 # For more information, visit http://wiki.ess3.net/wiki/Multihome
 sethome-multiple:
   default: 1000
-  vip: 1000
-  staff: 1000
 
 # In this example someone with 'essentials.sethome.multiple' and 'essentials.sethome.multiple.vip' will have 5 homes.
 # Remember, they MUST have both permission nodes in order to be able to set multiple homes.
