@@ -7,7 +7,7 @@ header-footer:
   - ''
   footer:
   - ''
-  - 'Dynmap: map.freddit.net'
+  - '&lMap: &e&omap.freddit.net'
   - 'Server TPS: &e%tps%'
   - <#FFFF00>&m                                        </#FF8722>
   disable-condition: '%world%=disabledworld'
