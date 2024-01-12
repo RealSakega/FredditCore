@@ -243,64 +243,7 @@ mute-commands:
 #
 # To enable this feature, please set use-bukkit-permissions to false.
 player-commands:
-  - afk
-  - afk.auto
-  - back
-  - back.ondeath
-  - balance
-  - balance.others
-  - balancetop
-  - chat.color
-  - chat.format
-  - chat.shout
-  - chat.question
-  - help
-  - ignore
-  - info
-  - itemdb
-  - list
-  - msg
-  - msg.color
-  - nick
-  - nick.color
-  - ping
-  - rules
-  - seen
-  - signs.break.protection
-  - signs.break.trade
-  - signs.use.balance
-  - signs.use.buy
-  - signs.use.disposal
-  - signs.use.enchant
-  - signs.use.free
-  - signs.use.gamemode
-  - signs.use.heal
-  - signs.use.info
-  - signs.use.kit
-  - signs.use.mail
-  - signs.use.protection
-  - signs.use.repair
-  - signs.use.sell
-  - signs.use.time
-  - signs.use.trade
-  - signs.use.warp
-  - signs.use.weather
-  - spawn
-  - suicide
-  - time
-  - tpa
-  - tpaccept
-  - tpahere
-  - tpdeny
-  - warp
-  - warp.list
-  - worth
-  - xmpp
-  - home
-  - sethome
-  - sethome.multiple
-  - delhome
-  - remhome
+  - []
 
 # Use this option to force superperms-based permissions handler regardless of detected installed perms plugin.
 # This is useful if you want superperms-based permissions (with wildcards) for custom permissions plugins.
