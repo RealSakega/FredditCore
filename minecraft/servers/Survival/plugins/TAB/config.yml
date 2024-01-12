@@ -8,7 +8,7 @@ header-footer:
   footer:
   - ''
   - '&lMap: &e&osurvivalmap.freddit.net'
-  - 'Server TPS: &e%tps%'
+  - '&fServer TPS: &e%tps%'
   - <#FF2556>&m                                        </#660000>
   disable-condition: '%world%=disabledworld'
   per-world:
