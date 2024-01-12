@@ -1,0 +1,850 @@
+#########################
+#####   ChestSort   #####
+#########################
+#
+#   www.jeff-media.de
+#
+
+#
+# This config file will be updated automatically with every new release of ChestSort.
+# Don't worry! Your changes will be kept after every update.
+#
+
+###############################
+#######    Commands     #######
+###############################
+
+# /sort (or /chestsort)   Shows the player settings GUI
+# /sort on                Enable automatic sorting for containers
+# /sort off               Disable automatic sorting for containers
+# /sort hotkeys           Open a GUI to change the sorting hotkeys
+# /sort help              Display help about the /sort (or /chestsort) command
+# /sort reload            Reloads the config file
+# /sort resetplayersettings   Resets every player's sorting settings. You should consider
+#                             running this after changing the default hotkey settings.
+
+# /isort (or /invsort)    Sort the player's inventory
+# /isort hotbar           Sort the player's hotbar
+# /isort all              Sort the player's inventory and hotbar
+# /isort toggle           Toggle automatic sorting for the player's inventory
+# /isort on               Enable automatic sorting for the player's inventory
+# /isort off              Disable automatic sorting for the player's inventory
+# /isort help             Display help about the /isort (or /invsort) command
+
+
+###############################
+#######   Permissions   #######
+###############################
+
+# chestsort.use              Allows to sort containers using automatic sorting (/sort) or via hotkeys.
+# chestsort.use.inventory    Allows to sort the player's inventory using automatic sorting (/isort) or via hotkeys
+# chestsort.reload           Allows to reload the config using /sort reload
+# chestsort.automatic        Allows to use automatic inventory sorting. Given to all players by default. Players
+#                            still need to have the chestsort.use or chestsort.use.inventory permission.
+# chestsort.hotkey.<hotkey>  Allows to use a specific hotkey. Given to all players by default. Players still need
+#                            to have the chestsort.use or chestsort.use.inventory permission.
+#                            Available hotkeys are: shiftclick, middleclick, doubleclick, shiftrightclick,
+#                                                   leftclick, rightlick, outside
+
+
+###############################
+#######  Placeholders   #######
+###############################
+
+# When using PlaceholderAPI, you can use the following placeholders:
+
+# %chestsort_sortingenabled%    - true if this player has automatic sorting enabled for containers
+# %chestsort_invsortingenabled% - true if this player has automatic sorting enabled for the player's inventory
+
+
+############################
+##### Default settings #####
+############################
+
+# If you don't want to use a permission plugin, you can set
+# this to false to allow every player to use ChestSort.
+# If you use a permissions plugin, set this to true.
+# There are two permissions used by ChestSort:
+# - chestsort.use (allow chest sorting by hotkeys and via /chestsort)
+# - chestsort.use.inventory (allow inventory sorting by hotkeys and via /invsort)
+use-permissions: false
+
+# when set to false, no player is allowed to enable automatic chest sorting
+# hotkeys will still work if enabled
+allow-automatic-sorting: true
+
+# when set to false, no player is allowed to enable automatic inventory sorting
+# hotkeys will still work if enabled
+allow-automatic-inventory-sorting: true
+
+# when set to false, new players will have to run /chestsort
+# once to enable automatic chest sorting.
+sorting-enabled-by-default: false
+
+# when set to false, new players will have to run /invsort on
+# once to enable automatic inventory sorting.
+inv-sorting-enabled-by-default: false
+
+# You can prevent players from using the /chestsort and /invsort commands by setting
+# this to false.
+allow-commands: true
+
+# You can prevent players from using the GUI. When set to "false", /sort behaves like /sort toggle
+allow-gui: true
+
+# when set to true, players with sorting DISABLED will be
+# shown a message on how to enable automatic chest sorting
+# when they use a chest for the first time.
+# consider setting this to true when you disable sorting by default.
+# see also -> message-when-using-chest
+show-message-when-using-chest: true
+
+# when set to true, players with sorting ENABLED will be
+# shown a message on how to disable automatic chest sorting
+# when they use a chest for the first time.
+# consider setting this to true when you enable sorting by default.
+# see also -> message-when-using-chest2
+show-message-when-using-chest-and-sorting-is-enabled: false
+
+# when set to true, the messages are shown again when a player
+# logs out and back in and then uses a chest again.
+show-message-again-after-logout: true
+
+# to sort by category, we need category files. ChestSort comes
+# with a number of pregenerated category files, named
+# 900-valuables.txt, 910-tools.txt, 920-combat.txt, ...
+# If you wish to edit those, you can disable the generation of these
+# files, because otherwise all your changes in the pregenerated
+# files will be overwritten on each server startup.
+# However, a much smarter option is to copy the default files
+# and rename them to from 900... to 800... and edit those instead.
+auto-generate-category-files: true
+
+# you can choose when ChestSort should sort chests.
+# The default option is to sort when an inventory is closed.
+# This is useful, because the onInventoryClose event never gets fired
+# when access to the chest is forbidden by another plugin, e.g. WorldGuard
+# You can also sort whenenver a chest is opened. ChestSort will then check
+# if the onInventoryOpenEvent gets cancelled. If it does get cancelled,
+# ChestSort will not sort the chest. However, if a plugin uses the
+# MONITOR event priority, ChestSort cannot detect this.
+# If you have problems with unaccessible chests being sorted, set this
+# option to "close". If you want, you can sort twice, however this is not
+# very useful.
+# If you don't know what to put here, just use the default "close"
+# Available options: open, close, both
+sort-time: close
+
+# when set to true, show some verbose information on startup
+verbose: true
+
+###########################
+##### Default Hotkeys #####
+###########################
+
+# Instead of automatic sorting, you can also use hotkeys (see below)
+# when using an inventory to have it sorted immediately.
+# You can disable this by setting this to false.
+allow-sorting-hotkeys: true
+
+# You can define which sorting hotkeys are enabled by default.
+# Players can also enable/disable these shortcuts individually via /chestsort hotkeys
+# Hotkeys that could interfere with Minecraft's normal behaviour (e.g.
+# shift+left-click) only work on empty slots, so don't worry about them.
+#
+# IMPORTANT! I get this question asked every day on my Discord, so please read:
+# SETTING A HOTKEY TO FALSE WILL NOT(!) DISABLE IT!
+# This are only the default values used for NEW players.
+# Every player can disable/enable the hotkeys individually using
+# /chestsort hotkeys
+#
+sorting-hotkeys:
+  # Use middle click (mousewheel) on ANY inventory slot as hotkey. Permission: chestsort.hotkey.middleclick
+  middle-click: true 
+  # Use shift + left-click on any EMPTY inventory slot as hotkey. Permission: chestsort.hotkey.shiftclick
+  shift-click: true
+  # Use double left-click on any EMPTY inventory slot as hotkey. Permission: chestsort.hotkey.doubleclick
+  double-click: true 
+  # Use shift + right-click on any EMPTY inventory slot as hotkey. Permission: chestsort.hotkey.shiftrightclick
+  shift-right-click: true
+
+# Amount in seconds that players have to wait between using hotkeys to prevent them from spamming the
+# sorting mechanism
+hotkey-cooldown: 0.2
+
+# When enabled, players can leftclick on chests, barrels etc.
+# to sort them without having to open them.
+# Permission: chestsort.hotkey.outside
+allow-left-click-to-sort: true
+
+# When set to true, sorting a chest by left-clicking it is enabled by default
+left-click-to-sort-enabled-by-default: false
+
+# Additionally to sorting hotkeys, you can quickly unload your inventory into a chest and vice versa
+# using left-click or right-click outside of a chest's inventory.
+# A single click will only affect matching items (items that are already present in the other inventory)
+# and a double click will try to store/take all items.
+allow-additional-hotkeys: true
+
+# You can define which additional hotkeys are enabled by default.
+# Players can also enable/disable these shortcuts individually via /chestsort hotkeys
+additional-hotkeys:
+  # Use left-click outside inventory to quickly put matching items from your inventory (except hotbar)
+  # into the chest. Use left-double-click to put everything except your hotbar into the chest.
+  # Permission: chestsort.hotkey.leftclick
+  left-click: false
+  # Use right-click outside inventory to quickly take all matching items from the chest into your
+  # inventory. Use right-double-click to take all items out of the chest.
+  # Permission: chestsort.hotkey.leftclick
+  right-click: false
+
+##########################
+##### Update Checker #####
+##########################
+
+# Checks for updates (asynchronously).
+# When enabled, a message is printed in the console if a new
+# version has been found, and OPs will be notified when they join the server 
+# When set to true, check for updates on startup and every X hours (see "check-interval" below)
+# When set to on-startup, only check on server startup
+# When set to false, don't check for updates
+check-for-updates: true
+
+# When you set "check-for-updates" to true, you can define the amount
+# of hours inbetween each update check.
+check-interval: 4
+
+#########################
+#### Disabled Worlds ####
+#########################
+
+# You can disable automatic chest sorting for certain worlds. Each world's name has to
+# be on a separate line, starting with a hyphen and followed by a space.
+# You can also use the YAML array notation: [world1, world2, world3]
+
+# Example:
+#
+# disabled-worlds:
+# - world_nether
+# - world_the_end
+
+disabled-worlds:
+
+##########################
+#####  Plugin hooks  #####
+##########################
+
+# ChestSort can hook into other plugins to allow better sorting
+# for items belonging to 3rd party plugins.
+# You do NOT have to disable the hooks for plugins you don't have
+# installed. ChestSort will automatically check if the plugins
+# are installed.
+
+##### CrackShot ##### -> https://www.spigotmc.org/resources/crackshot-guns.48301/
+# When CrackShot is installed, all CrackShot weapons will be
+# grouped together and sorted by their name
+hook-crackshot: true
+
+# You can define a custom name that will be used as prefix
+# for all CrackShot weapon names.
+# E.g. when you set this to "crackshot_weapon", an AK-47
+# will be called "crackshot_weapon_AK-47"
+hook-crackshot-prefix: "crackshot_weapon"
+
+##### InventoryPages ##### -> https://www.spigotmc.org/resources/inventorypages.32432/
+# When InventoryPages is installed, ChestSort will not sort
+# the "Next Page" and "Prev Page" buttons. You should not
+# disable this behaviour unless you know what you are doing!
+hook-inventorypages: true
+
+##### Minepacks ##### -> https://www.spigotmc.org/resources/minepacks-backpack-plugin-mc-1-7-1-15.19286/
+# When Minepacks version 2.3.8+ is installed, ChestSort can detect your
+# backpacks and sort them like a regular chest.
+hook-minepacks: true
+
+##### PlayerVaults and similar plugins #####
+# When PlayerVaults or similar plugins are installed, ChestSort can sort your
+# player vaults just like regular chests.
+hook-playervaults: true
+
+##### EnderContainers ##### -> https://www.spigotmc.org/resources/endercontainers.4750/
+# When EnderContainers version 2.2.1+ is installed, ChestSort can detect your
+# enderchests and sort them like regular chests.
+hook-endercontainers: true
+
+##### CrateReloaded #####
+# Prevents the player from using hotkeys on a crate
+hook-cratereloaded: true
+
+##### GoldenCrates #####
+# Prevents the player from using hotkeys on a crate
+hook-goldencrates: true
+
+##### HeadDatabase #####
+# Prevents the player from using hotkeys on the HeadDatabase GUI
+hook-headdatabase: true
+
+##### Slimefun #####
+# Some versions of Slimefun fail to prevent putting the backpack into itself
+# when you do so immediately after ChestSort moved a backpack. You can
+# prevent ChestSort from moving Slimefun backpacks until they fixed this.
+dont-move-slimefun-backpacks: false
+
+##### AdvancedChests #####
+# When AdvancedChests is installed, ChestSort will not sort
+# the buttons from the bottom row. You should not
+# disable this behaviour unless you know what you are doing!
+hook-advancedchests: true
+
+##### Other backpack plugins #####
+# ChestSort is able to detect backpacks from most backpack
+# plugins like ShulkerPacks or Better Shulker Boxes.
+# This detection is always enabled, you cannot turn it off.
+
+##### Other GUI plugins #####
+# ChestSort tries to detect if an inventory belongs to a
+# 3rd party plugin's GUI and then prevents it from being sorted.
+# If you encounter any problems, like a sortable GUI inventory,
+# please open a new issue at Github:
+# https://github.com/JEFF-Media-GbR/Spigot-ChestSort/issues
+hook-generic: true
+
+##### Plugins not using an InventoryHolder #####
+# When you have a plugin that uses "null" as InventoryHolder for their
+# GUIs, you can prevent those from being sorted. Please note that this
+# will also disable sorting for certain other inventories, so only use
+# it if it's the only possibility.
+prevent-sorting-null-inventories: false
+
+##### Protection Plugins #####
+# ChestSort checks whether a player is allowed to interact with a block
+# before attempting to sort a container when using the "outside"/"left-click-block"
+# hotkey. This can result in messages from WorldGuard, CoreProtect, etc. being
+# send to the player. To avoid this, set the following setting to true.
+# This can however lead to some warnings from other plugins that do not
+# properly check a Players' class before casting it to "CraftPlayer".
+# Although this should NOT cause ANY problems, it's disabled by default.
+mute-protection-plugins: false
+
+##########################
+##### Sorting Method #####
+##########################
+
+# Advanced: how to sort things! See below for examples.
+# Only change this if you know what you are doing.
+#
+# Available variables:
+# {category}          order stuff by category as defined in plugins/ChestSort/categories/<category>.txt
+# {keepCategoryOrder} orders stuff in the same category according to their line numbers in the category file
+# {itemsFirst}        put items before blocks
+# {blocksFirst}       put blocks before items
+# {tier}              orders by material type from best to worst (netherite, diamond, gold, iron, stone, wood, then all remaining items)
+# {name}              returns the name (e.g. DIRT, GRASS_BLOCK, BIRCH_LOG, DIAMOND_SWORD, ...)
+# {color}             returns the color, e.g. light_blue for wool. Empty if block/item is not dyeable
+# {customName}        returns the display name if set (e.g. with an anvil)
+# {lore}              returns the lore if set
+#
+# Warning: You must not use spaces and fields have to be separated by commas.
+#
+# Examples:
+#   sort by name and color:
+#     '{name},{color}'
+#
+#   sort by name and color, but put items before blocks:
+#     '{itemsFirst},{name},{color}'
+#
+#   sort by name and color, but put blocks before items:
+#     '{blocksFirst},{name},{color}'
+#
+#   sort by category, then put items before blocks and sort by name and color
+#      '{category},{itemsFirst},{name},{color}'
+#
+#   sort by category, but keep exactly the same order as defined in each category file, then sort any undefined items by name and color
+#      '{category},{keepCategoryOrder},{name},{color}
+#
+sorting-method: '{category},{itemsFirst},{name},{color},{customName}'
+
+#########################
+##### Localization ######
+#########################
+
+# Available color codes:
+# &0 Black        &6 Gold       &c Red
+# &1 Dark Blue    &7 Gray       &d Light Purple
+# &2 Dark Green   &8 Dark Gray  &e Yellow
+# &3 Dark Aqua    &9 Blue       &f White
+# &4 Dark Red     &a Green
+# &5 Dark Purple  &b Aqua
+
+# Available formatting codes:
+# &k Obfuscated   &m Strikethrough
+# &l Bold         &o Italic
+# &n Underline    &r Reset
+
+# IMPORTANT NOTE:
+# Some messages contain placeholders (%s). You must not remove those, or you will get exceptions in the console
+
+##### You can edit these messages yourself or uncomment the existing translations (see below)
+message-when-using-chest: "&7Hint: Type &6/chestsort&7 to enable automatic chest sorting."
+message-when-using-chest2: "&7Hint: Type &6/chestsort&7 to disable automatic chest sorting."
+message-sorting-disabled: "&7Automatic chest sorting has been &cdisabled&7."
+message-sorting-enabled: "&7Automatic chest sorting has been &aenabled&7."
+message-inv-sorting-disabled: "&7Automatic inventory sorting has been &cdisabled&7."
+message-inv-sorting-enabled: "&7Automatic inventory sorting has been &aenabled&7."
+message-player-inventory-sorted: "&7Your inventory has been sorted."
+message-error-players-only: "&cError: This command can only be run by players."
+message-error-invalid-options: "&cError: Unknown option %s. Valid options are %s."
+message-container-sorted: "&aContainer sorted!"
+message-gui-enabled: "&aEnabled"
+message-gui-disabled: "&cDisabled"
+message-gui-middle-click: "Middle-Click"
+message-gui-shift-click: "Shift + Click"
+message-gui-double-click: "Double-Click"
+message-gui-shift-right-click: "Shift + Right-Click"
+message-gui-left-click: "Fill Chest (Left-Click/Double-Left-Click)"
+message-gui-right-click: "Empty Chest (Right-Click/Double-Right-Click)"
+message-gui-left-click-outside: "Left-Click from outside"
+
+##### English
+#message-when-using-chest: "&7Hint: Type &6/chestsort&7 to enable automatic chest sorting."
+#message-when-using-chest2: "&7Hint: Type &6/chestsort&7 to disable automatic chest sorting."
+#message-sorting-disabled: "&7Automatic chest sorting has been &cdisabled&7."
+#message-sorting-enabled: "&7Automatic chest sorting has been &aenabled&7."
+#message-inv-sorting-disabled: "&7Automatic inventory sorting has been &cdisabled&7."
+#message-inv-sorting-enabled: "&7Automatic inventory sorting has been &aenabled&7."
+#message-player-inventory-sorted: "&7Your inventory has been sorted."
+#message-error-players-only: "&cError: This command can only be run by players."
+#message-error-invalid-options: "&cError: Unknown option %s. Valid options are %s."
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aEnabled"
+#message-gui-disabled: "&cDisabled"
+#message-gui-middle-click: "Middle-Click"
+#message-gui-shift-click: "Shift + Click"
+#message-gui-double-click: "Double-Click"
+#message-gui-shift-right-click: "Shift + Right-Click"
+#message-gui-left-click: "Fill Chest (Left-Click/Double-Left-Click)"
+#message-gui-right-click: "Empty Chest (Right-Click/Double-Right-Click)"
+#message-gui-left-click-outside: "Left-Click from outside"
+
+##### Bulgarian
+#message-when-using-chest: "&7ÐŸÐ¾Ð´ÑÐºÐ°Ð·ÐºÐ°: ÐÐ°Ð¿Ð¸ÑˆÐµÑ‚Ðµ &6/chestsort&7, Ð·Ð° Ð´Ð° Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ñ‚Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° ÑÐ°Ð½Ð´ÑŠÑ†Ð¸."
+#message-when-using-chest2: "&7ÐŸÐ¾Ð´ÑÐºÐ°Ð·ÐºÐ°: ÐÐ°Ð¿Ð¸ÑˆÐµÑ‚Ðµ &6/chestsort&7, Ð·Ð° Ð´Ð° Ð´ÐµÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ñ‚Ðµ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° ÑÐ°Ð½Ð´ÑŠÑ†Ð¸."
+#message-sorting-disabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° ÑÐ°Ð½Ð´ÑŠÑ†Ð¸ Ð±ÐµÑˆÐµ &cÐ´ÐµÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾&7."
+#message-sorting-enabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° ÑÐ°Ð½Ð´ÑŠÑ†Ð¸ Ð±ÐµÑˆÐµ &aÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾&7."
+#message-inv-sorting-disabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€ Ð±ÐµÑˆÐµ &cÐ´ÐµÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾&7."
+#message-inv-sorting-enabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾Ñ‚Ð¾ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€ Ð±ÐµÑˆÐµ &aÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾&7."
+#message-player-inventory-sorted: "&7Ð’Ð°ÑˆÐ¸ÑÑ‚ Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€ Ð±ÐµÑˆÐµ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½."
+#message-error-players-only: "&cÐ“Ñ€ÐµÑˆÐºÐ°: Ð¢Ð°Ð·Ð¸ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° Ð¼Ð¾Ð¶Ðµ Ð´Ð° Ð±ÑŠÐ´Ðµ Ð¸Ð·Ð¿Ð¾Ð»Ð·Ð²Ð°Ð½Ð° ÑÐ°Ð¼Ð¾ Ð¾Ñ‚ Ð¸Ð³Ñ€Ð°Ñ‡Ð¸."
+#message-error-invalid-options: "&cÐ“Ñ€ÐµÑˆÐºÐ°: ÐÐµÐ¿Ð¾Ð·Ð½Ð°Ñ‚Ð° Ð¾Ð¿Ñ†Ð¸Ñ %s. Ð’Ð°Ð»Ð¸Ð´Ð½Ð¸Ñ‚Ðµ Ð¾Ð¿Ñ†Ð¸Ð¸ ÑÐ° %s."
+#message-container-sorted: "&aÐšÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€ÑŠÑ‚ Ð±ÐµÑˆÐµ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð°Ð½!"
+#message-gui-enabled: "&aÐÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾"
+#message-gui-disabled: "&cÐ”ÐµÐ°ÐºÑ‚Ð¸Ð²Ð¸Ñ€Ð°Ð½Ð¾"
+#message-gui-middle-click: "Ð¡Ñ€ÐµÐ´ÐµÐ½-ÐšÐ»Ð¸Ðº"
+#message-gui-shift-click: "Ð¨Ð¸Ñ„Ñ‚ + ÐšÐ»Ð¸Ðº"
+#message-gui-double-click: "Ð”Ð²Ð¾ÐµÐ½-ÐšÐ»Ð¸Ðº"
+#message-gui-shift-right-click: "Ð¨Ð¸Ñ„Ñ‚ + Ð”ÐµÑÐµÐ½-ÐšÐ»Ð¸Ðº"
+#message-gui-left-click: "Ð—Ð°Ð¿ÑŠÐ»Ð½Ð¸ Ð¡Ð°Ð½Ð´ÑŠÐº (Ð›ÑÐ²-ÐšÐ»Ð¸Ðº/Ð”Ð²Ð¾ÐµÐ½-Ð›ÑÐ²-ÐšÐ»Ð¸Ðº)"
+#message-gui-right-click: "Ð˜Ð·Ð¿Ñ€Ð°Ð·Ð½Ð¸ Ð¡Ð°Ð½Ð´ÑŠÐº (Ð”ÑÑÐµÐ½-ÐšÐ»Ð¸Ðº/Ð”Ð²Ð¾ÐµÐ½-Ð”ÑÑÐµÐ½-ÐšÐ»Ð¸Ðº)"
+#message-gui-left-click-outside: "Ð›ÑÐ²-ÐšÐ»Ð¸Ðº Ð¸Ð·Ð²ÑŠÐ½"
+
+##### Chinese (Simplified) ç®€ä½“ä¸­æ–‡ - Thanks to qsefthuopq, Aira-Sakuranomiya BackWheel and flandretw for translating!
+#message-when-using-chest: "&7æç¤º: è¾“å…¥ &6/chestsort&7 æ¥å¯ç”¨è‡ªåŠ¨æ•´ç†ç®±å­ã€‚"
+#message-when-using-chest2: "&7æç¤º: è¾“å…¥ &6/chestsort&7 æ¥å…³é—­è‡ªåŠ¨æ•´ç†ç®±å­ã€‚"
+#message-sorting-disabled: "&7è‡ªåŠ¨æ•´ç†ç®±å­å·² &cå…³é—­&7ã€‚"
+#message-sorting-enabled: "&7è‡ªåŠ¨æ•´ç†ç®±å­å·² &aå¯ç”¨&7ã€‚"
+#message-inv-sorting-disabled: "&7è‡ªåŠ¨æ•´ç†èƒŒåŒ…å·² &cå…³é—­&7ã€‚"
+#message-inv-sorting-enabled: "&7è‡ªåŠ¨æ•´ç†èƒŒåŒ…å·² &aå¼€å¯&7ã€‚"
+#message-player-inventory-sorted: "&7å·²æˆåŠŸæ•´ç†ä½ çš„èƒŒåŒ…ã€‚"
+#message-error-players-only: "&cé”™è¯¯: æŒ‡ä»¤åªèƒ½ç”±çŽ©å®¶è¿è¡Œã€‚"
+#message-error-invalid-options: "&cé”™è¯¯: æœªçŸ¥çš„é€‰é¡¹ %sï¼Œæœ‰æ•ˆçš„é€‰é¡¹ä¸º %sã€‚"
+#message-container-sorted: "&aå·²æˆåŠŸæ•´ç†ç®±å­ï¼"
+#message-gui-enabled: "&aå¼€å¯"
+#message-gui-disabled: "&cå…³é—­"
+#message-gui-middle-click: "ä¸­é”®"
+#message-gui-shift-click: "Shift + å·¦é”®"
+#message-gui-double-click: "åŒå‡»å·¦é”®"
+#message-gui-shift-right-click: "Shift + å³é”®"
+#message-gui-left-click: "å¡«å……ç®±å­ (å·¦é”®/åŒå‡»å·¦é”®)"
+#message-gui-right-click: "æ¸…ç©ºç®±å­ (å³é”®/åŒå‡»å³é”®)"
+#message-gui-left-click-outside: "å¯¹ç€ç®±å­ç‚¹å‡»å·¦é”®"
+
+##### Chinese (Traditional) ç¹é«”ä¸­æ–‡ - Thanks to flandretw for translating!
+#message-when-using-chest: "&7æç¤ºï¼šè¼¸å…¥ &6/chestsort&7 ä¾†å•Ÿç”¨è‡ªå‹•æ•´ç†å„²ç‰©ç®±ã€‚"
+#message-when-using-chest2: "&7æç¤ºï¼šè¼¸å…¥ &6/chestsort&7 ä¾†åœç”¨è‡ªå‹•æ•´ç†å„²ç‰©ç®±ã€‚"
+#message-sorting-disabled: "&cå·²åœç”¨ &7è‡ªå‹•æ•´ç†å„²ç‰©ç®±ã€‚"
+#message-sorting-enabled: "&aå·²å•Ÿç”¨ &7è‡ªå‹•æ•´ç†å„²ç‰©ç®±ã€‚"
+#message-inv-sorting-disabled: "&cå·²åœç”¨ &7è‡ªå‹•æ•´ç†ç‰©å“æ¬„ã€‚"
+#message-inv-sorting-enabled: "&aå·²å•Ÿç”¨ &7è‡ªå‹•æ•´ç†ç‰©å“æ¬„ã€‚"
+#message-player-inventory-sorted: "&7å·²æˆåŠŸæ•´ç†ä½ çš„ç‰©å“æ¬„ã€‚"
+#message-error-players-only: "&céŒ¯èª¤ï¼šæ­¤æŒ‡ä»¤åªèƒ½ç”±çŽ©å®¶åŸ·è¡Œã€‚"
+#message-error-invalid-options: "&céŒ¯èª¤ï¼šæœªçŸ¥çš„é¸é … %sï¼Œæœ‰æ•ˆçš„é¸é …ç‚º %sã€‚"
+#message-container-sorted: "&aå·²æˆåŠŸæ•´ç†å„²ç‰©ç®±ï¼"
+#message-gui-enabled: "&aå•Ÿç”¨"
+#message-gui-disabled: "&cåœç”¨"
+#message-gui-middle-click: "é»žæ“Šä¸­éµ"
+#message-gui-shift-click: "Shift + é»žæ“Šå·¦éµ"
+#message-gui-double-click: "é›™é‡é»žæ“Šå·¦éµ"
+#message-gui-shift-right-click: "Shift + é»žæ“Šå³éµ"
+#message-gui-left-click: "å¡«æ»¿å„²ç‰©ç®±ï¼ˆé»žæ“Šå·¦éµ/é›™é‡é»žæ“Šå·¦éµï¼‰"
+#message-gui-right-click: "æ¸…ç©ºå„²ç‰©ç®±ï¼ˆé»žæ“Šå³éµ/é›™é‡é»žæ“Šå³éµï¼‰"
+#message-gui-left-click-outside: "å°è‘—å„²ç‰©ç®±é»žæ“Šå·¦éµ"
+
+##### Dutch
+#message-when-using-chest: "&7Hint: Type &6/chestsort&7 om het automatisch sorteren van kisten in te schakelen."
+#message-when-using-chest2: "&7Hint: Type &6/chestsort&7 om het automatisch sorteren van kisten uit te schakelen."
+#message-sorting-disabled: "&7Automatisch sorteren van kisten is &cuitgeschakeld&7."
+#message-sorting-enabled: "&7Automatisch sorteren van kisten is &aingeschakeld&7."
+#message-inv-sorting-disabled: "&7Automatisch sorteren van inventaris is &cuitgeschakeld&7."
+#message-inv-sorting-enabled: "&7Automatisch sorteren van inventaris is &aingeschakeld&7."
+#message-player-inventory-sorted: "&7Je inventaris is gesorteerd."
+#message-error-players-only: "&cFout: Dit commando kan alleen door spelers worden gebruikt."
+#message-error-invalid-options: "&cFout: Onbekende optie %s. Geldige opties zijn %s."
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aUitgeschakeld"
+#message-gui-disabled: "&cIngeschakeld"
+#message-gui-middle-click: "Middel-Klik"
+#message-gui-shift-click: "Shift + Klik"
+#message-gui-double-click: "Dubbel-Klik"
+#message-gui-shift-right-click: "Shift + Rechter-Klik"
+#message-gui-left-click: "Vul Kist (Linker-Klik/Dubbele-Linker-Klik)"
+#message-gui-right-click: "Leeg Kist (Rechter-Klik/Dubbele-Rechter-Klik)"
+#message-gui-left-click-outside: "Linker-Klik vanaf buiten"
+
+##### French / FranÃ§ais - Thanks to automatizer, demon57730, FichdlMaa and Stalk3r77 for translating!
+# Note: The following messages have been changed in version 8.11 and need a new translation
+#message-when-using-chest: "&7Astuce : Tape &6/chestsort&7 pour activer le classement automatique."
+#message-when-using-chest2: "&7Astuce : Tape &6/chestsort&7 pour dÃ©sactiver le classement automatique."
+#message-sorting-disabled: "&7Le classement automatique a Ã©tÃ© &cdÃ©sactivÃ©&7."
+#message-sorting-enabled: "&7Le classement automatique a Ã©tÃ© &aactivÃ©&7."
+#message-inv-sorting-disabled: "&7Le classement automatique d'inventaire a Ã©tÃ© &cdÃ©sactivÃ©&7."
+#message-inv-sorting-enabled: "&7Le classement automatique d'inventaire a Ã©tÃ© &aactivÃ©&7."
+#message-player-inventory-sorted: "&7Ton inventaire a Ã©tÃ© triÃ©."
+#message-error-players-only: "&cErreur : Cette commande ne peut Ãªtre utilisÃ©e que par des joueurs."
+#message-error-invalid-options: "&cErreur : Option inconnue %s. Les options valides sont %s."
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aActivÃ©"
+#message-gui-disabled: "&cDÃ©sactivÃ©"
+#message-gui-middle-click: "Clic molette"
+#message-gui-shift-click: "Maj. + Clic"
+#message-gui-double-click: "Double-Clic"
+#message-gui-shift-right-click: "Shift + Clic droit"
+#message-gui-left-click: "Remplir le coffre (Clic-gauche)"
+#message-gui-right-click: "Vider le coffre (Clic-droit)"
+#message-gui-left-click-outside: "Left-Click from outside"
+
+##### German
+#message-when-using-chest: "&7Hinweis: Benutze &6/chestsort&7 um die automatische Kistensortierung zu aktivieren."
+#message-when-using-chest2: "&7Hinweis: Benutze &6/chestsort&7 um die automatische Kistensortierung zu deaktivieren."
+#message-sorting-disabled: "&7Automatische Kistensortierung &cdeaktiviert&7."
+#message-sorting-enabled: "&7Automatische Kistensortierung &aaktiviert&7."
+#message-inv-sorting-disabled: "&7Automatische Inventarsortierung &cdeaktiviert&7."
+#message-inv-sorting-enabled: "&7Automatische Inventarsortierung &aaktiviert&7."
+#message-player-inventory-sorted: "&7Dein Inventar wurde sortiert."
+#message-error-players-only: "&cFehler: Dieser Befehl ist nur fÃ¼r Spieler verfÃ¼gbar."
+#message-error-invalid-options: "&cFehler: Unbekannte Option %s. GÃ¼ltige Optionen sind %s."
+#message-container-sorted: "&aBehÃ¤lter sortiert!"
+#message-gui-enabled: "&aAktiviert"
+#message-gui-disabled: "&cDeaktiviert"
+#message-gui-middle-click: "Mittel-Klick"
+#message-gui-shift-click: "Shift + Klick"
+#message-gui-double-click: "Doppelklick"
+#message-gui-shift-right-click: "Shift + Rechtsklick"
+#message-gui-left-click: "Kiste fÃ¼llen (Linksklick/doppelter Linksklick)"
+#message-gui-right-click: "Kiste leeren (Rechtsklick/doppelter Rechtsklick)"
+#message-gui-left-click-outside: "Linksklick von auÃŸen"
+
+##### Hebrew / ×¢×‘×¨×™×ª
+#message-when-using-chest: "&7×¨×ž×–: &f×”×§×œ×™×“×• &e/chestsort&f ×‘×©×‘×™×œ ×œ×”×¤×¢×™×œ ×ž×™×•×Ÿ ×ª×™×‘×•×ª."
+#message-when-using-chest2: "&7×¨×ž×–: &f×”×§×œ×™×“×• &e/chestsort&7 ×‘×©×‘×™×œ ×œ×›×‘×•×ª ×ž×™×•×Ÿ ×ª×™×‘×•×ª."
+#message-sorting-disabled: "&f×ž×™×•×Ÿ ×ª×™×‘×•×ª &c×œ× ×¤×•×¢×œ&f."
+#message-sorting-enabled: "&f×ž×™×•×Ÿ ×ª×™×‘×•×ª &a×¤×•×¢×œ&f."
+#message-inv-sorting-disabled: "&f×ž×™×•×Ÿ ××™× ×‘× ×˜×•×¨×™ &c×œ× ×¤×•×¢×œ&f."
+#message-inv-sorting-enabled: "&f×ž×™×•×Ÿ ××™× ×‘× ×˜×•×¨×™ &a×¤×•×¢×œ&f."
+#message-player-inventory-sorted: "&f×”××™× ×‘× ×˜×•×¨×™ ×©×œ×š ×¡×•×“×¨."
+#message-error-players-only: "&c&l×©×’×™××”: ×”×¤×§×•×“×” ×”×–××ª ×”×™× ×œ×©×™×ž×•×© ×”×©×—×§× ×™× ×‘×œ×‘×“."
+#message-error-invalid-options: "&c&l×©×’×™××”: Unknown option %s. Valid options are %s."
+#message-container-sorted: "&a&l×¡×•×“×¨ ×ž×—×“×©!"
+#message-gui-enabled: "&a×¤×•×¢×œ&f"
+#message-gui-disabled: "&c×œ× ×¤×•×¢×œ"
+#message-gui-middle-click: "×œ×—×™×¦×” ×‘×¢×ž×¦×(×¢×›×‘×¨)"
+#message-gui-shift-click: "Shift + ×§×œ×™×“"
+#message-gui-double-click: "×œ×—×™×¦×” ×›×¤×•×œ×”"
+#message-gui-shift-right-click: "Shift + ×œ×—×™×¦×” ×™×ž× ×™×ª"
+#message-gui-left-click: "×œ×ž×œ× ×ª×™×‘×” (×œ×—×™×¦×” ×©×ž××œ×™×ª/×œ×—×™×¦×” ×©×ž××œ×™×ª ×›×¤×•×œ×”)"
+#message-gui-right-click: "×œ×¨×•×§×Ÿ ×ª×™×‘×” (×œ×—×™×¦×” ×™×ž× ×™×ª/×œ×—×™×¦×” ×™×ž× ×™×ª ×›×¤×•×œ×”)"
+#message-gui-left-click-outside: "×œ×—×™×¦×” ×©×ž××œ×™×ª ×ž×‘×—×•×¥"
+
+##### Hungarian
+#message-when-using-chest: "&7Automatikus lÃ¡da rendezÃ©s bekapcsolÃ¡s: &6/chestsort"
+#message-when-using-chest2: "&7Automatikus lÃ¡da rendezÃ©s bekapcsolÃ¡s: &6/chestsort"
+#message-sorting-disabled: "&7Automatikus lÃ¡da rendezÃ©s kikapcsolva."
+#message-sorting-enabled: "&7Automatikus lÃ¡da rendezÃ©s bekapcsolva."
+#message-inv-sorting-disabled: "&7Automatikus leltÃ¡r rendezÃ©s &ckikapcsolva&7."
+#message-inv-sorting-enabled: "&7Automatikus leltÃ¡r rendezÃ©s &cbekapcsolva&7."
+#message-error-players-only: "&cHiba: Ezt a parancsot csak jÃ¡tÃ©kos hasznÃ¡lhatja."
+#message-player-inventory-sorted: "&7A leltÃ¡rad rendezve lett."
+#message-error-invalid-options: "&cHiba: Ismeretlen opciÃ³ %s. Helyes opciÃ³ %s."
+#message-container-sorted: "&aLÃ¡da rendezve!"
+#message-gui-enabled: "&aEngedÃ©lyezve"
+#message-gui-disabled: "&cKikapcsolva"
+#message-gui-middle-click: "KÃ¶zÃ©psÅ‘ egÃ©rgomb"
+#message-gui-shift-click: "Shift + Klikk"
+#message-gui-double-click: "Dupla KattintÃ¡s"
+#message-gui-shift-right-click: "Shift + Jobb klikk"
+#message-gui-left-click: "LÃ¡da feltÃ¶ltÃ©s (Bal klikk)"
+#message-gui-right-click: "LÃ¡da Ã¼rÃ­tÃ©s (Jobb klikk)"
+#message-gui-left-click-outside: "Bal klikk a lÃ¡dÃ¡n kÃ­vÃ¼l"
+
+##### Italian / Italiano
+#message-when-using-chest: "&7Nota: inserire &6/chestsort&7 per abilitare l'ordinamento automatico dei bauli."
+#message-when-using-chest2: "&7Nota: inserire &6/chestsort&7 per disabilitare l'ordinamento automatico dei bauli."
+#message-sorting-disabled: "&7L'ordinamento automatico dei bauli Ã¨ stato &cdisattivato&7."
+#message-sorting-enabled: "&7L'ordinamento automatico dei bauli Ã¨ stato &aattivato&7."
+#message-inv-sorting-disabled: "&7L'ordinamento automatico dell'inventario Ã¨ stato &cdisattivato&7."
+#message-inv-sorting-enabled: "&7L'ordinamento automatico dell'inventario Ã¨ stato &aattivato&7."
+#message-player-inventory-sorted: "&7Il tuo inventario Ã¨ stato ordinato."
+#message-error-players-only: "&cErrore: questo comando Ã¨ disponibile solo per i giocatori."
+#message-error-invalid-options: "&cErrore: Parametro sconosciuto %s. I parametri validi sono %s."
+#message-container-sorted: "&aContenitore ordinato!"
+#message-gui-enabled: "&aAttivato"
+#message-gui-disabled: "&cDisattivato"
+#message-gui-middle-click: "Click Centrale"
+#message-gui-shift-click: "Maiusc + Click"
+#message-gui-double-click: "Doppio Click"
+#message-gui-shift-right-click: "Maiusc + Click Destro"
+#message-gui-left-click: "Cassa Piena (Click Sinistro/Doppio Click Sinistro)"
+#message-gui-right-click: "Cassa Vuota (Click Destro/Doppio Click Destro)"
+#message-gui-left-click-outside: "Click Sinistro sull'esterno"
+
+##### Japanese - Thanks to Sefyy for translating!
+# Note: The following messages have been changed in version 8.11 and need a new translation:
+# - message-gui-left-click
+# - message-gui-right-click
+#message-when-using-chest: "&7ãƒ’ãƒ³ãƒˆ: &6/chestsort&7 ã¨å…¥åŠ›ã—ã¦è‡ªå‹•ãƒã‚§ã‚¹ãƒˆæ•´ç†ã‚’æœ‰åŠ¹ã«ã§ãã¾ã™ã€‚"
+#message-when-using-chest2: "&7ãƒ’ãƒ³ãƒˆ: &6/chestsort&7 ã¨å…¥åŠ›ã™ã‚‹ã¨è‡ªå‹•ãƒã‚§ã‚¹ãƒˆæ•´ç†ã‚’ç„¡åŠ¹ã«ã§ãã¾ã™ã€‚"
+#message-sorting-disabled: "&7è‡ªå‹•ãƒã‚§ã‚¹ãƒˆæ•´ç†ã¯ç¾åœ¨&cç„¡åŠ¹&7ã§ã™ã€‚"
+#message-sorting-enabled: "&7è‡ªå‹•ãƒã‚§ã‚¹ãƒˆæ•´ç†ã¯ç¾åœ¨&aæœ‰åŠ¹&7ã§ã™ã€‚"
+#message-inv-sorting-disabled: "&7è‡ªå‹•ã‚¤ãƒ³ãƒ™ãƒ³ãƒˆãƒªæ•´ç†ã¯ç¾åœ¨&cç„¡åŠ¹&7ã§ã™ã€‚"
+#message-inv-sorting-enabled: "&7è‡ªå‹•ã‚¤ãƒ³ãƒ™ãƒ³ãƒˆãƒªæ•´ç†ã¯ç¾åœ¨&aæœ‰åŠ¹&7ã§ã™ã€‚"
+#message-error-players-only: "&cã‚¨ãƒ©ãƒ¼: ã“ã®ã‚³ãƒžãƒ³ãƒ‰ã¯ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã¿å®Ÿè¡Œã§ãã¾ã™ã€‚"
+#message-player-inventory-sorted: "&7ã‚ãªãŸã®ã‚¤ãƒ³ãƒ™ãƒ³ãƒˆãƒªã¯æ•´ç†ã•ã‚Œã¾ã—ãŸã€‚"
+#message-error-invalid-options: "&cã‚¨ãƒ©ãƒ¼: ä¸æ˜Žãªã‚ªãƒ—ã‚·ãƒ§ãƒ³ã§ã™%s æœ‰åŠ¹ãªã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯%s"
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aæœ‰åŠ¹"
+#message-gui-disabled: "&cç„¡åŠ¹"
+#message-gui-middle-click: "ãƒŸãƒ‰ãƒ«ã‚¯ãƒªãƒƒã‚¯"
+#message-gui-shift-click: "ã‚·ãƒ•ãƒˆ+å·¦ã‚¯ãƒªãƒƒã‚¯"
+#message-gui-double-click: "ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯"
+#message-gui-shift-right-click: "ã‚·ãƒ•ãƒˆ+å³ã‚¯ãƒªãƒƒã‚¯"
+#message-gui-left-click: "ãƒã‚§ã‚¹ãƒˆã‚’åŸ‹ã‚ã‚‹(å·¦ã‚¯ãƒªãƒƒã‚¯)"
+#message-gui-right-click: "ãƒã‚§ã‚¹ãƒˆã‚’ç©ºã‘ã‚‹(å³ã‚¯ãƒªãƒƒã‚¯)"
+#message-gui-left-click-outside: "Left-Click from outside"
+
+##### Korean (í•œêµ­ì–´) - Thanks to kf12 for translating!
+#message-when-using-chest: "&7ì •ë³´ : &6/chestsort&7 ëª…ë ¹ì–´ë¡œ ìžë™ ì°½ê³  ì •ë¦¬ë¥¼ í™œì„±í™” í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤."
+#message-when-using-chest2: "&7ì •ë³´ : &6/chestsort&7 ëª…ë ¹ì–´ë¡œ ìžë™ ì°½ê³  ì •ë¦¬ë¥¼ ë¹„í™œì„±í™” í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤."
+#message-sorting-disabled: "&7ìžë™ ì°½ê³  ì •ë¦¬ê°€ &cë¹„í™œì„±í™”&7 ë˜ì—ˆìŠµë‹ˆë‹¤."
+#message-sorting-enabled: "&7ìžë™ ì°½ê³  ì •ë¦¬ê°€ &aí™œì„±í™”&7 ë˜ì—ˆìŠµë‹ˆë‹¤."
+#message-inv-sorting-disabled: "&7ìžë™ ì¸ë²¤í† ë¦¬ ì •ë¦¬ê°€ &cë¹„í™œì„±í™” &7ë˜ì—ˆìŠµë‹ˆë‹¤."
+#message-inv-sorting-enabled: "&7ìžë™ ì¸ë²¤í† ë¦¬ ì •ë¦¬ê°€ &aí™œì„±í™” &7ë˜ì—ˆìŠµë‹ˆë‹¤."
+#message-player-inventory-sorted: "&7ì¸ë²¤í† ë¦¬ê°€ ì •ë¦¬ ë˜ì—ˆìŠµë‹ˆë‹¤."
+#message-error-players-only: "&cì—ëŸ¬ : ì´ ëª…ë ¹ì€ í”Œë ˆì´ì–´ë§Œ ì‹¤í–‰í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤."
+#message-error-invalid-options: "&cì—ëŸ¬ : ì•Œ ìˆ˜ ì—†ëŠ” ì˜µì…˜ %s. ì˜¬ë°”ë¥¸ ì˜µì…˜ì€ %s ìž…ë‹ˆë‹¤."
+#message-gui-enabled: "&aí™œì„±í™”"
+#message-gui-disabled: "&cë¹„í™œì„±í™”"
+#message-gui-middle-click: "íœ  í´ë¦­"
+#message-gui-shift-click: "ì‰¬í”„íŠ¸ + í´ë¦­"
+#message-gui-double-click: "ë”ë¸” í´ë¦­"
+#message-gui-shift-right-click: "ì‰¬í”„íŠ¸ + ìš°í´ë¦­"
+#message-gui-left-click: "ì°½ê³  ë‚´ìš©ë¬¼ ì±„ìš°ê¸° (ì¢Œí´ë¦­ / ì¢Œì¸¡ ë²„íŠ¼ ë”ë¸” í´ë¦­)"
+#message-gui-right-click: "ì°½ê³  ë‚´ìš©ë¬¼ ë¹„ìš°ê¸° (ìš°í´ë¦­ / ìš°ì¸¡ ë²„íŠ¼ ë”ë¸” í´ë¦­)"
+#message-gui-left-click-outside: "GUI ì™¸ë¶€ íŒŒíŠ¸ë¥¼ ì¢Œí´ë¦­ í•˜ê¸°"
+
+##### Polish - Thanks to PLKaratusPL for translating!
+#message-when-using-chest: "&7WskazÃ³wka: Wpisz &6/chestsort&7 by wÅ‚Ä…czyÄ‡ automatyczne sortowanie skrzyÅ„."
+#message-when-using-chest2: "&7WskazÃ³wka: Wpisz &6/chestsort&7 by wyÅ‚Ä…czyÄ‡ automatyczne sortowanie skrzyÅ„."
+#message-sorting-disabled: "&7Automatyczne sortowanie skrzyÅ„ zostaÅ‚o &cwyÅ‚Ä…czone&7."
+#message-sorting-enabled: "&7Automatyczne sortowanie skrzyÅ„ zostaÅ‚o &awÅ‚Ä…czone&7."
+#message-inv-sorting-disabled: "&7Automatyczne sortowanie ekwipunku zostaÅ‚o &cwyÅ‚Ä…czone&7."
+#message-inv-sorting-enabled: "&7Automatyczne sortowanie ekwipunku zostaÅ‚o &awÅ‚Ä…czone&7."
+#message-player-inventory-sorted: "&7TwÃ³j ekwipunek zostaÅ‚ posortowany."
+#message-error-players-only: "&cBÅ‚Ä…d: To polecenie moÅ¼e byÄ‡ uÅ¼ywane tylko przez graczy."
+#message-error-invalid-options: "&cBÅ‚Ä…d: Nieznana opcja %s. PrawidÅ‚owe opcje to %s."
+#message-container-sorted: "&aKontener posortowany!"
+#message-gui-enabled: "&aWÅ‚Ä…czone"
+#message-gui-disabled: "&cWyÅ‚Ä…czone"
+#message-gui-middle-click: "Åšrodkowy Przycisk Myszy"
+#message-gui-shift-click: "Shift + KlikniÄ™cie"
+#message-gui-double-click: "PodwÃ³jne KlikniÄ™cie"
+#message-gui-shift-right-click: "Shift + PPM"
+#message-gui-left-click: "WypeÅ‚nienie Skrzyni (LPM/PodwÃ³jny LPM)"
+#message-gui-right-click: "OprÃ³Å¼nienie Skrzyni (PPM/PodwÃ³jny PPM)"
+#message-gui-left-click-outside: "Kliknij LPM z zewnÄ…trz"
+
+##### Portuguese - Thanks to wildastral for translating!
+#message-when-using-chest: "&7Dica: Digite &6/chestsort&7 para habilitar a organizaÃ§Ã£o automÃ¡tica."
+#message-when-using-chest2: "&7Dica: Digite &6/chestsort&7 para desabilitar a organizaÃ§Ã£o automÃ¡tica."
+#message-sorting-disabled: "&7AOrganizaÃ§Ã£o automÃ¡tica de baÃºs foi &cdesabilitada&7."
+#message-sorting-enabled: "&7AOrganizaÃ§Ã£o automÃ¡tica de baÃºs foi &ahabilitada&7."
+#message-inv-sorting-disabled: "&7OrganizaÃ§Ã£o automÃ¡tica foi &cdesabilitada&7."
+#message-inv-sorting-enabled: "&7OrganizaÃ§Ã£o automÃ¡tica foi &adesabilitada&7."
+#message-player-inventory-sorted: "&7Seu inventÃ¡rio foi organizado."
+#message-error-players-only: "&cErro: Esse comando nÃ£o pode ser executado por jogadores."
+#message-error-invalid-options: "&cErro: OpÃ§Ã£o desconhecida %s. OpÃ§Ãµes validas sÃ£o %s."
+#message-container-sorted: "&aRecipiente organizado!"
+#message-gui-enabled: "&aHabilitado"
+#message-gui-disabled: "&cDesabilitado"
+#message-gui-middle-click: "Middle-Click"
+#message-gui-shift-click: "Shift + Click"
+#message-gui-double-click: "Double-Click"
+#message-gui-shift-right-click: "Shift + Right-Click"
+#message-gui-left-click: "Preencher baÃº (Left-Click/Double-Left-Click)"
+#message-gui-right-click: "Esvaziar baÃº (Right-Click/Double-Right-Click)"
+#message-gui-left-click-outside: "Left-Click por fora"
+
+##### Russian
+#message-when-using-chest: "&7ÐŸÐ¾Ð´ÑÐºÐ°Ð·ÐºÐ°: Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ &6/chestsort&7, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÑƒÑŽ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÑƒ Ð²ÐµÑ‰ÐµÐ¹ Ð² ÑÑƒÐ½Ð´ÑƒÐºÐ°Ñ…."
+#message-when-using-chest2: "&7ÐŸÐ¾Ð´ÑÐºÐ°Ð·ÐºÐ°: Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ &6/chestsort&7, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÑƒÑŽ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÑƒ Ð²ÐµÑ‰ÐµÐ¹ Ð² ÑÑƒÐ½Ð´ÑƒÐºÐ°Ñ…."
+#message-sorting-disabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð²ÐµÑ‰ÐµÐ¹ Ð² ÑÑƒÐ½Ð´ÑƒÐºÐ°Ñ… &cÐ¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°&7."
+#message-sorting-enabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð²ÐµÑ‰ÐµÐ¹ Ð² ÑÑƒÐ½Ð´ÑƒÐºÐ°Ñ… &aÐ²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°&7."
+#message-inv-sorting-disabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð²ÐµÑ‰ÐµÐ¹ Ð² Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€Ðµ &cÐ¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°&7."
+#message-inv-sorting-enabled: "&7ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð²ÐµÑ‰ÐµÐ¹ Ð² Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€Ðµ &aÐ²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°&7."
+#message-player-inventory-sorted: "&7Ð’Ð°Ñˆ Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€ÑŒ Ð±Ñ‹Ð» Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½."
+#message-error-players-only: "&cÐžÑˆÐ¸Ð±ÐºÐ°: ÑÑ‚Ð° ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð° Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¸Ð³Ñ€Ð¾ÐºÐ°Ð¼Ð¸."
+#message-error-invalid-options: "&cÐžÑˆÐ¸Ð±ÐºÐ°: ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€ %s. Ð”Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ðµ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñ‹: %s."
+#message-container-sorted: "&aÐ¥Ñ€Ð°Ð½Ð¸Ð»Ð¸Ñ‰Ðµ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¾!"
+#message-gui-enabled: "&aÐ’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾"
+#message-gui-disabled: "&cÐžÑ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾"
+#message-gui-middle-click: "ÐšÐ¾Ð»ÐµÑÐ¾ Ð¼Ñ‹ÑˆÐ¸"
+#message-gui-shift-click: "Shift + ÐšÐ»Ð¸Ðº"
+#message-gui-double-click: "Ð”Ð²Ð¾Ð¹Ð½Ð¾Ð¹ ÐºÐ»Ð¸Ðº"
+#message-gui-shift-right-click: "Shift + ÐŸÑ€Ð°Ð²Ñ‹Ð¹ ÐºÐ»Ð¸Ðº"
+#message-gui-left-click: "Ð’Ñ‹Ð»Ð¾Ð¶Ð¸Ñ‚ÑŒ Ð²ÐµÑ‰Ð¸ Ð² ÑÑƒÐ½Ð´ÑƒÐº (Ð›ÐšÐœ/Ð”Ð²Ð¾Ð¹Ð½Ð¾Ð¹ Ð›ÐšÐœ)"
+#message-gui-right-click: "Ð—Ð°Ð±Ñ€Ð°Ñ‚ÑŒ Ð²ÐµÑ‰Ð¸ Ð¸Ð· ÑÑƒÐ½Ð´ÑƒÐºÐ° (ÐŸÐšÐœ/Ð”Ð²Ð¾Ð¹Ð½Ð¾Ð¹ ÐŸÐšÐœ)"
+#message-gui-left-click-outside: "Ð›ÐµÐ²Ñ‹Ð¹ ÐºÐ»Ð¸Ðº Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ð¼Ð¸ Ð¸Ð½Ð²ÐµÐ½Ñ‚Ð°Ñ€Ñ"
+
+##### Spanish
+#message-when-using-chest: "&7Usa &6/chestsort &7para activar la ordenaciÃ³n automÃ¡tica de contenedores."
+#message-when-using-chest2: "&7Usa &6/chestsort &7para desactivar la ordenaciÃ³n automÃ¡tica de contenedores."
+#message-sorting-disabled: "&7Se ha &cdesactivado &7la ordenaciÃ³n automÃ¡tica de contenedores."
+#message-sorting-enabled: "&7Se ha &aactivado &7la ordenaciÃ³n automÃ¡tica de contenedores."
+#message-inv-sorting-disabled: "&7Se ha &cdesactivado &7la ordenaciÃ³n automÃ¡tica del inventario."
+#message-inv-sorting-enabled: "&7Se ha &aactivado &7la ordenaciÃ³n automÃ¡tica del inventario."
+#message-player-inventory-sorted: "&7Tu inventario ha sido ordenado."
+#message-error-players-only: "&cEste comando solo puede ser ejecutado por jugadores."
+#message-error-invalid-options: "&c%s no es una opciÃ³n vÃ¡lida. Las opciones vÃ¡lidas son: %s."
+#message-hotbar-container-sorted: "&aÂ¡Contenedor ordenado!"
+#message-gui-enabled: "&aActivado"
+#message-gui-disabled: "&cDesactivado"
+#message-gui-middle-click: "&7BotÃ³n Central"
+#message-gui-shift-click: "&7MayÃºs + BotÃ³n Izquierdo"
+#message-gui-double-click: "&7Doble PulsaciÃ³n con BotÃ³n Izquierdo"
+#message-gui-shift-right-click: "&7MayÃºs + BotÃ³n Derecho"
+#message-gui-left-click: "&7Llenar Cofre (Doble PulsaciÃ³n / BotÃ³n Izquierdo)"
+#message-gui-right-click: "&7Vaciar Cofre (Doble PulsaciÃ³n / BotÃ³n Derecho)"
+#message-gui-left-click-outside: "&7BotÃ³n Izquierdo en el exterior."
+
+##### Swedish
+#message-when-using-chest: "&7Tips: Skriv &6/chestsort&7 fÃ¶r att starta automatisk kist sortering."
+#message-when-using-chest2: "&7Tips: Skriv &6/chestsort&7 fÃ¶r att stÃ¤nga av automatisk kist sortering."
+#message-sorting-disabled: "&7Automatisk kist sortering har &cstÃ¤ngts av&7."
+#message-sorting-enabled: "&7Automatisk kist sortering har &astartatsd&7."
+#message-inv-sorting-disabled: "&7Automatisk inventarium sortering har &cstÃ¤ngts avd&7."
+#message-inv-sorting-enabled: "&7Automatisk inventarium sortering har &astartats&7."
+#message-player-inventory-sorted: "&7Ditt inventarium har blivit sorterad."
+#message-error-players-only: "&cFel: Detta kommando kan endast anvÃ¤ndas av spelare."
+#message-error-invalid-options: "&cFel: OkÃ¤nt alternativ %s. Giltiga alternativ Ã¤r %s."
+#message-container-sorted: "&aBehÃ¥llare sorterad!"
+#message-gui-enabled: "&aStartats"
+#message-gui-disabled: "&cStÃ¤ngts av"
+#message-gui-middle-click: "Mitten-Klick"
+#message-gui-shift-click: "Shift + Klick"
+#message-gui-double-click: "Dubbel-Klick"
+#message-gui-shift-right-click: "Shift + HÃ¶ger-Klick"
+#message-gui-left-click: "Fyll Kistan (VÃ¤nster-Klick/Dubbel-VÃ¤nster-Klick)"
+#message-gui-right-click: "TÃ¶m Kistan (hÃ¶ger-Klick/Dubbel-HÃ¶ger-Klick)"
+#message-gui-left-click-outside: "VÃ¤nster-Klick frÃ¥n utsidan"
+
+##### Turkish
+#message-when-using-chest: "&7Ä°pucu: &6/chestsort&7 yazarak otomatik sandÄ±k dÃ¼zenlemesini aktif edebilirsiniz"
+#message-when-using-chest2: "&7Ä°pucu: &6/chestsort&7 yazarak otomatik sandÄ±k dÃ¼zenlemesini deaktif edebilirsiniz."
+#message-sorting-disabled: "&7Otomatik sandÄ±k dÃ¼zenlemesi &cdeaktifleÅŸtirildi&7."
+#message-sorting-enabled: "&7Otomatik sandÄ±k dÃ¼zenlemesi &aaktifleÅŸtirildi&7."
+#message-inv-sorting-disabled: "&7Otomatik envanter dÃ¼zenlemesi &cdeaktifleÅŸtirildi&7."
+#message-inv-sorting-enabled: "&7Otomatik envanter dÃ¼zenlemesi &aaktifleÅŸtirildi&7."
+#message-player-inventory-sorted: "&7Envanteriniz DÃ¼zenlendi."
+#message-error-players-only: "&cHata: Bu komut yalnÄ±zca oyuncular tarafÄ±ndan kullanÄ±labilir."
+#message-error-invalid-options: "&cHata: Bilinmeyen Ayar %s. GeÃ§erli seÃ§enekler %s."
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aAktifleÅŸtirildi"
+#message-gui-disabled: "&cDeaktifleÅŸtirildi"
+#message-gui-middle-click: "Orta tÄ±k"
+#message-gui-shift-click: "Shift + Sol tÄ±k"
+#message-gui-double-click: "Ã‡ift sol tÄ±k"
+#message-gui-shift-right-click: "Shift + SaÄŸ tÄ±k"
+#message-gui-left-click: "SandÄ±ÄŸÄ± doldur (Sol tÄ±k/Ã‡ift sol tÄ±k)"
+#message-gui-right-click: "SandÄ±ÄŸÄ± boÅŸalt (SaÄŸ tÄ±k/Ã‡ift saÄŸ tÄ±k)"
+#message-gui-left-click-outside: "DÄ±ÅŸarÄ±dan sol tÄ±kla"
+
+##### Vietnamese
+#message-when-using-chest: "&7Gá»£i Ã½: Nháº­p &6/chestsort&7 Ä‘á»ƒ báº­t tá»± Ä‘á»™ng sáº¯p xáº¿p rÆ°Æ¡ng."
+#message-when-using-chest2: "&7Gá»£i Ã½: Nháº­p &6/chestsort&7 Ä‘á»ƒ táº¯t tá»± Ä‘á»™ng sáº¯p xáº¿p rÆ°Æ¡ng."
+#message-sorting-disabled: "&7Sáº¯p xáº¿p rÆ°Æ¡ng tá»± Ä‘á»™ng Ä‘Ã£ Ä‘Æ°á»£c &ctáº¯t&7."
+#message-sorting-enabled: "&7Sáº¯p xáº¿p rÆ°Æ¡ng tá»± Ä‘á»™ng Ä‘Ã£ Ä‘Æ°á»£c &abáº­t&7."
+#message-inv-sorting-disabled: "&7Sáº¯p xáº¿p tÃºi Ä‘á»“ tá»± Ä‘á»™ng Ä‘Ã£ Ä‘Æ°á»£c &ctáº¯t&7."
+#message-inv-sorting-enabled: "&7Sáº¯p xáº¿p tÃºi Ä‘á»“ tá»± Ä‘á»™ng Ä‘Ã£ Ä‘Æ°á»£c &abáº­t&7."
+#message-player-inventory-sorted: "&7TÃºi Ä‘á»“ cá»§a báº¡n Ä‘Ã£ Ä‘Æ°á»£c sáº¯p xáº¿p."
+#message-error-players-only: "&cLá»—i: Lá»‡nh nÃ y chá»‰ cÃ³ thá»ƒ thá»±c hiá»‡n bá»Ÿi ngÆ°á»i chÆ¡i."
+#message-error-invalid-options: "&cLá»—i: Lá»±a chá»n khÃ´ng há»£p lá»‡ %s. Lá»±a chá»n Ä‘Ãºng pháº£i lÃ  %s."
+#message-container-sorted: "&aContainer sorted!"
+#message-gui-enabled: "&aÄÃ£ báº­t"
+#message-gui-disabled: "&cÄÃ£ táº¯t"
+#message-gui-middle-click: "Chuá»™t giá»¯a"
+#message-gui-shift-click: "Shift + Chuá»™t trÃ¡i"
+#message-gui-double-click: "Nháº¥n Ä‘Ãºp"
+#message-gui-shift-right-click: "Shift + Chuá»™t pháº£i"
+#message-gui-left-click: "Láº¥p Ä‘áº§y rÆ°Æ¡ng (Chuá»™t trÃ¡i/nháº¥n Ä‘Ãºp chuá»™t trÃ¡i)"
+#message-gui-right-click: "Empty Chest (Chuá»™t pháº£i/nháº¥n Ä‘Ãºp chuá»™t pháº£i)"
+#message-gui-left-click-outside: "Nháº¥n chuá»™t trÃ¡i bÃªn ngoÃ i"
+
+##### Romanian
+#message-when-using-chest: "&7Sugestie: Foloseste &6/chestsort&7 pentru a activa sortarea automata a cufarului."
+#message-when-using-chest2: "&7Sugestie: Foloseste &6/chestsort&7 pentru a dezactiva sortarea automata a cufarului."
+#message-sorting-disabled: "&7Sortarea automata a fost &cdezactivata&7."
+#message-sorting-enabled: "&7Sortarea automata a fost &aactivata&7."
+#message-inv-sorting-disabled: "&7Sortarea automata a inventarului a fost &cdezactivata&7."
+#message-inv-sorting-enabled: "&7Sortarea automata a inventarului a fost &aactivata&7."
+#message-player-inventory-sorted: "&7Inventarul tau a fost sortat."
+#message-error-players-only: "&cEroare: Comanda aceasta poate fii folosita doar de catre jucatori."
+#message-error-invalid-options: "&cEroare: Optiune necunoscuta %s. Optiunile valide sunt %s."
+#message-container-sorted: "&aRecipient sortat!"
+#message-gui-enabled: "&aActivat"
+#message-gui-disabled: "&cDezactivat"
+#message-gui-middle-click: "Middle-Click"
+#message-gui-shift-click: "Shift + Click"
+#message-gui-double-click: "Double-Click"
+#message-gui-shift-right-click: "Shift + Right-Click"
+#message-gui-left-click: "Umple cufarul (Left-Click/Double-Left-Click)"
+#message-gui-right-click: "Goloseste cufarul (Right-Click/Double-Right-Click)"
+#message-gui-left-click-outside: "Left-Click din afara"
+
+############################
+##### Technical stuff! #####
+############################
+
+# If you want to reorganize your category files, you can temporarily enable
+# the dump option to get a .csv file that includes EVERY available material
+# with its associated category. This way, you can easily find items that
+# have not yet been assigned to a category.
+dump: false
+
+# Debug mode - you probably do not want this.
+debug: false
+debug2: false
+
+# Enable log - you probably do not want this.
+log: false
+
+# Do not change the following lines!
+config-version: 202312171215
+plugin-version: 13.6.6
