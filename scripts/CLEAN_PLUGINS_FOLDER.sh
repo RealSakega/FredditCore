@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# OBSOLETE
+
 cd "$(dirname "$0")"
 
 if [ $# -lt 1 ]; then
