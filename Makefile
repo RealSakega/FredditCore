@@ -3,7 +3,7 @@ export
 
 .PHONY: start-minecraft-backups
 start-minecraft-backups: # Backup all Minecraft servers
-	bash ./scripts/MAKE_BACKUPS.sh
+	bash ./scripts/MAKE_MINECRAFT_SERVERS.sh backup
 
 .PHONY: start-minecraft-servers
 start-minecraft-servers: # Start all Minecraft servers
