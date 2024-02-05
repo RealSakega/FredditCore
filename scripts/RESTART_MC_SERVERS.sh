@@ -10,7 +10,8 @@ minecraft_msg() {
     cd ../minecraft/servers
     for server in $(ls | grep -v shared); do
         cd $server
-        make command "say $1"
+        COMMAND="say $1"
+        make command 
         cd ..
     done
     cd "$(dirname "$0")"
