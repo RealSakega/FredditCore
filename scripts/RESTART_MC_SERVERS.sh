@@ -14,7 +14,7 @@ minecraft_msg() {
         make command 
         cd ..
     done
-    cd "$(dirname "$0")"
+    cd "../../scripts"
 }
 
 minecraft_msg "Server is restarting in 5 minutes."
