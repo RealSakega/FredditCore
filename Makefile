@@ -1,10 +1,6 @@
 include ./Makefile-help
 export
 
-.PHONY: restart-minecraft-servers
-restart-minecraft-servers: # Restart all Minecraft servers
-	screen -S restart-servers -d -m bash ./scripts/RESTART_MINECRAFT_SERVERS.sh
-	
 .PHONY: start-minecraft-backups
 start-minecraft-backups: # Backup all Minecraft servers
 	bash ./scripts/MAKE_MINECRAFT_SERVERS.sh backup
