@@ -13,3 +13,5 @@ sudo mkdir -p /opt/minecraft/tools/mcrcon
 sudo git clone https://github.com/Tiiffi/mcrcon /opt/minecraft/tools/mcrcon
 
 sudo crontab -u $(whoami) cron
+
+sudo cp assets/motd /etc/
