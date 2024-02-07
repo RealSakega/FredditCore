@@ -20,12 +20,12 @@ target_dir=$2
 SCREEN_SESSION=$(echo ${STY#*.} | cut -d. -f1 | cut -d- -f3)
 backup_list="$source_dir/backuplist.txt"
 
-cd $target_dir
-ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
-cd "$(dirname "$0")/.."
-
-zipname="$(date +"%Y-%m-%d_%H-%M").zip"
-
+save_off () {
+    COMMAND="save-off" make -C "$source_dir" command
+}
+save_on () {
+    COMMAND="save-on" make -C "$source_dir" command
+}
 post_status () {
     if [ -v DEDI_LOGS_CHANNEL_WEBHOOK ]; then
         curl -H "Content-Type: application/json" -X POST -d "{\"content\": \"**[$SCREEN_SESSION]** $1\"}" $DEDI_LOGS_CHANNEL_WEBHOOK
@@ -33,12 +33,24 @@ post_status () {
         echo "$1"
     fi
 }
+emergency_exit() {
+    post_status $1
+    save_on
+    exit 1
+}
+
+save_off 
+
+cd $target_dir
+ls -1t | tail -n +$NUMBER_OF_BACKUPS_TO_KEEP | xargs rm
+cd "$(dirname "$0")/.."
+
+zipname="$(date +"%Y-%m-%d_%H-%M").zip"
 
 backup_list=$(while read -r line; do echo "$line"; ((num_files++)); done < "$backup_list")
 backup_list=$(echo "$backup_list" | tr " " "\n")
 backup_output_file="$target_dir/$zipname"
 
-screen -r $SCREEN_SESSION -X stuff "save-off^M"
 post_status "Creating backup $zipname"
 
 num_files=$(echo "$backup_list" | wc -l)
@@ -52,18 +64,17 @@ echo "$backup_list" | while read -r line; do
     else
         excode=$?
         if [ $excode -eq 9 ]; then
-            post_status ":warning: Backup interrupted."
+            emergency_exit ":warning: Backup interrupted."
             exit 1
         elif [ $excode -eq 12 ]; then
-            post_status ":warning: Backup failed: \`$line\` not found"
+            emergency_exit ":warning: Backup failed: \`$line\` not found"
         else
-            post_status ":warning: Failed to add \`$line\` to backup"
+            emergency_exit ":warning: Failed to add \`$line\` to backup"
         fi
     fi
 done
 
-screen -r $SCREEN_SESSION -X stuff "save-on^M"
-screen -r $SCREEN_SESSION -X stuff "save-all^M"
+save_on
 
 post_status "Backup complete."
 
