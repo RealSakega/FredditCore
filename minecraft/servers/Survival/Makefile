@@ -46,7 +46,7 @@ backup: # Perform a backup of the Minecraft server based on backuplist.txt. Opti
 .PHONY: start
 start: # Start the Minecraft server. Make sure the server jar file is named "paper.jar".
 	screen -S ${screen_name} -d -m \
-		java -Xms${mem_min} -Xmx${mem_max} -jar paper.jar nogui --world-container worlds
+		bash ./start-autorestart.sh ${mem_min} ${mem_max}
 		@echo "Starting ${server_name}"
 
 .PHONY: stop
