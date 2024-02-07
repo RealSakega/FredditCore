@@ -36,7 +36,6 @@ post_status () {
 emergency_exit() {
     post_status $1
     save_on
-    exit 1
 }
 
 save_off 
@@ -64,18 +63,22 @@ echo "$backup_list" | while read -r line; do
     else
         excode=$?
         if [ $excode -eq 9 ]; then
-            emergency_exit ":warning: Backup interrupted."
+            msg=":warning: Backup interrupted."
+            emergency_exit $msg
             exit 1
         elif [ $excode -eq 12 ]; then
-            emergency_exit ":warning: Backup failed: \`$line\` not found"
+            msg=":warning: Backup failed: \`$line\` not found"
+            emergency_exit $msg
+            exit 1
         else
-            emergency_exit ":warning: Failed to add \`$line\` to backup"
+            msg ":warning: Failed to add \`$line\` to backup"
+            emergency_exit $msg
+            exit 1
         fi
     fi
 done
 
-save_on
-
 post_status "Backup complete."
+save_on
 
 exit 0
