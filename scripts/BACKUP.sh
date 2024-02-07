@@ -33,10 +33,6 @@ post_status () {
         echo "$1"
     fi
 }
-emergency_exit() {
-    post_status $1
-    save_on
-}
 
 save_off 
 
@@ -54,6 +50,7 @@ post_status "Creating backup $zipname"
 
 num_files=$(echo "$backup_list" | wc -l)
 
+fail=false
 i=0
 echo "$backup_list" | while read -r line; do
     post_status "Adding \`$line\` to backup... ($((++i))/$num_files)"
@@ -63,22 +60,24 @@ echo "$backup_list" | while read -r line; do
     else
         excode=$?
         if [ $excode -eq 9 ]; then
-            msg=":warning: Backup interrupted."
-            emergency_exit $msg
-            exit 1
+            post_status ":warning: Backup interrupted."
+            fail=true
+            break
         elif [ $excode -eq 12 ]; then
-            msg=":warning: Backup failed: \`$line\` not found"
-            emergency_exit $msg
-            exit 1
+            post_status ":warning: Backup failed: \`$line\` not found"
+            fail=true
+            break
         else
-            msg ":warning: Failed to add \`$line\` to backup"
-            emergency_exit $msg
-            exit 1
+            post_status ":warning: Failed to add \`$line\` to backup"
         fi
     fi
 done
 
 post_status "Backup complete."
 save_on
+
+if [ "$fail" = true ]; then
+    exit 1
+fi
 
 exit 0
