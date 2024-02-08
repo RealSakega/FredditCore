@@ -20,7 +20,7 @@ discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 .PHONY: copy-shared-paper-jar
 copy-shared-paper-jar: # Copy the latest paper-*.jar file from servers/shared into the server folder as paper.jar
-ifeq ($server_type,paper)
+ifeq (${server_type},paper)
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
 endif
 
@@ -30,7 +30,7 @@ copy-shared-plugins-folder:
 
 .PHONY: fix-discordsrv-config
 fix-discordsrv-config: # Replace fields from the DiscordSRV config with values from .config/.env-minecraft
-ifeq ($server_type,paper)
+ifeq (${server_type},paper)
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/Channels: {\"global\": \".*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/DiscordConsoleChannelId: \".*/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
