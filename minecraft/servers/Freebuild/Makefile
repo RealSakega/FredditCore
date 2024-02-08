@@ -4,6 +4,8 @@ include ../../../.config/.env-minecraft
 export
 
 server_name = Freebuild
+server_type = paper
+
 screen_name = minecraft-server-${server_name}
 
 include ../../../.config/.env-minecraft-${server_name}
@@ -18,7 +20,9 @@ discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
 .PHONY: copy-shared-paper-jar
 copy-shared-paper-jar: # Copy the latest paper-*.jar file from servers/shared into the server folder as paper.jar
+ifeq ($server_type,paper)
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
+endif
 
 .PHONY: copy-shared-plugins-folder
 copy-shared-plugins-folder:
@@ -26,10 +30,12 @@ copy-shared-plugins-folder:
 
 .PHONY: fix-discordsrv-config
 fix-discordsrv-config: # Replace fields from the DiscordSRV config with values from .config/.env-minecraft
+ifeq ($server_type,paper)
 	sed -i "s/BotToken: \".*/BotToken: \"${discordsrv_token}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/Channels: {\"global\": \".*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/DiscordConsoleChannelId: \".*/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s@DiscordInviteLink: \".*@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
+endif
 
 .PHONY: sessionlock-clean
 sessionlock-clean: # Remove session.lock files from the worlds (in case of failed server shutdown)
