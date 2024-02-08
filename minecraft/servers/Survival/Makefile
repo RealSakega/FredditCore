@@ -24,6 +24,9 @@ wrong_server_type := @echo "${server_name} is not a ${server_type} server. Skipp
 copy-shared-paper-jar: # Copy the latest paper-*.jar file from servers/shared into the server folder as paper.jar
 ifeq (${server_type},paper)
 	ls -t ../shared/paper_jars/paper-*.jar | head -n 1 | xargs -I {} cp -v {} ./paper.jar
+else
+	${wrong_server_type}
+	@exit 1
 endif
 
 .PHONY: copy-shared-plugins-folder
