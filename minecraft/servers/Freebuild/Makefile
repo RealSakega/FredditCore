@@ -26,7 +26,9 @@ endif
 
 .PHONY: copy-shared-plugins-folder
 copy-shared-plugins-folder:
+ifeq (${server_type},paper)
 	cp -rv ../shared/plugins .
+endif
 
 .PHONY: fix-discordsrv-config
 fix-discordsrv-config: # Replace fields from the DiscordSRV config with values from .config/.env-minecraft
@@ -94,5 +96,7 @@ save-on: # Enable automatic world saving (requires server to be online)
 
 .PHONY: purge-coreprotect-db
 purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires server to be online)
+ifeq (${server_type},paper)
 	screen -r ${screen_name} -X stuff \
 		"co purge t:60d^M"
+endif
