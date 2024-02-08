@@ -18,6 +18,8 @@ discordsrv_channel 	= ${DISCORDSRV_CHANNEL}
 discordsrv_console 	= ${DISCORDSRV_CONSOLE_CHANNEL}
 discordsrv_invite 	= ${DISCORDSRV_INVITE_LINK}
 
+wrong_server_type := @echo "${server_name} is not a ${server_type} server. Skipping."
+
 .PHONY: copy-shared-paper-jar
 copy-shared-paper-jar: # Copy the latest paper-*.jar file from servers/shared into the server folder as paper.jar
 ifeq (${server_type},paper)
@@ -28,6 +30,9 @@ endif
 copy-shared-plugins-folder:
 ifeq (${server_type},paper)
 	cp -rv ../shared/plugins .
+else
+	${wrong_server_type}
+	@exit 1
 endif
 
 .PHONY: fix-discordsrv-config
@@ -37,6 +42,9 @@ ifeq (${server_type},paper)
 	sed -i "s/Channels: {\"global\": \".*/Channels: {\"global\": \"${discordsrv_channel}\"}/" ./plugins/DiscordSRV/config.yml
 	sed -i "s/DiscordConsoleChannelId: \".*/DiscordConsoleChannelId: \"${discordsrv_console}\"/" ./plugins/DiscordSRV/config.yml
 	sed -i "s@DiscordInviteLink: \".*@DiscordInviteLink: \"${discordsrv_inite}\"@" ./plugins/DiscordSRV/config.yml
+else
+	${wrong_server_type}
+	@exit 1
 endif
 
 .PHONY: sessionlock-clean
@@ -99,4 +107,7 @@ purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires serv
 ifeq (${server_type},paper)
 	screen -r ${screen_name} -X stuff \
 		"co purge t:60d^M"
+else
+	${wrong_server_type}
+	@exit 1
 endif
