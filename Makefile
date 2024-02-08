@@ -17,6 +17,6 @@ stop-minecraft-servers: # Stop all Minecraft servers
 status: # Post the current server status to the dedi logs channel on Discord
 	bash ./scripts/SERVER_STATUS_TO_WEBHOOK.sh
 
-.PHONY: update-cronjobs
-update-cronjobs: # Update the crontab
+.PHONY: update-crontab
+update-crontab: # Update the crontab
 	crontab -u $$(whoami) etc/crontab
