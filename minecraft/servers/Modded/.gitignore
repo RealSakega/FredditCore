@@ -4,7 +4,6 @@
 !Makefile
 !start.sh
 !start-autorestart.sh
-!bukkit.yml
 !server.properties
 !server-icon.png
 !backuplist.txt
