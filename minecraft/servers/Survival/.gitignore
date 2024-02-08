@@ -1,4 +1,13 @@
-ops.json
-banned-players.json
-banned-ips.json
-whitelist.json
+*
+!.gitignore
+!README.md
+!Makefile
+!start.sh
+!start-autorestart.sh
+!bukkit.yml
+!server.properties
+!server-icon.png
+!backuplist.txt
+!eula.txt
+!plugins/*
+!worlds/*
