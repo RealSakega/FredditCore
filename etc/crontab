@@ -1,2 +1,2 @@
-0 6 * * 1 bash $(pwd)/FredditCore/scripts/MAKE_MINECRAFT_SERVERS.sh backup
-0 */12 * * * bash $(pwd)/FredditCore/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
+0 6     * * 1       bash $(pwd)/FredditCore/scripts/MAKE_MINECRAFT_SERVERS.sh backup
+0 */12  * * *       bash $(pwd)/FredditCore/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
