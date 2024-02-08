@@ -19,4 +19,4 @@ status: # Post the current server status to the dedi logs channel on Discord
 
 .PHONY: update-cronjobs
 update-cronjobs: # Update the crontab
-	crontab -u $$(whoami) cron
+	crontab -u $$(whoami) etc/crontab
