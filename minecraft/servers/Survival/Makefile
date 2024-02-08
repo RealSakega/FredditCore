@@ -44,7 +44,7 @@ backup: # Perform a backup of the Minecraft server based on backuplist.txt. Opti
 		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name} ${SILENT}
 
 .PHONY: start
-start: # Start the Minecraft server. Make sure the server jar file is named "paper.jar".
+start: # Start the Minecraft server in a screen session.
 	screen -S ${screen_name} -d -m \
 		bash ./start-autorestart.sh ${server_name} ${mem_min} ${mem_max}
 		@echo "Starting ${server_name}"
@@ -52,8 +52,6 @@ start: # Start the Minecraft server. Make sure the server jar file is named "pap
 .PHONY: stop
 stop: # Stop the Minecraft server's screen session
 	screen -X -S ${screen_name} quit
-
-full-start: prepare start
 
 .PHONY: command
 command: # Execute a command from outside the Minecraft server, e.g. COMMAND="say hi" make command (requires server to be online)
