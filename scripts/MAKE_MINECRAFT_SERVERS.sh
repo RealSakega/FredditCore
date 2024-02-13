@@ -7,7 +7,7 @@
 # execute `make backup` for all of the Minecraft servers.
 
 if [ $# -lt 1 ]; then
-    echo "Usage: $0 make_target"
+    echo "Usage: $0 make_target [command]"
     exit 1
 fi
 
@@ -16,7 +16,11 @@ cd ../minecraft/servers
 
 for server in $(ls | grep -v shared); do
     cd $server
-    make $1
+    if [ "$1" == "command" ]; then
+        COMMAND=$2 make $1
+    else
+        make $1
+    fi
     cd ..
 done
 exit 0
