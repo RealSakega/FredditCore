@@ -113,6 +113,7 @@ ifeq (${server_type},paper)
 		@exit 1
 	screen -r ${screen_name} -X stuff \
 		"co purge t:${BEFORE}^M"
+	endif
 else
 	${wrong_server_type}
 	@exit 1
