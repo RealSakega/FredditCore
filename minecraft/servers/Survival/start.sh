@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 
 if [ $# -lt 3 ]; then
-    echo "Usage: $0 server_name memory_min memory_max"
+    echo "Usage: $0 server_name memory_min memory_max [auto_restart]"
     exit 1
 fi
 
