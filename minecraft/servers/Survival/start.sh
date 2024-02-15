@@ -16,6 +16,8 @@ if [ $# == 4 ]; then
     auto_restart=$4
 fi
 
+# this is where the java command that actually starts the server goes
+# change as needed, depending on the server type
 minecraft() {
     java -Xms${MEM_MIN} -Xmx${MEM_MAX} -jar paper.jar nogui --world-container worlds
 }
