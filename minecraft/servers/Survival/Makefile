@@ -107,11 +107,11 @@ save-on: # Enable automatic world saving (requires server to be online)
 
 .PHONY: purge-coreprotect-db
 purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires server to be online)
+ifeq (${BEFORE},)
+	@echo "missing BEFORE parameter (e.g., `BEFORE=60d make purge-coreprotect-db` to purge data older than 60 days)"
+	@exit 1
+endif
 ifeq (${server_type},paper)
-	ifeq (${BEFORE},)
-		@echo "missing BEFORE parameter (e.g., `BEFORE=60d make purge-coreprotect-db` to purge data older than 60 days)"
-		@exit 1
-	endif
 	screen -r ${screen_name} -X stuff \
 		"co purge t:${BEFORE}^M"
 else
