@@ -3,19 +3,19 @@ export
 
 .PHONY: start-minecraft-backups
 start-minecraft-backups: # Backup all Minecraft servers
-	bash ./scripts/MAKE_MINECRAFT_SERVERS.sh backup
+	bash ./scripts/make_minecraft_servers.sh backup
 
 .PHONY: start-minecraft-servers
 start-minecraft-servers: # Start all Minecraft servers
-	bash ./scripts/MAKE_MINECRAFT_SERVERS.sh start
+	bash ./scripts/make_minecraft_servers.sh start
 
 .PHONY: stop-minecraft-servers
 stop-minecraft-servers: # Stop all Minecraft servers
-	bash ./scripts/MAKE_MINECRAFT_SERVERS.sh stop
+	bash ./scripts/make_minecraft_servers.sh stop
 
 .PHONY: status
 status: # Post the current server status to the dedi logs channel on Discord
-	bash ./scripts/SERVER_STATUS_TO_WEBHOOK.sh
+	bash ./scripts/server_status_to_webhook.sh
 
 .PHONY: update-crontab
 update-crontab: # Update the crontab
