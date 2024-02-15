@@ -85,26 +85,6 @@ endif
 console: # Open the minecraft server's screen session (requires server to be online)
 	screen -d -r ${screen_name}
 
-.PHONY: reload
-reload: # Reload the Minecraft server (requires server to be online)
-	screen -r ${screen_name} -X stuff \
-		"reload confirm^M"
-
-.PHONY: save-all
-save-all: # Perform an automatic world save (requires server to be online)
-	screen -r ${screen_name} -X stuff \
-		"save-all^M"
-
-.PHONY: save-off
-save-off: # Disable automatic world saving (requires server to be online)
-	screen -r ${screen_name} -X stuff \
-		"save-off^M"
-
-.PHONY: save-on
-save-on: # Enable automatic world saving (requires server to be online)
-	screen -r ${screen_name} -X stuff \
-		"save-on^M"
-
 .PHONY: purge-coreprotect-db
 purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires server to be online)
 ifeq (${BEFORE},)
