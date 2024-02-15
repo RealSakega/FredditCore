@@ -65,7 +65,7 @@ backup: # Perform a backup of the Minecraft server based on backuplist.txt. Opti
 .PHONY: start
 start: # Start the Minecraft server in a screen session.
 	screen -S ${screen_name} -d -m \
-		bash ./start-autorestart.sh ${server_name} ${mem_min} ${mem_max}
+		bash ./start.sh ${server_name} ${mem_min} ${mem_max} true
 		@echo "Starting ${server_name}"
 
 .PHONY: stop
