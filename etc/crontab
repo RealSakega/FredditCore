@@ -1,3 +1,3 @@
-0 6     * * 1       bash $(pwd)/FredditCore/scripts/MAKE_MINECRAFT_SERVERS.sh backup
-0 */12  * * *       bash $(pwd)/FredditCore/scripts/SERVER_STATUS_TO_WEBHOOK.sh 
+0 6     * * 1       bash $(pwd)/FredditCore/scripts/make_minecraft_servers.sh backup
+0 */12  * * *       bash $(pwd)/FredditCore/scripts/server_status_to_webhook.sh 
 0 0     * * */3     make -C $(pwd)/FredditCore/minecraft/servers/Survival purge-coreprotect-db

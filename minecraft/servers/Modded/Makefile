@@ -60,7 +60,7 @@ prepare: copy-shared-paper-jar copy-shared-plugins-folder fix-discordsrv-config 
 .PHONY: backup
 backup: # Perform a backup of the Minecraft server based on backuplist.txt. Optional parameter: SILENT=true/false
 	screen -S minecraft-backup-${server_name} -d -m \
-		bash ${FREDDITCORE_DIR}/scripts/BACKUP.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name} ${SILENT}
+		bash ${FREDDITCORE_DIR}/scripts/backup.sh ${FREDDITCORE_DIR}/minecraft/servers/${server_name} ${FREDDITCORE_DIR}/minecraft/backups/${server_name} ${SILENT}
 
 .PHONY: start
 start: # Start the Minecraft server in a screen session.
@@ -108,8 +108,11 @@ save-on: # Enable automatic world saving (requires server to be online)
 .PHONY: purge-coreprotect-db
 purge-coreprotect-db: # Purge Coreprotect data older than 60 days (requires server to be online)
 ifeq (${server_type},paper)
+	ifeq (${BEFORE},)
+		@echo "missing BEFORE parameter (e.g., `BEFORE=60d make purge-coreprotect-db` to purge data older than 60 days)"
+		@exit 1
 	screen -r ${screen_name} -X stuff \
-		"co purge t:60d^M"
+		"co purge t:${BEFORE}^M"
 else
 	${wrong_server_type}
 	@exit 1
