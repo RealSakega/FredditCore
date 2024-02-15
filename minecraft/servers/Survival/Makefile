@@ -111,9 +111,9 @@ ifeq (${server_type},paper)
 	ifeq (${BEFORE},)
 		@echo "missing BEFORE parameter (e.g., `BEFORE=60d make purge-coreprotect-db` to purge data older than 60 days)"
 		@exit 1
+	endif
 	screen -r ${screen_name} -X stuff \
 		"co purge t:${BEFORE}^M"
-	endif
 else
 	${wrong_server_type}
 	@exit 1
