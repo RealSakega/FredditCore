@@ -1,4 +1,4 @@
 0 6     * * 1       bash $(pwd)/FredditCore/scripts/make_minecraft_servers.sh backup
-0 */12  * * *       bash $(pwd)/FredditCore/scripts/server_status_to_webhook.sh
+0 12    * * *       bash $(pwd)/FredditCore/scripts/server_status_to_webhook.sh
 0 0     * * */3     BEFORE=60d make -C $(pwd)/FredditCore/minecraft/servers/Freebuild purge-coreprotect-db
 0 0     * * */3     BEFORE=30d make -C $(pwd)/FredditCore/minecraft/servers/Survival purge-coreprotect-db
