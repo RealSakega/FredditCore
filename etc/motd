@@ -15,6 +15,12 @@
 
 ,*******************************,
 /  Welcome to the Freddit Dedi  /
+/                               /
+/  use `screen -ls` to see      /
+/  all active screen processes. /
+/                               /
+/  use `screen -r <name> to     /
+/  tab into screen process.     /
 '*******************************'
 
-Sponsored by The Broccoli Company
+Sponsored by The Broccoli Company.
