@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 subreddit = sys.argv[1]
 
 url = f'https://old.reddit.com/r/{subreddit}/'
+output_filename = f'out/{subreddit}.json'
 
 sleep_timer = 3 # should be safe
 
@@ -26,6 +27,7 @@ page = 0
 post_urls = []
 
 reddit_url = 'https://old.reddit.com/r/'
+
 
 def write_json(data, filename):
     # format json into newlines
@@ -67,7 +69,7 @@ while True:
         time.sleep(sleep_timer_random) 
     
     except KeyboardInterrupt:        
-        write_json(post_urls, f'out/{subreddit}.json')
+        write_json(post_urls, output_filename)
         sys.exit(0)
 
-write_json(post_urls, f'out/{subreddit}.json')
+write_json(post_urls, output_filename)
