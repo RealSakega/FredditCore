@@ -7,7 +7,7 @@ import random
 with open('posts.json', 'r') as f:
     posts = json.load(f)
 
-sleep_timer = 6 # should be safe
+sleep_timer = 4 # should be safe
 
 headers = {'User-Agent': 'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0'}
 
@@ -16,6 +16,8 @@ for url in posts:
 
     response = requests.get(url, headers=headers)
     html = response.text
+
+    print(response)
 
     #remove non-ascii characters
     html = ''.join([i if ord(i) < 128 else ' ' for i in html])
