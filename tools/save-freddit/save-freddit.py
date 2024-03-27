@@ -5,7 +5,7 @@ import src.collect_images as collect_images
 import os
 import sys
 
-# ARGS: subreddit, output_dir. Optional (--): --save_json, --collect_posts, --collect_post_pages, --collect_images
+# ARGS: subreddit, output_dir. Optional (--): --save_json, --stages, --collect_posts, --collect_post_pages, --collect_images
 
 subreddit = sys.argv[1]
 output_dir = sys.argv[2] if len(sys.argv) > 2 and sys.argv[2][:2] != '--' else f'out/{subreddit}'
