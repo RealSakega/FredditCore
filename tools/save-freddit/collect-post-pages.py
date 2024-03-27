@@ -4,8 +4,6 @@ import time
 import os
 import random
 
-from bs4 import BeautifulSoup
-
 # take filename as an argument
 import sys
 
@@ -28,34 +26,19 @@ for url in posts:
     title = url.replace('/', '_').replace(':', '_').replace('?', '_').replace('&', '_').replace('=', '_').replace(' ', '_')
     
     # if out file exists, skip
-    if os.path.exists(f'out/posts/{title}.html'):
+    if os.path.exists(f'out/posts/{title}.json'):
         print('File exists, skipping.')
         continue
 
-    response = requests.get(url, headers=headers)
-    html = response.text
+    response = requests.get(url + '.json', headers=headers)
+    json_data = response.json()
 
     print(url, response)
 
-    #remove non-ascii characters
-    html = ''.join([i if ord(i) < 128 else ' ' for i in html])
-
-
-    # find all data-type="comment" elements, find usertext-body children, and extract text
-    soup = BeautifulSoup(html, 'html.parser')
-    post_contents = soup.find_all('div', {'data-type': 'comment'})
-    post_contents = [content.find('div', {'class': 'usertext-body'}).get_text() for content in post_contents]
-
-    print(f'Found {len(post_contents)} comments.')
-    
-    print(post_contents)
-
-    with open(f'out/posts/{title}.html', 'w') as f:
-        f.write(html)
-
+    with open(f'out/posts/{title}.json', 'w') as f:
+        f.write(json.dumps(json_data, indent=4))
 
     print(f"{i}/{len(posts)}")
-
 
     # Delay spoofing
     sleep_timer_random = sleep_timer + random.uniform(-1, 1)
