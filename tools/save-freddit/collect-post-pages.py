@@ -24,6 +24,9 @@ for url in posts:
 
     # Replace any characters that are not allowed in filenames
     title = url.replace('/', '_').replace(':', '_').replace('?', '_').replace('&', '_').replace('=', '_').replace(' ', '_')
+
+    # clean title
+    title = title.replace(f'https___old.reddit.com_r_Freebuild_comments_', '')
     
     # if out file exists, skip
     if os.path.exists(f'out/posts/{title}.json'):
