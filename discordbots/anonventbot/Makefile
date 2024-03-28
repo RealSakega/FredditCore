@@ -1,4 +1,4 @@
-include .env-anonventbot
+include .env
 export
 
 .PHONY: lock
