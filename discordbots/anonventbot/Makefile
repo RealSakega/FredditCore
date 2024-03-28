@@ -17,5 +17,8 @@ start:
 stop:
 	screen -X -S anonventbot quit
 
+.PHONY: restart
+restart: stop start
+
 .PHONY: full-start
 full-start: lock install start
