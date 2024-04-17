@@ -12,15 +12,6 @@ header-footer:
   - <#FFFF00>&m                                        </#FF8722>
   disable-condition: '%world%=disabledworld'
   per-world:
-    world1:
-      header:
-      - an example of world with custom
-      footer:
-      - header/footer and prefix/suffix
-    world2;world3:
-      header:
-      - This is a shared header for
-      - world2 and world3
     TheFalloutOfFreddit:
       header:
       - <#181B01>&m                                        </#36FF00>
