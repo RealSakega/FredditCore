@@ -21,6 +21,16 @@ header-footer:
       header:
       - This is a shared header for
       - world2 and world3
+    TheFalloutOfFreddit:
+      header:
+      - <#181B01>&m                                        </#36FF00>
+      - '&a&lThe Fallout of Freddit'
+      - ''
+      footer:
+      - ''
+      - '&lMap: &e&omap.freddit.net'
+      - '&fServer TPS: &e%tps%'
+      - <#36FF00>&m                                        </#181B01>
   per-server:
     server1:
       header:
