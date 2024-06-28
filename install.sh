@@ -7,7 +7,7 @@ sudo apt install git -y
 
 sudo apt install screen -y
 sudo apt install nodejs -y
-sudo apt install openjdk-17-jre-headless -y
+sudo apt install openjdk-21-jre-headless -y
 
 # ./etc/
 sudo crontab -u $(whoami) etc/crontab

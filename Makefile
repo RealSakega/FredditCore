@@ -1,4 +1,5 @@
 include ./Makefile-help
+include .config/.env
 export
 
 .PHONY: start-minecraft-backups
