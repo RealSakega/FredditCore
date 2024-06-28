@@ -101,7 +101,7 @@
                     $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'offline', server.map_url, 0))
                     return
                 }
-                $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'online', data.players.online, server.map_url, data.version.name))
+                $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'online', server.map_url, data.players.online, data.version.name))
             }).fail(function() {
                 $('#server-status').append(serverStatusCardHTML(server.name, server.address, 'offline', server.map_url, 0))
             })
