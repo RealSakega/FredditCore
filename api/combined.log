@@ -1,0 +1,8 @@
+{"level":"error","message":"Unauthorized access","service":"user-service"}
+{"level":"error","message":"Unauthorized access, invalid API key provided","service":"user-service"}
+2024-06-28 17:07:27 error: Unauthorized access, invalid API key provided
+[2024-06-28 17:07:44] [error] Unauthorized access, invalid API key provided
+[2024-06-28 17:07:48] [error] Unauthorized access, invalid API key provided
+[2024-06-28 17:07:51] [error] Unauthorized access, no API key provided
+[2024-06-28 17:09:38] [error] Unauthorized access, no API key provided
+[2024-06-28 17:09:44] [error] Unauthorized access, invalid API key provided
