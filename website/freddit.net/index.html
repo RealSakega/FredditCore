@@ -10,6 +10,7 @@
                 max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
+                margin-top: 40px;
             }
             code {
                 background-color: #f8f9fa;
@@ -30,6 +31,14 @@
         </main>
     </body>
 
+    <!-- copy to clipboard toast -->
+    <div class="toast" id="copied-toast" style="position: absolute; top: 0; right: 0;" autohide="true" data-bs-delay="2000">
+        <div class="toast-header">
+            <strong class="me-auto">Copied!</strong>
+        </div>
+    </div>
+
+
     <footer class="container">
         <p class="text-center">Freddit Freebuild, est. 2015</p>
     </footer>
@@ -48,6 +57,13 @@
 
         ]
 
+        const copyToClipboard = (text) => {
+            navigator.clipboard.writeText(text)
+            var toastEl = document.getElementById('copied-toast');
+            var toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+
         const serverStatusCardHTML = (server_name, server_address, status, players, version) => {
             return `
                 <div class="col-md-4 p-2">
@@ -61,7 +77,7 @@
                         <div class="card-body">
                             <p>${players} player${players !== 1 ? 's' : ''} online</p>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer" onclick="copyToClipboard('${server_address}')" style="cursor: pointer;">
                             <code>${server_address}</code>
                         </div>
                     </div>
