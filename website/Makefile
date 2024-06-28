@@ -5,5 +5,5 @@ rsync-excludes = --exclude=*.sh --exclude=.gitignore
 update:
 	@echo "Updating website..."
 	git pull
-	rsync -av --delete $(rsync-excludes) freddit.com/* $(websites_dir)/freddit.com/
+	rsync -av --delete $(rsync-excludes) freddit.net/* $(websites_dir)/freddit.net/
 
