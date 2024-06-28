@@ -7,7 +7,7 @@
 
         <style>
             main {
-                max-width: 800px;
+                max-width: 600px;
                 margin: 0 auto;
                 padding: 20px;
             }
@@ -22,18 +22,18 @@
 
     <body>
         <main class="container">
-            <div class="col">     
-                <h1>Freddit Freebuild</h1>
-                <p>Welcome to Freddit Freebuild! This is a freebuild server for the game Minecraft. You can join the server at <code>freddit.com</code> on Minecraft version 1.17.1.</p>
+            <div class="row">     
             </div>
 
-            <div class="col">
-                <div class="row" id="server-status">
-                    <!-- Server status will be added here -->
-                </div>
+            <div class="row justify-content-center" id="server-status">
+                <!-- Server status will be added here -->
             </div>
         </main>
     </body>
+
+    <footer class="container">
+        <p class="text-center">Freddit Freebuild &copy; 2024</p>
+    </footer>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -46,11 +46,12 @@
         const servers = [
             {'name': 'Freddit Freebuild', 'address': 'play.freddit.net'},
             {'name': 'Freddit Survival', 'address': '136.243.104.190:25665'}
+
         ]
 
         const serverStatusCardHTML = (server_name, server_address, status, players, version) => {
             return `
-                <div class="col">
+                <div class="col-md-4 p-2">
                     <div class="card">
                         <div class="card-header">
                             <img src="${mcapi}/favicon/${server_address}" alt="Server icon" style="width: 16px; height: 16px;">
@@ -59,7 +60,7 @@
                             ${version ? `<span class="badge bg-secondary">${version}</span>` : ''}
                         </div>
                         <div class="card-body">
-                            <p>${players} players online</p>
+                            <p>${players} player${players !== 1 ? 's' : ''} online</p>
                         </div>
                         <div class="card-footer">
                             <code>${server_address}</code>
