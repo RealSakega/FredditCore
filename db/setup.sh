@@ -51,9 +51,8 @@ create_and_grant () {
 
     SQL="CREATE DATABASE IF NOT EXISTS $server; CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password'; $(for table in "${tables[@]}"; do echo "GRANT ALL PRIVILEGES ON $server.$prefix$table TO '$user'@'localhost';"; done)"
 
-    echo "$SQL"
-
-    mysql < <(echo "$SQL")
+    echo $SQL
+    echo $SQL | mysql
 
     echo "Created and granted privileges for $server : $user with exit code $?"
     echo "-----------------------------------"
