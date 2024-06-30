@@ -9,10 +9,72 @@
 - Minecraft version: `1.20.4`
 
 ## Plugins
+BannerMaker.jar
+ChatReaction.jar
+Citizens-2.0.33-b3293.jar
+CleanroomGenerator-1.2.1.jar
+CoreProtect-22.2.jar
+CustomHeads.jar
+DecentHolograms-2.8.6.jar
+DiscordSRV-Build-1.27.0.jar
+Dynmap-3.7-beta-4-spigot.jar
+EpicRename v3.11.1.jar
+EssentialsX-2.20.1.jar
+EssentialsXChat-2.20.1.jar
+EssentialsXProtect-2.20.1.jar
+EssentialsXSpawn-2.20.1.jar
+FastAsyncWorldEdit-Bukkit-2.9.3-SNAPSHOT-764.jar
+goBrush-3.8.0-69.jar
+GSit-1.9.1.jar
+ImageFrame-1.7.8.2.jar
+LPC.jar
+LuckPerms-Bukkit-5.4.111.jar
+Multiverse-Core-4.3.1.jar
+multiverse-portals-4.2.3.jar
+PlaceholderAPI-2.11.5.jar
+PrefiX.jar
+ProtocolLib.jar
+PsudoCommands-1.0.35.jar
+ServerlistMOTD.jar
+ShulkerPacks-1.6.4.jar
+Skript-2.8.5.jar
+TAB v4.1.2.jar
+ViaBackwards-4.9.1.jar
+ViaVersion-4.10.2.jar
+worldguard-bukkit-7.0.9-dist.jar
 
-(todo)
+| Plugin name                                                                | Minecraft version |       Plugin version | Notes               |
+|:-------------------------------------------------------------------------- | -----------------:| --------------------:|:------------------- |
+| [BannerMaker]()                                                            |          `1.20.4` |              `2.3.2` |                     |
+| [ChatReaction]()                                                           |          `1.20.4` |              `1.8.0` |                     |
+| [Citizens 2]()                                                             |          `1.20.4` |   `2.0.33-SNAPSHOT ` |                     |
+| [CoreProtect]()                                                            |          `1.20.4` |               `2.22` |                     |
+| [DiscordSRV]()                                                             |          `1.20.4` |             `1.27.0` |                     |
+| [Dynmap]()                                                                 |          `1.20.4` |     `3.7-beta-4-935` |                     |
+| [EpicRename]()                                                             |          `1.20.4` |             `3.11.1` |                     |
+| [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)        |          `1.20.4` |             `2.20.1` |                     |
+| [EssentialsXChat](https://www.spigotmc.org/resources/essentialsx.9089/)    |          `1.20.4` |             `2.20.1` |                     |
+| [EssentialsXProtect](https://www.spigotmc.org/resources/essentialsx.9089/) |          `1.20.4` |             `2.20.1` |                     |
+| [EssentialsXSpawn](https://www.spigotmc.org/resources/essentialsx.9089/)   |          `1.20.4` |             `2.20.1` |                     |
+| [FastAsyncWorldEdit]()                                                     |          `1.20.4` | `2.9.3-SNAPSHOT-764` |                     |
+| [goBrush]()                                                                |          `1.20.4` |           `3.8.0-69` |                     |
+| [GSit]()                                                                   |          `1.20.4` |              `1.9.1` |                     |
+| [ImageFrame]()                                                             |          `1.20.4` |            `1.7.8.2` |                     |
+| [LPC]()                                                                    |          `1.20.4` |              `3.6.0` |                     |
+| [LuckPerms]()                                                              |          `1.20.4` |            `5.4.111` |                     |
+| [Multiverse-Core]()                                                        |          `1.20.4` |         `4.3.1-b861` |                     |
+| [Multiverse-Portals]()                                                     |          `1.20.4` |              `4.2.3` |                     |
+| [PlaceholderAPI]()                                                         |          `1.20.4` |             `2.11.5` |                     |
+| [PrefiX]()                                                                 |          `1.20.4` |                `7.2` |                     |
+| [PsudoCommands]()                                                          |          `1.20.4` |             `1.0.35` |                     |
+| [ServerlistMOTD]()                                                         |          `1.20.4` |      `vX-2021-11-23` |                     |
+| [ShulkerPacks]()                                                           |          `1.20.4` |              `1.6.4` |                     |
+| [Skript]()                                                                 |          `1.20.4` |              `2.8.5` |                     |
+| [TAB]()                                                                    |          `1.20.4` |              `4.1.2` |                     |
+| [ViaBackwards]()                                                           |          `1.20.4` |              `4.9.1` |                     |
+| [ViaVersion]()                                                             |          `1.20.4` |             `4.10.2` | seems to be broken? |
+| [WorldGuard]()                                                             |          `1.20.4` |      `7.0.9+5934e49` |                     |
 
-___
 
 # Survival
 
