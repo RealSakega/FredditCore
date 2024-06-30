@@ -2,4 +2,4 @@
     <img src='assets/freddit-freebuild.png' width='300'>
 </p>
 
-FredditCore is designed to be run in the home directory of a Linux user as such: `/home/<user>/FredditCore`.
+Refer to [MINECRAFT.md](./MINECRAFT.md) for server & plugin versions.
