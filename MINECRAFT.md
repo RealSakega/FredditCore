@@ -29,7 +29,7 @@ When updating server plugins, make sure to note **A)** the latest version of the
 | [FastAsyncWorldEdit](https://www.spigotmc.org/resources/13932/)          |     `1.21` | `2.11.1-SNAPSHOT-831` |         |
 | [goBrush](https://www.spigotmc.org/resources/23118/)                     | ⚠️`1.20.4` |            `3.8.0-69` |         |
 | [GSit](https://www.spigotmc.org/resources/62325/)                        |     `1.21` |               `1.9.5` |         |
-| [ImageFrame](https://www.spigotmc.org/resources/106031/)                 | ⚠️`1.20.4` |             `1.7.8.2` |         |
+| [ImageFrame](https://www.spigotmc.org/resources/106031/)                 |     `1.21` |               `1.7.9` |         |
 | [LPC](https://www.spigotmc.org/resources/68965/)                         | ⚠️`1.20.4` |               `3.6.0` |   (1)   |
 | [LuckPerms](https://www.spigotmc.org/resources/28140/)                   |     `1.21` |             `5.4.134` |         |
 | [Multiverse-Core](https://dev.bukkit.org/projects/multiverse-core)       | ⚠️`1.20.4` |          `4.3.1-b861` |         |
