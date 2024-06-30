@@ -3,3 +3,4 @@
 0 12    * * *       bash $(pwd)/FredditCore/scripts/server_status_to_webhook.sh
 0 0     * * 7       BEFORE=60d make -C $(pwd)/FredditCore/minecraft/servers/Freebuild purge-coreprotect-db
 0 0     * * 7       BEFORE=30d make -C $(pwd)/FredditCore/minecraft/servers/Survival purge-coreprotect-db
+@reboot make -C $(pwd)/FredditCore start-minecraft-servers
