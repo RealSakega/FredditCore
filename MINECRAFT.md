@@ -36,7 +36,7 @@ When updating server plugins, make sure to note **A)** the latest version of the
 | [Multiverse-Portals](https://dev.bukkit.org/projects/multiverse-portals) | ⚠️`1.20.4` |               `4.2.3` |         |
 | [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)               | ⚠️`1.20.4` |              `2.11.5` |   (2)   |
 | [PrefiX](https://www.spigotmc.org/resources/70359/)                      |     `1.21` |                 `7.2` |         |
-| [PsudoCommands](https://www.spigotmc.org/resources/56738/)               | ⚠️`1.20.4` |              `1.0.35` |         |
+| [PsudoCommands](https://www.spigotmc.org/resources/83535/)               | ⚠️`1.20.4` |              `1.0.35` |         |
 | [ServerlistMOTD](https://dev.bukkit.org/projects/serverlistmotd)         | ⚠️`1.20.4` |       `vX-2021-11-23` |         |
 | [ShulkerPacks](https://www.spigotmc.org/resources/67466/)                | ⚠️`1.20.4` |               `1.6.4` |         |
 | [Skript](https://www.spigotmc.org/resources/skript.114544/)              | ⚠️`1.20.4` |               `2.8.5` |         |
