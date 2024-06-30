@@ -33,6 +33,12 @@ create_and_grant () {
   local prefix=$4
   local tables=("${!5}")
 
+    echo "Creating and granting privileges for $server"
+    echo "User: $user"
+    echo "Password: $password"
+    echo "Prefix: $prefix"
+    echo "Tables: ${tables[@]}"
+
   if [ -z $user ]; then
     echo "User for $server not found"
     return
