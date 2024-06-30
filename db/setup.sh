@@ -27,22 +27,22 @@ COREPROTECT_TABLES=("block" "blockdata" "container" "containerdata" "entity" "en
 # if $<SERVER>_COREPROTECT_USER exists, create & grant privileges
 
 create_and_grant () {
-  local server=$1
-  local user=$2
-  local password=$3
-  local prefix=$4
-  local tables=("${!5}")
+    if [ $# -lt 5 ]; then
+        echo "Usage: create_and_grant <server> <user> <password> <prefix> <tables>"
+        return 1
+    fi
+
+    local server=$1
+    local user=$2
+    local password=$3
+    local prefix=$4
+    local tables=("${!5}")
 
     echo "Creating and granting privileges for $server"
     echo "User: $user"
     echo "Password: $password"
     echo "Prefix: $prefix"
     echo "Tables: ${tables[@]}"
-
-  if [ -z $user ]; then
-    echo "User for $server not found"
-    return
-  fi
 
   mysql << EOF
 CREATE DATABASE IF NOT EXISTS $server;
@@ -54,7 +54,7 @@ EOF
     echo "Created and granted privileges for $server with exit code $?"
 }
 
-create_and_grant "Freebuild" $FREEBUILD_COREPROTECT_USER $FREEBUILD_COREPROTECT_PASSWORD $COREPROTECT_PREFIX COREPROTECT_TABLES[@]
-create_and_grant "Freebuild" $FREEBUILD_LUCKPERMS_USER $FREEBUILD_LUCKPERMS_PASSWORD $LUCKPERMS_PREFIX LUCKPERMS_TABLES[@]
-create_and_grant "Survival" $SURVIVAL_COREPROTECT_USER $SURVIVAL_COREPROTECT_PASSWORD $COREPROTECT_PREFIX COREPROTECT_TABLES[@]
-create_and_grant "Survival" $SURVIVAL_LUCKPERMS_USER $SURVIVAL_LUCKPERMS_PASSWORD $LUCKPERMS_PREFIX LUCKPERMS_TABLES[@]
+create_and_grant "Freebuild" $FREEBUILD_COREPROTECT_USER $FREEBUILD_COREPROTECT_PASS $COREPROTECT_PREFIX COREPROTECT_TABLES[@]
+create_and_grant "Freebuild" $FREEBUILD_LUCKPERMS_USER $FREEBUILD_LUCKPERMS_PASS $LUCKPERMS_PREFIX LUCKPERMS_TABLES[@]
+create_and_grant "Survival" $SURVIVAL_COREPROTECT_USER $SURVIVAL_COREPROTECT_PASS $COREPROTECT_PREFIX COREPROTECT_TABLES[@]
+create_and_grant "Survival" $SURVIVAL_LUCKPERMS_USER $SURVIVAL_LUCKPERMS_PASS $LUCKPERMS_PREFIX LUCKPERMS_TABLES[@]
