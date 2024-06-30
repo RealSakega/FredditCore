@@ -7,6 +7,7 @@
 
 - Server port: `25565` (Minecraft default)
 - Minecraft version: `1.20.4`
+- Paper version: `1.20.4-409`
 
 ## Plugins
 
@@ -50,6 +51,7 @@
 
 - Server port: `25665`
 - Minecraft version: `1.20.6`
+- Paper version: `1.20.6-147`
 
 ## Plugins
 
