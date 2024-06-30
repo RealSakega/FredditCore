@@ -82,5 +82,5 @@ When updating server plugins, make sure to note **A)** the latest version of the
 | [TAB](https://www.spigotmc.org/resources/57806/)               |          `1.20.6` |              `4.1.2` |                          |
 
 **(1)**: **LPC**: Luckperms Chat Formatting  
-**(2)**: **PlaceholderAPI**: If names show up as `%essentials_nickname%` in chat, make sure the Essentials placeholder addon is installed (`/papi ecloud download Essentials`)
+**(2)**: **PlaceholderAPI**: If names show up as `%essentials_nickname%` in chat, make sure the Essentials placeholder addon is installed (`/papi ecloud download Essentials`)  
 **(3)**: **Pl3xMap**: Writes map files to `var/www/survivalmap.freddit.net`
