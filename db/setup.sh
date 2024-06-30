@@ -23,7 +23,7 @@ CREATE DATABASE IF NOT EXISTS $server;
 CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password';
 GRANT ALL PRIVILEGES ON $server.* TO '$user'@'localhost';
 FLUSH PRIVILEGES;
-EOF 
+EOF
 
     echo "Created and granted privileges for $server : $user with exit code $?"
     echo "-----------------------------------"
@@ -32,5 +32,5 @@ EOF
 create_and_grant "Freebuild" $FREEBUILD_COREPROTECT_USER $FREEBUILD_COREPROTECT_PASS
 create_and_grant "Freebuild" $FREEBUILD_LUCKPERMS_USER $FREEBUILD_LUCKPERMS_PASS
 
-create_and_grand "Survival" $SURVIVAL_COREPROTECT_USER $SURVIVAL_COREPROTECT_PASS
+create_and_grant "Survival" $SURVIVAL_COREPROTECT_USER $SURVIVAL_COREPROTECT_PASS
 create_and_grant "Survival" $SURVIVAL_LUCKPERMS_USER $SURVIVAL_LUCKPERMS_PASS
