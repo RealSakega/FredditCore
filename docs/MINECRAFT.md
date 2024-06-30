@@ -1,3 +1,8 @@
+- [Freebuild](#freebuild)
+  - [Plugins](#plugins)
+- [Survival](#survival)
+  - [Plugins](#plugins-1)
+
 # Freebuild
 
 - Server port: `25565` (Minecraft default)
