@@ -9,39 +9,6 @@
 - Minecraft version: `1.20.4`
 
 ## Plugins
-BannerMaker.jar
-ChatReaction.jar
-Citizens-2.0.33-b3293.jar
-CleanroomGenerator-1.2.1.jar
-CoreProtect-22.2.jar
-CustomHeads.jar
-DecentHolograms-2.8.6.jar
-DiscordSRV-Build-1.27.0.jar
-Dynmap-3.7-beta-4-spigot.jar
-EpicRename v3.11.1.jar
-EssentialsX-2.20.1.jar
-EssentialsXChat-2.20.1.jar
-EssentialsXProtect-2.20.1.jar
-EssentialsXSpawn-2.20.1.jar
-FastAsyncWorldEdit-Bukkit-2.9.3-SNAPSHOT-764.jar
-goBrush-3.8.0-69.jar
-GSit-1.9.1.jar
-ImageFrame-1.7.8.2.jar
-LPC.jar
-LuckPerms-Bukkit-5.4.111.jar
-Multiverse-Core-4.3.1.jar
-multiverse-portals-4.2.3.jar
-PlaceholderAPI-2.11.5.jar
-PrefiX.jar
-ProtocolLib.jar
-PsudoCommands-1.0.35.jar
-ServerlistMOTD.jar
-ShulkerPacks-1.6.4.jar
-Skript-2.8.5.jar
-TAB v4.1.2.jar
-ViaBackwards-4.9.1.jar
-ViaVersion-4.10.2.jar
-worldguard-bukkit-7.0.9-dist.jar
 
 | Plugin name                                                                | Minecraft version |       Plugin version |  Notes  |
 |:-------------------------------------------------------------------------- | -----------------:| --------------------:|:-------:|
@@ -88,7 +55,7 @@ worldguard-bukkit-7.0.9-dist.jar
 
 When updating server plugins, make sure to note **A)** the latest version of the plugin (Server version), and **B)**, the latest version of Minecraft supported by the version of the plugin used (i.e., update the plugin, and if it works on the server, increment the Minecraft version number).
 
-| Plugin name                                                                                  | Minecraft version |       Server version |           Notes          |
+| Plugin name                                                                                  | Minecraft version |       Plugin version |           Notes          |
 |:-------------------------------------------------------------------------------------------- | -----------------:| --------------------:|:------------------------:|
 | [ChestSort](https://www.spigotmc.org/resources/chestsort-api.59773/)                         |          `1.20.6` |             `14.0.0` | (missing on new freddit) |
 | [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)                          |          `1.20.6` |               `21.3` |      Latest: `22.4`      |
