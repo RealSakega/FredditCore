@@ -59,15 +59,15 @@ When updating server plugins, make sure to note **A)** the latest version of the
 
 | Plugin name                                                                                  | Minecraft version |       Plugin version |           Notes          |
 |:-------------------------------------------------------------------------------------------- | -----------------:| --------------------:|:------------------------:|
-| [ChestSort](https://www.spigotmc.org/resources/chestsort-api.59773/)                         |          `1.20.6` |             `14.0.0` | (missing on new freddit) |
-| [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)                          |          `1.20.6` |               `21.3` |      Latest: `22.4`      |
+| [ChestSort](https://www.spigotmc.org/resources/chestsort-api.59773/)                         |          `1.20.6` |             `14.0.0` |                          |
+| [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)                          |          `1.20.6` |               `22.4` |                          |
 | [DiscordSRV](https://www.spigotmc.org/resources/discordsrv.18494/)                           |          `1.20.6` |             `1.27.0` |                          |
-| [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)                          |          `1.20.6` |             `2.20.1` |                          |
-| [EssentialsXChat](https://www.spigotmc.org/resources/essentialsx.9089/)                      |          `1.20.6` |             `2.20.1` |                          |
-| [EssentialsXProtect](https://www.spigotmc.org/resources/essentialsx.9089/)                   |          `1.20.6` |             `2.20.1` |                          |
-| [EssentialsXSpawn](https://www.spigotmc.org/resources/essentialsx.9089/)                     |          `1.20.6` |             `2.20.1` |                          |
-| [GSit]()                                                                                     |          `1.20.6` |             `1.4.11` | (missing on new freddit) |
-| [Lasso](https://www.spigotmc.org/resources/lasso.54815/)                                     |          `1.20.6` |               `1.11` | (missing on new freddit) |
+| [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)                          |          `1.20.6` |         `2.21.0-dev` |                          |
+| [EssentialsXChat](https://www.spigotmc.org/resources/essentialsx.9089/)                      |          `1.20.6` |         `2.21.0-dev` |                          |
+| [EssentialsXProtect](https://www.spigotmc.org/resources/essentialsx.9089/)                   |          `1.20.6` |         `2.21.0-dev` |                          |
+| [EssentialsXSpawn](https://www.spigotmc.org/resources/essentialsx.9089/)                     |          `1.20.6` |         `2.21.0-dev` |                          |
+| [GSit]()                                                                                     |          `1.20.6` |              `1.9.5` |                          |
+| [Lasso](https://www.spigotmc.org/resources/lasso.54815/)                                     |          `1.20.6` |               `1.11` |                          |
 | [LPC](https://www.spigotmc.org/resources/lpc-chat-formatter-1-7-10-1-20.68965/)              |          `1.20.6` |              `3.6.0` |            (1)           |
 | [LuckPerms](https://www.spigotmc.org/resources/luckperms.28140/)                             |          `1.20.6` |            `5.4.131` |                          |
 | [NoChatReports](https://www.spigotmc.org/resources/nochatreports-1-19-1-20-6.102931/)        |          `1.20.6` |              `1.0.5` | (missing on new freddit) |
@@ -75,7 +75,7 @@ When updating server plugins, make sure to note **A)** the latest version of the
 | [Pl3xMap](https://modrinth.com/plugin/pl3xmap)                                               |          `1.20.6` |         `1.20.6-499` |            (3)           |
 | [PrefiX](https://www.spigotmc.org/resources/prefix-custom-tag-manager-1-8-1-21.70359/)       |          `1.20.6` |                      | (missing on new freddit) |
 | [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)                          |          `1.20.6` | `5.3.0-SNAPSHOT-723` |                          |
-| [RHEasyCrops]()                                                                              |          `1.20.6` |                      | (missing on new freddit) |
+| [RHEasyCrops]()                                                                              |          `1.20.6` |            `1.20_R5` |                          |
 | [ShulkerPacks](https://www.spigotmc.org/resources/shulker-backpacks-1-13-1-19.67466/)        |          `1.20.6` |              `1.6.4` |                          |
 | [SilkSpawners](https://www.spigotmc.org/resources/silkspawners-versions-1-8-8-1-20-4.60063/) |          `1.20.6` |              `2.2.1` |                          |
 | [Stress](https://www.spigotmc.org/resources/stress.79374/)                                   |          `1.20.6` |              `1.0.3` |                          |
