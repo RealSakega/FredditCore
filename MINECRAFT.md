@@ -16,14 +16,14 @@
 | [BannerMaker]()                                                            |          `1.20.4` |              `2.3.2` |         |
 | [ChatReaction]()                                                           |          `1.20.4` |              `1.8.0` |         |
 | [Citizens 2]()                                                             |          `1.20.4` |   `2.0.33-SNAPSHOT ` |         |
-| [CoreProtect]()                                                            |          `1.20.4` |               `2.22` |         |
-| [DiscordSRV]()                                                             |          `1.20.4` |             `1.27.0` |         |
+| [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)                                                            |          `1.20.4` |               `2.22` |         |
+| [DiscordSRV](https://www.spigotmc.org/resources/discordsrv.18494/)         |          `1.20.4` |             `1.27.0` |         |
 | [Dynmap]()                                                                 |          `1.20.4` |     `3.7-beta-4-935` |         |
 | [EpicRename]()                                                             |          `1.20.4` |             `3.11.1` |         |
-| [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)        |          `1.20.4` |             `2.20.1` |         |
-| [EssentialsXChat](https://www.spigotmc.org/resources/essentialsx.9089/)    |          `1.20.4` |             `2.20.1` |         |
-| [EssentialsXProtect](https://www.spigotmc.org/resources/essentialsx.9089/) |          `1.20.4` |             `2.20.1` |         |
-| [EssentialsXSpawn](https://www.spigotmc.org/resources/essentialsx.9089/)   |          `1.20.4` |             `2.20.1` |         |
+| [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)        |            `1.21` |         `2.21.0-dev` |         |
+| [EssentialsXChat](https://www.spigotmc.org/resources/essentialsx.9089/)    |            `1.21` |         `2.21.0-dev` |         |
+| [EssentialsXProtect](https://www.spigotmc.org/resources/essentialsx.9089/) |            `1.21` |         `2.21.0-dev` |         |
+| [EssentialsXSpawn](https://www.spigotmc.org/resources/essentialsx.9089/)   |            `1.21` |         `2.21.0-dev` |         |
 | [FastAsyncWorldEdit]()                                                     |          `1.20.4` | `2.9.3-SNAPSHOT-764` |         |
 | [goBrush]()                                                                |          `1.20.4` |           `3.8.0-69` |         |
 | [GSit]()                                                                   |          `1.20.4` |              `1.9.1` |         |
