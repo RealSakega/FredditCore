@@ -1,7 +1,7 @@
 
 ## Plugins
 
-| Plugin name                                                                                                     |              Version |           Notes          |
+| Plugin name                                                                                                     |       Server version |           Notes          |
 |:--------------------------------------------------------------------------------------------------------------- | --------------------:|:------------------------:|
 | [ChestSort](https://www.spigotmc.org/resources/chestsort-api.59773/)                                            |             `14.0.0` | (missing on new freddit) |
 | [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/)                                             |               `21.3` |      Latest: `22.4`      |
