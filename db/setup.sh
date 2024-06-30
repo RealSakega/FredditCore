@@ -22,6 +22,7 @@ create_and_grant () {
 CREATE DATABASE IF NOT EXISTS $server;
 CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password';
 GRANT ALL PRIVILEGES ON $server.* TO '$user'@'localhost';
+FLUSH PRIVILEGES;
 EOF 
 
     echo "Created and granted privileges for $server : $user with exit code $?"
