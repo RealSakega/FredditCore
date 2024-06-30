@@ -45,7 +45,6 @@
 
 **(1)**: **LPC**: Luckperms Chat Formatting  
 **(2)**: **PlaceholderAPI**: If names show up as `%essentials_nickname%` in chat, make sure the Essentials placeholder addon is installed (`/papi ecloud download Essentials`)
-**(3)**: **Pl3xMap**: Writes map files to `var/www/survivalmap.freddit.net`
 
 # Survival
 
