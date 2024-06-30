@@ -44,10 +44,12 @@ create_and_grant () {
     echo "Prefix: $prefix"
     echo "Tables: ${tables[@]}"
 
-    SQL="CREATE DATABASE IF NOT EXISTS $server;
+#     SQL="CREATE DATABASE IF NOT EXISTS $server;
 
-CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password';
-$(for table in "${tables[@]}"; do echo "GRANT ALL PRIVILEGES ON $server.$prefix$table TO '$user'@'localhost';"; done)"
+# CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password';
+# $(for table in "${tables[@]}"; do echo "GRANT ALL PRIVILEGES ON $server.$prefix$table TO '$user'@'localhost';"; done)"
+
+    SQL="CREATE DATABASE IF NOT EXISTS $server; CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password'; $(for table in "${tables[@]}"; do echo "GRANT ALL PRIVILEGES ON $server.$prefix$table TO '$user'@'localhost';"; done)"
 
     echo "$SQL"
 
