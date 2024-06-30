@@ -1,3 +1,18 @@
+# Freebuild
+
+- Server port: `25565` (Minecraft default)
+- Minecraft version: `1.20.4`
+
+## Plugins
+
+(todo)
+
+___
+
+# Survival
+
+- Server port: `25665`
+- Minecraft version: `1.20.6`
 
 ## Plugins
 
