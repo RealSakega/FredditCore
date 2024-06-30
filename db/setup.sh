@@ -16,7 +16,7 @@ create_and_grant () {
     echo "User: $user"
     echo "Password: $password"
 
-    mysql << EOF
+    sudo mysql << EOF
 CREATE DATABASE IF NOT EXISTS $server;
 CREATE USER IF NOT EXISTS '$user'@'localhost' IDENTIFIED BY '$password';
 GRANT ALL PRIVILEGES ON $server.* TO '$user'@'localhost';
