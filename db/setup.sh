@@ -2,6 +2,9 @@
 
 source ../.config/.env-database
 
+echo $FREEBUILD_LUCKPERMS_USER
+echo $FREEBUILD_LUCKPERMS_PASS
+
 create_and_grant () {
     if [ $# -lt 3 ]; then
         echo "Usage: create_and_grant <server> <user> <password> <prefix> <tables>"
