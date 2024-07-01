@@ -8,6 +8,7 @@
 - Server port: `25565` (Minecraft default)
 - Minecraft version: `1.20.4`
 - Paper version: `1.20.4-409`
+- Hosted on: `Contabo VPS`
 
 ## Plugins
 
@@ -53,6 +54,7 @@ When updating server plugins, make sure to note **A)** the latest version of the
 - Server port: `25665`
 - Minecraft version: `1.20.6`
 - Paper version: `1.20.6-147`
+- Hosted on: `Hetzner Dedicated Server`
 
 ## Plugins
 
