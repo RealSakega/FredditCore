@@ -1,5 +1,5 @@
 <p align="center">
-    <img src='assets/freddit-freebuild.png' width='300'>
+    <img src='docs/assets/freddit-freebuild.png' width='300'>
 </p>
 
 - [MINECRAFT.md](./MINECRAFT.md): Server & plugin details (versions etc). Refer to this when updating plugins
