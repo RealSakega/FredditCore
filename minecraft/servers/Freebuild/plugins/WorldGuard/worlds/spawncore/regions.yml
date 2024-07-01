@@ -1,9 +1,0 @@
-regions:
-    spawn:
-        min: {x: -33, y: 105, z: -52}
-        max: {x: 66, y: 175, z: 49}
-        members: {}
-        flags: {}
-        owners: {}
-        type: cuboid
-        priority: 0

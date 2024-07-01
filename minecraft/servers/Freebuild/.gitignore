@@ -9,5 +9,5 @@
 !server-icon.png
 !backuplist.txt
 !eula.txt
-!plugins/*
-!worlds/*
+!plugins/
+!worlds/
