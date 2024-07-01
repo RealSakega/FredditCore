@@ -70,15 +70,16 @@ When updating server plugins, make sure to note **A)** the latest version of the
 | [LPC](https://www.spigotmc.org/resources/68965/)               |   `1.20.6` |              `3.6.0` |           (1)           |
 | [LuckPerms](https://www.spigotmc.org/resources/28140/)         |   `1.20.6` |            `5.4.131` |                         |
 | [NoChatReports](https://www.spigotmc.org/resources/102931/)    |   `1.20.6` |              `1.0.5` |                         |
-| [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)     |   `1.20.6` |             `2.11.4` |           (2)           |
+| [PlaceholderAPI](https://www.spigotmc.org/resources/6245/)     |   `1.20.6` |             `2.11.6` |           (2)           |
 | [Pl3xMap](https://modrinth.com/plugin/pl3xmap)                 |   `1.20.6` |         `1.20.6-499` |           (3)           |
 | [PrefiX](https://www.spigotmc.org/resources/70359/)            |   `1.20.6` |                `7.2` |                         |
 | [ProtocolLib](https://www.spigotmc.org/resources/1997/)        |   `1.20.6` | `5.3.0-SNAPSHOT-723` |                         |
 | [RHEasyCrops](https://www.spigotmc.org/resources/86956/)       |   `1.20.6` |            `1.20_R5` |                         |
+| [ServerLinks](https://www.spigotmc.org/resources/117309/)      |   `1.20.6` |              `1.0.0` |                         |
 | [ShulkerPacks](https://www.spigotmc.org/resources/67466/)      |   `1.20.6` |              `1.6.4` |                         |
 | [SilkSpawners](https://www.spigotmc.org/resources/60063/)      |   `1.20.6` |              `2.2.1` |                         |
 | [Stress](https://www.spigotmc.org/resources/79374/)            |   `1.20.6` |              `1.0.3` |                         |
-| [TAB](https://www.spigotmc.org/resources/57806/)               |   `1.20.6` |              `4.1.2` |                         |
+| [TAB](https://www.spigotmc.org/resources/57806/)               |   `1.20.6` |              `4.1.6` |                         |
 
 **(1)**: **LPC**: Luckperms Chat Formatting  
 **(2)**: **PlaceholderAPI**: If names show up as `%essentials_nickname%` in chat, make sure the Essentials placeholder addon is installed (`/papi ecloud download Essentials`)  
